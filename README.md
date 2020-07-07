@@ -1,0 +1,1 @@
+# Intern-Ruby-kindmate_clone
