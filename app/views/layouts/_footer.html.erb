@@ -1,0 +1,50 @@
+<footer class="footer">
+  <div class="container py-3">
+    <div class="row">
+      <div class="col-md-6 mt-3">
+        <%= image_tag "logo.svg", height: "30", alt: "Kindmate" %>
+        <ul class="list-unstyled mt-4">
+          <li class="my-1">
+            <i class="fas fa-map-marker-alt mr-2"></i>
+            <span><%= t "_footer.address" %></span>
+          </li>
+          <li class="my-1">
+            <i class="fas fa-phone-alt mr-2"></i>
+            <span><%= t "_footer.phone" %></span>
+          </li>
+          <li class="my-1">
+            <i class="fas fa-envelope mr-2"></i>
+            <span><%= t "_footer.email" %></span>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-sm-6 mt-3">
+            <h5 class="text-primary"><%= t "_footer.about_us" %></h5>
+            <ul class="list-unstyled">
+              <li><%= link_to t("_footer.introduce"), about_path %></li>
+              <li><%= link_to t("_footer.recruitment"), "#" %></li>
+              <li><%= link_to t("_footer.news"), "#" %></li>
+              <li><%= link_to t("_footer.blog"), "#" %></li>
+              <li><%= link_to t("_footer.contact"), "#" %></li>
+            </ul>
+          </div>
+          <div class="col-sm-6 mt-3">
+            <h5 class="text-primary"><%= t "_footer.support" %></h5>
+            <ul class="list-unstyled">
+              <li><%= link_to t("_footer.pricing"), pricing_path %></li>
+              <li><%= link_to t("_footer.terms_of_use"), terms_of_use_path %></li>
+              <li><%= link_to t("_footer.instruction"), "#" %></li>
+              <li><%= link_to t("_footer.faqs"), faqs_path %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="container">
+    <span class="copyright-text"><%= t "_footer.copyright" %></span>
+  </div>
+</footer>

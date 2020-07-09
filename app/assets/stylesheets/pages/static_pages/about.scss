@@ -1,0 +1,11 @@
+#static-page--about {
+  #top-video {
+    position: relative;
+    margin-top: -3rem !important;
+
+    background-image: asset_url("thumb.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+}

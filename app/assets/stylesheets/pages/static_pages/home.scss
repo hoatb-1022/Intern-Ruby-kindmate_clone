@@ -1,0 +1,14 @@
+#static-page--home {
+  .list-categories {
+    overflow-x: auto;
+
+    li {
+      margin-left: 1rem;
+    }
+
+    .btn-category {
+      background-color: lighten($color-primary, 40);
+      font-size: .85em;
+    }
+  }
+}

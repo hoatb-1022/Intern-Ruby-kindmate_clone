@@ -10,9 +10,33 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require bootstrap
- *= require_tree .
  *= require_self
  */
 
-@import "bootstrap";
+$primary: #654AD2;
+@import 'bootstrap';
+
+@import 'ultilities/colors';
+@import 'ultilities/variables';
+@import 'ultilities/custom';
+@import 'components/components';
+@import 'pages/pages';
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+
+  font-size: .95rem;
+
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+/* App contents */
+.app-content {
+  padding: calc(#{$header-height} + 3rem) 0 3rem 0;
+}
