@@ -1,0 +1,13 @@
+user:
+  email:
+    max_length: 255
+  password:
+    min_length: 6
+campaign:
+  title_max_length: 255
+  min_total_amount: 0
+donation:
+  min_amount: 0
+  max_message_length: 255
+tag:
+  max_length: 50
