@@ -1,0 +1,25 @@
+.navbar-kindmate {
+  min-height: $header-height;
+  box-shadow: $header-shadow;
+
+  .kindmate-logo img {
+    width: 145px;
+    height: auto;
+  }
+
+  .navbar-nav--right {
+    .nav-item {
+      margin: 0 1rem;
+      transition: $transition-base;
+
+      &:hover {
+        border-bottom: 2px solid $color-primary;
+      }
+
+      a {
+        color: black;
+        font-weight: 500;
+      }
+    }
+  }
+}

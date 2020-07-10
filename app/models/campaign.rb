@@ -10,5 +10,7 @@ class Campaign < ApplicationRecord
             length: {maximum: Settings.campaign.title_max_length}
   validates :total_amount,
             presence: true,
-            numericality: {greater_than_or_equal_to: Settings.campaign.min_total_amount}
+            numericality: {
+              greater_than_or_equal_to: Settings.campaign.min_total_amount
+            }
 end

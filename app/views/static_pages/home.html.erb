@@ -1,0 +1,87 @@
+<div id="static-page--home">
+  <section id="top-hero" class="pb-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 d-flex">
+          <div class="align-self-center">
+            <h2 class="font-weight-bold"><%= t ".home_title_html" %></h2>
+            <p class="text-secondary mt-4 mb-1 pr-4">
+              <%= t ".home_desc" %>
+              <%= link_to t("global.see_more"), about_path, class: "text-primary" %>
+            </p>
+            <div class="take-action-buttons mb-3">
+              <%= link_to t(".create_campaign"), "#", class: "btn btn-static-page btn-primary mt-3 mr-2" %>
+              <%= link_to t("global.campaigns"), "#", class: "btn btn-static-page btn-danger mt-3" %>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7 offset-lg-1">
+          <article class="embed-responsive embed-responsive-16by9">
+            <%= image_tag "thumb.png", class: "embed-responsive-item rounded" %>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="category" class="py-5">
+    <div class="container">
+      <ul class="list-unstyled d-flex justify-content-between list-categories">
+        <li>
+          <%= link_to "#", class: "btn btn-static-page btn-category" do %>
+            <%= image_tag "categories/charity.svg", class: "mr-2", width: "28" %>
+            <%= t ".charity" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to "#", class: "btn btn-static-page btn-category" do %>
+            <%= image_tag "categories/children.svg", class: "mr-2", width: "28" %>
+            <%= t ".children" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to "#", class: "btn btn-static-page btn-category" do %>
+            <%= image_tag "categories/difficulty.svg", class: "mr-2", width: "28" %>
+            <%= t ".difficulty" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to "#", class: "btn btn-static-page btn-category" do %>
+            <%= image_tag "categories/disability.svg", class: "mr-2", width: "28" %>
+            <%= t ".disability" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to "#", class: "btn btn-static-page btn-category" do %>
+            <%= image_tag "categories/education.svg", class: "mr-2", width: "28" %>
+            <%= t ".education" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to "#", class: "btn btn-static-page btn-category" do %>
+            <%= image_tag "categories/other.svg", class: "mr-2", width: "28" %>
+            <%= t ".other" %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="list-campaign" class="pb-5">
+    <div class="container">
+      <div class="row list-campaigns">
+      </div>
+      <div class="text-center mt-3">
+        <%= link_to t(".see_all_campaigns"), "#", class: "btn btn-static-page btn-danger" %>
+      </div>
+    </div>
+  </section>
+
+  <section id="success-campaign" class="mb-5">
+    <div class="container  border-top mt-4 pt-5">
+      <h5 class="font-weight-semibold text-muted mb-4"><%= t ".success_campaigns" %></h5>
+    </div>
+  </section>
+
+  <%= render "introduce-section" %>
+</div>

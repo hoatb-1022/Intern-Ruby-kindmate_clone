@@ -1,0 +1,24 @@
+a {
+  color: black;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.font-weight-medium {
+  font-weight: 500;
+}
+.font-weight-semibold {
+  font-weight: 600;
+}
+
+.bg-primary-light {
+  background-color: lighten($color-primary, 42);
+}
+
+.btn-static-page {
+  border-radius: 1.25rem;
+  font-weight: 500;
+  padding: .5rem 1.25rem;
+}
