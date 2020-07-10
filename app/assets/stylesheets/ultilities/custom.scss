@@ -1,3 +1,4 @@
+/* Global tags */
 a {
   color: black;
 
@@ -6,9 +7,19 @@ a {
   }
 }
 
+form {
+  .form-control {
+    background-color: $gray-100;
+    border-color: $gray-200;
+  }
+}
+
+
+/* Fonts */
 .font-weight-medium {
   font-weight: 500;
 }
+
 .font-weight-semibold {
   font-weight: 600;
 }
@@ -21,4 +32,91 @@ a {
   border-radius: 1.25rem;
   font-weight: 500;
   padding: .5rem 1.25rem;
+}
+
+.card-shadow {
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: $common-shadow;
+}
+
+/* Forms */
+#error_explanation {
+  color: $danger;
+  margin: 25px 0;
+
+  ul {
+    color: $danger;
+  }
+}
+
+.field_with_errors {
+  .form-control {
+    color: $danger;
+    border-color: $danger;
+    outline-color: $danger;
+
+    &:focus {
+      border-color: $danger;
+      box-shadow: 0 0 0 .2rem rgba($red, .25);
+    }
+  }
+}
+
+/* Gravatar */
+.gravatar {
+  width: 60px;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: $common-shadow;
+}
+
+/* Card user info */
+.card-user-info {
+  .card-body {
+    position: relative;
+    padding: calc(1.5rem + 40px) 1.5rem 1.5rem 1.5rem;
+
+    .user-avatar {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      img {
+        width: 80px;
+      }
+    }
+
+    .user-info {
+      text-align: center;
+
+      &--name {
+        font-weight: bold;
+      }
+
+      &--address, &--email, &--phone {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $text-muted;
+        margin-bottom: 5px;
+
+        span {
+          margin-left: 10px;
+        }
+      }
+    }
+
+    .btn-edit-user {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 50%);
+      width: 90%;
+      box-shadow: $common-shadow;
+      border-radius: 1.25rem;
+      font-weight: 500;
+    }
+  }
 }

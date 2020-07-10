@@ -45,7 +45,6 @@ config/database.yml
 
 test
 
-/config/application.yml
 /storage
 
 .DS_Store

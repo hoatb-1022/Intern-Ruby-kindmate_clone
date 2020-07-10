@@ -1,0 +1,34 @@
+<% provide :title, t(".reset_pass") %>
+<section class="py-2">
+  <div class="container">
+    <div class="top-introduce py-2">
+      <div class="row align-items-center">
+        <div class="col-md-6 d-flex align-items-center">
+          <article class="w-100">
+            <div class="card card-shadow">
+              <div class="card-body p-4">
+                <h3 class="mb-3 font-weight-bold"><%= t ".reset_pass" %></h3>
+                <%= form_for @user, url: password_reset_path(params[:id]) do |f| %>
+                  <%= render "shared/error_messages", object: f.object %>
+                  <%= hidden_field_tag :email, @user.email %>
+                  <div class="form-group">
+                    <%= f.label :password %>
+                    <%= f.password_field :password, class: "form-control" %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :password_confirmation, t(".confirmation") %>
+                    <%= f.password_field :password_confirmation, class: "form-control" %>
+                  </div>
+                  <%= f.submit t(".update_pass"), class: "btn btn-block btn-primary mt-4" %>
+                <% end %>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6">
+          <%= image_tag "svg/reset_pass.svg", class: "my-3", width: "100%" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

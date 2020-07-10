@@ -1,0 +1,28 @@
+<% provide :title, t(".forgot_pass") %>
+<section class="py-2">
+  <div class="container">
+    <div class="top-introduce py-2">
+      <div class="row align-items-center">
+        <div class="col-md-6 d-flex align-items-center">
+          <article class="w-100">
+            <div class="card card-shadow">
+              <div class="card-body p-4">
+                <h3 class="mb-3 font-weight-bold"><%= t ".forgot_pass" %></h3>
+                <%= form_for :password_reset, url: password_resets_path do |f| %>
+                  <div class="form-group">
+                    <%= f.label :email %>
+                    <%= f.email_field :email, class: "form-control" %>
+                  </div>
+                  <%= f.submit t(".submit"), class: "btn btn-block btn-primary mt-4" %>
+                <% end %>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6">
+          <%= image_tag "svg/forget_pass.svg", class: "my-3", width: "100%" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
