@@ -1,0 +1,42 @@
+<% provide :title, t(".log_in") %>
+<section class="py-2">
+  <div class="container">
+    <div class="top-introduce py-2">
+      <div class="row align-items-center">
+        <div class="col-md-6 d-flex align-items-center">
+          <article class="w-100">
+            <div class="card card-shadow">
+              <div class="card-body p-4">
+                <h3 class="mb-3 font-weight-bold"><%= t ".log_in" %></h3>
+                <%= form_for :session, url: login_path do |f| %>
+                  <div class="form-group">
+                    <%= f.label :email %>
+                    <%= f.email_field :email, class: "form-control" %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :password %>
+                    <%= f.password_field :password, class: "form-control" %>
+                  </div>
+                  <div class="form-group form-check">
+                    <%= f.check_box :remember_me, class: "form-check-input" %>
+                    <%= f.label :remember_me, class: "form-check-label" do %>
+                      <%= t ".remember_me" %>
+                    <% end %>
+                  </div>
+                  <%= f.submit t(".log_in"), class: "btn btn-block btn-primary mt-3" %>
+                <% end %>
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                  <%= link_to t(".forget_pass?"), new_password_reset_path, class: "text-danger" %>
+                  <p class="text-right mt-3"><%= t ".new_user?" %> <%= link_to t(".sign_up_now!"), signup_path, class: "text-primary" %></p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6">
+          <%= image_tag "svg/donation.svg", class: "my-3", width: "100%" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

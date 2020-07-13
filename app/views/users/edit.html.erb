@@ -1,0 +1,60 @@
+<% provide :title, t(".edit_user") %>
+<section class="py-2">
+  <div class="container">
+    <div class="top-introduce py-2">
+      <div class="row align-items-center">
+        <div class="col-md-6 d-flex align-items-center">
+          <article class="w-100">
+            <div class="card card-shadow card-user-info">
+              <div class="card-body">
+                <div class="user-avatar">
+                  <%= gravatar_for @user %>
+                </div>
+                <div class="user-info">
+                  <h4 class="user-info--name"><%= @user.name %></h4>
+                </div>
+                <%= form_for @user do |f| %>
+                  <%= render "shared/error_messages", object: f.object %>
+                  <div class="form-group">
+                    <%= f.label :name %>
+                    <%= f.text_field :name, class: "form-control" %>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <%= f.label :email %>
+                      <%= f.email_field :email, class: "form-control" %>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <%= f.label :phone %>
+                      <%= f.text_field :phone, class: "form-control" %>
+                    </div>
+                    <div class="form-group col-md-12">
+                      <%= f.label :address %>
+                      <%= f.text_field :address, class: "form-control" %>
+                    </div>
+                    <div class="form-group col-md-12">
+                      <%= f.label :description %>
+                      <%= f.text_area :description, class: "form-control" %>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <%= f.label :password %>
+                      <%= f.password_field :password, class: "form-control" %>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <%= f.label :password_confirmation %>
+                      <%= f.password_field :password_confirmation, class: "form-control" %>
+                    </div>
+                  </div>
+                  <%= f.submit t(".save_changes"), class: "btn btn-block btn-primary btn-edit-user" %>
+                <% end %>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6">
+          <%= image_tag "svg/user_info.svg", class: "my-3", width: "100%" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
