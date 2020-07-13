@@ -8,12 +8,44 @@ a {
 }
 
 form {
-  .form-control {
+  .form-control, .form-control[readonly] {
     background-color: $gray-100;
     border-color: $gray-200;
   }
 }
 
+label {
+  font-weight: 500;
+}
+
+.input-group-append .input-group-text {
+  background-color: $gray-100;
+  border-color: $gray-200;
+}
+
+.campaign-content {
+  border-radius: $common-border-radius;
+
+  .ql-toolbar {
+    border-radius: $common-border-radius $common-border-radius 0 0;
+  }
+
+  .ql-container {
+    border-radius: 0 0 $common-border-radius $common-border-radius;
+
+    &:focus, &:focus-within {
+      background-color: white;
+      border-radius: $common-border-radius;
+      border-color: #bcb0eb;
+      outline: 0;
+      box-shadow: 0 0 0 0.2rem rgba(101, 74, 210, 0.25);
+    }
+  }
+
+  .ql-toolbar, .ql-container {
+    border-color: $gray-200 !important;
+  }
+}
 
 /* Fonts */
 .font-weight-medium {
@@ -51,15 +83,22 @@ form {
 }
 
 .field_with_errors {
+  flex: 1 1 auto;
+
   .form-control {
     color: $danger;
-    border-color: $danger;
+    border-color: $danger !important;
     outline-color: $danger;
 
-    &:focus {
+    &:focus, &:focus-within {
       border-color: $danger;
-      box-shadow: 0 0 0 .2rem rgba($red, .25);
+      box-shadow: $danger-box-shadow;
     }
+  }
+
+  &~.input-group-append {
+    border-radius: 0 $common-border-radius $common-border-radius 0;
+    border: 1px solid $danger
   }
 }
 
@@ -99,6 +138,7 @@ form {
         display: flex;
         align-items: center;
         justify-content: center;
+
         color: $text-muted;
         margin-bottom: 5px;
 
@@ -113,10 +153,87 @@ form {
       bottom: 0;
       left: 50%;
       transform: translate(-50%, 50%);
+
       width: 90%;
       box-shadow: $common-shadow;
       border-radius: 1.25rem;
       font-weight: 500;
+    }
+  }
+}
+
+/* Campaign content editor */
+.field_with_errors~.campaign-content {
+  border: 1px solid $danger;
+  transition: $transition-base;
+
+  &:focus, &:focus-within {
+    box-shadow: $danger-box-shadow;
+  }
+
+  .ql-container {
+    &:focus, &:focus-within {
+      border-color: $danger;
+      box-shadow: $danger-box-shadow
+    }
+  }
+}
+
+/* Campaign image upload input */
+.upload-img-input {
+  position: relative;
+  width: 100%;
+  height: auto;
+
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  cursor: pointer;
+
+  #campaign-image {
+    width: 100%;
+    height: auto;
+    border-radius: $border-radius;
+  }
+
+  .upload-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 100px;
+    height: auto;
+    max-width: 25%;
+
+    border-radius: 50%;
+    box-shadow: $box-shadow;
+
+    transition: $transition-base;
+    filter: grayscale(100);
+    opacity: .65;
+  }
+
+  &:hover {
+    .upload-btn {
+      width: 110px;
+      max-width: 26.5%;
+
+      filter: grayscale(0);
+      opacity: 1;
+    }
+  }
+}
+
+.field_with_errors {
+  .upload-img-input {
+    #campaign-image {
+      border: 1px solid $danger;
+      outline-color: $danger;
+      transition: $transition-base;
+    }
+
+    &:hover #campaign-image {
+      box-shadow: $danger-box-shadow;
     }
   }
 }
