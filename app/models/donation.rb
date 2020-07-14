@@ -1,5 +1,6 @@
 class Donation < ApplicationRecord
-  belongs_to :user, :campaign
+  belongs_to :user
+  belongs_to :campaign
 
   validates :amount,
             presence: true,

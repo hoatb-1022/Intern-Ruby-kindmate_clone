@@ -10,6 +10,10 @@ vi:
     welcome: "Chào mừng đến với Kindmate"
     please_login: "Vui lòng đăng nhập"
     cancel: "Huỷ"
+    remaining_time: "Còn lại %{remaining}"
+    search: "Tìm kiếm"
+    no_campaigns: "Không có chiến dịch nào!"
+    created_by: "Tạo bởi"
   _header:
     brand: "Kindmate"
     about_us: "Về chúng tôi"
@@ -68,8 +72,8 @@ vi:
   users:
     not_found: "Người dùng không tồn tại!"
     confirmation: "Xác nhận"
-    index:
-      title: "Danh sách người dùng"
+    show:
+      your_campaigns: "Chiến dịch của bạn"
     new:
       sign_up: "Đăng ký"
       create_my_account: "Tạo tài khoản"
@@ -119,6 +123,9 @@ vi:
     valid_image_format!: "Ảnh cần đúng định dạng"
     valid_image_size!: "Ảnh phải nhỏ hơn 5MB"
     alert_size_exceeded: "Dung lượng tối đa là 5MB. Vui lòng chọn ảnh nhỏ hơn."
+    index:
+      title: "Khám phá chiến dịch"
+      fill_in_keyword: "Nhập từ khoá"
     new:
       title: "Tạo chiến dịch mới"
       embed_placeholder: "Hỗ trợ mã nhúng có dạng <iframe src='https://www.youtube.com/embed/8Qr9WW2bLAQ' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
@@ -137,3 +144,10 @@ vi:
       reset_desc_html: "<i><p>Đường dẫn có hiệu lực trong 2 tiếng. Nếu bạn không phải người yêu cầu.</p><p>Hãy bỏ qua email này và mật khẩu của bạn sẽ không thay đổi.</p></i>"
       reset_desc_text: "Đường dẫn có hiệu lực trong 2 tiếng. Nếu bạn không phải người yêu cầu, hãy bỏ qua email này và mật khẩu của bạn sẽ không thay đổi."
       reset_pass_now: "Đặt lại mật khẩu ngay"
+  views:
+    pagination:
+      first: "Đầu"
+      last: "Cuối"
+      next: "Tiếp"
+      previous: "Trước"
+      truncate: "Rút gọn"

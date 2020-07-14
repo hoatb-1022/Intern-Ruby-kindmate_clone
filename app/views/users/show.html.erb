@@ -40,4 +40,9 @@
       </div>
     </div>
   </div>
+  <div class="container border-top mt-4 pt-5">
+    <h5 class="font-weight-medium mb-5"><%= t ".your_campaigns" %></h5>
+    <%= render "shared/list-campaigns", items: @campaigns %>
+    <%= paginate @campaigns %>
+  </div>
 </section>

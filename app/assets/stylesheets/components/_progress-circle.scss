@@ -1,0 +1,425 @@
+.progress-circle {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: $gray-300;
+  
+  &:after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+
+  &.progress-0:after {
+    background-image: none;
+  }
+
+  &.progress-1:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(93.6deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-2:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(97.2deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-3:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(100.8deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-4:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(104.4deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-5:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(108deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-6:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(111.6deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-7:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(115.2deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-8:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(118.8deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-9:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(122.4deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-10:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(126deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-11:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(129.6deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-12:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(133.2deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-13:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(136.8deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-14:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(140.4deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-15:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(129.6deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-16:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(133.2deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-17:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(136.8deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-18:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(140.4deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-19:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(144deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-20:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(151.2deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-21:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(158.6deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-22:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(161.2deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-23:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(165.6deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-24:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(169.2deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-25:after {
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, $gray-300), color-stop(50%, transparent), to(transparent)), -webkit-gradient(linear, left top, left bottom, color-stop(50%, $primary), color-stop(50%, $gray-300), to($gray-300));
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(180deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-26:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(183.6deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-27:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(187.2deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-28:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(190.8deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-29:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(194.4deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-30:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(198deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-31:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(201.6deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-32:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(205.2deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-33:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(208.8deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-34:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(212.4deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-35:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(216deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-40:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(234deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-36:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(219.6deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-37:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(223.2deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-38:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(226.8deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-39:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(230.4deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-41:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(237.6deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-42:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(241.2deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-43:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(244.8deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-44:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(248.4deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-45:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(252deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-46:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(255.6deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-47:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(259.2deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-48:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(262.8deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-49:after {
+    background-image: linear-gradient(90deg, $gray-300 50%, transparent 50%, transparent), linear-gradient(266.4deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-50:after {
+    background-image: -webkit-gradient(linear, right top, left top, color-stop(50%, $primary), color-stop(50%, transparent), to(transparent)), -webkit-gradient(linear, right top, left top, color-stop(50%, $primary), color-stop(50%, $gray-300), to($gray-300));
+    background-image: linear-gradient(-90deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-51:after {
+    background-image: linear-gradient(-86.4deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-52:after {
+    background-image: linear-gradient(-82.6deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-53:after {
+    background-image: linear-gradient(-79.2deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-54:after {
+    background-image: linear-gradient(-75.6deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-55:after {
+    background-image: linear-gradient(-72deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-56:after {
+    background-image: linear-gradient(-68.4deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-57:after {
+    background-image: linear-gradient(-64.8deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-58:after {
+    background-image: linear-gradient(-61.2deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-59:after {
+    background-image: linear-gradient(-57.6deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-60:after {
+    background-image: linear-gradient(-54deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-61:after {
+    background-image: linear-gradient(-50.4deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-62:after {
+    background-image: linear-gradient(-46.8deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-63:after {
+    background-image: linear-gradient(-43.2deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-64:after {
+    background-image: linear-gradient(-39.6deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-65:after {
+    background-image: linear-gradient(-36deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-66:after {
+    background-image: linear-gradient(-32.4deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-67:after {
+    background-image: linear-gradient(-28.8deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-68:after {
+    background-image: linear-gradient(-25.2deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-69:after {
+    background-image: linear-gradient(-21.6deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-70:after {
+    background-image: linear-gradient(-18deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-71:after {
+    background-image: linear-gradient(-14.4deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-72:after {
+    background-image: linear-gradient(-10.8deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-73:after {
+    background-image: linear-gradient(-7.2deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-74:after {
+    background-image: linear-gradient(-3.6deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-75:after {
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(50%, $primary), color-stop(50%, transparent), to(transparent)), -webkit-gradient(linear, right top, left top, color-stop(50%, $primary), color-stop(50%, $gray-300), to($gray-300));
+    background-image: linear-gradient(0deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-76:after {
+    background-image: linear-gradient(3.6deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-77:after {
+    background-image: linear-gradient(7.2deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-78:after {
+    background-image: linear-gradient(10.8deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-79:after {
+    background-image: linear-gradient(14.4deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-80:after {
+    background-image: linear-gradient(18deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-81:after {
+    background-image: linear-gradient(21.6deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-82:after {
+    background-image: linear-gradient(25.2deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-83:after {
+    background-image: linear-gradient(28.8deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-84:after {
+    background-image: linear-gradient(32.4deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-85:after {
+    background-image: linear-gradient(36deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-86:after {
+    background-image: linear-gradient(39.2deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-87:after {
+    background-image: linear-gradient(43.2deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-88:after {
+    background-image: linear-gradient(46.8deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-89:after {
+    background-image: linear-gradient(50.4deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-90:after {
+    background-image: linear-gradient(54deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-91:after {
+    background-image: linear-gradient(57.6deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-92:after {
+    background-image: linear-gradient(61.2deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-93:after {
+    background-image: linear-gradient(64.8deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-94:after {
+    background-image: linear-gradient(68.4deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-95:after {
+    background-image: linear-gradient(72deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-96:after {
+    background-image: linear-gradient(75.6deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-97:after {
+    background-image: linear-gradient(79.2deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-98:after {
+    background-image: linear-gradient(82.8deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-99:after {
+    background-image: linear-gradient(86.4deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $gray-300 50%, $gray-300);
+  }
+
+  &.progress-100:after {
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, $primary), color-stop(50%, transparent), to(transparent)), -webkit-gradient(linear, right top, left top, color-stop(50%, $primary), color-stop(50%, $primary), to($gray-300));
+    background-image: linear-gradient(90deg, $primary 50%, transparent 50%, transparent), linear-gradient(270deg, $primary 50%, $primary 50%, $gray-300);
+  }
+}

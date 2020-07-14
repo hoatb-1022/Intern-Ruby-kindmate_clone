@@ -1,0 +1,19 @@
+<% provide :title, t(".title") %>
+<section class="my-2 pb-4 container">
+  <h3 class="mb-4 font-weight-bold"><%= t ".title" %></h3>
+  <div class="mt-2 mb-5">
+    <%= form_with url: campaigns_path, method: "get", local: true do %>
+      <div class="d-flex align-items-center">
+        <div class="form-group mb-0">
+          <%= text_field_tag :keyword, nil, placeholder: t(".fill_in_keyword"), value: params[:keyword], class: "form-control" %>
+        </div>
+        <%= button_tag :submit, name: nil, class: "btn btn-primary ml-3" do %>
+          <i class="fas fa-search mr-1"></i>
+          <span><%= t "global.search" %></span>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <%= render "shared/list-campaigns", items: @campaigns %>
+  <%= paginate @campaigns %>
+</section>

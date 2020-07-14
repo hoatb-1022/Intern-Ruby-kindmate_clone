@@ -17,6 +17,8 @@ class Campaign < ApplicationRecord
   has_many :donations, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  delegate :name, to: :user, prefix: true, allow_nil: true
+
   validates :content, :expired_at, presence: true
   validates :title,
             :description,
@@ -37,4 +39,18 @@ class Campaign < ApplicationRecord
               less_than: Settings.campaign.max_image_size,
               message: I18n.t("campaigns.valid_image_size!")
             }
+
+  scope :ordered_campaigns, ->{order donated_amount: :desc}
+
+  scope :filtered_campaigns, (lambda do |keyword|
+    if keyword.present?
+      where arel_table[:title].lower.matches("%#{keyword.downcase}%")
+    end
+  end)
+
+  paginates_per Settings.campaign.per_page
+
+  def finished_percentage
+    ((donated_amount.to_f / total_amount) * 100).floor
+  end
 end
