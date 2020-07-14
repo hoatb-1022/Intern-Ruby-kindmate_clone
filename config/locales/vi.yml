@@ -9,6 +9,7 @@ vi:
     error: "lỗi"
     welcome: "Chào mừng đến với Kindmate"
     please_login: "Vui lòng đăng nhập"
+    cancel: "Huỷ"
   _header:
     brand: "Kindmate"
     about_us: "Về chúng tôi"
@@ -72,6 +73,7 @@ vi:
     new:
       sign_up: "Đăng ký"
       create_my_account: "Tạo tài khoản"
+      success_create_account: "Tạo tài khoản thành công, vui lòng kiểm tra email để kích hoạt tài khoản của bạn"
       failed_create_account: "Tạo tài khoản thất bại"
       have_account?: "Đã có tài khoản?"
       log_in_now!: "Đăng nhập ngay!"
@@ -109,6 +111,19 @@ vi:
     update:
       reset_pass_success: "Đặt lại mật khẩu thành công"
       reset_pass_failed: "Đặt lại mật khẩu thất bại"
+  campaigns:
+    success_created: "Đã tạo chiến dịch thành công"
+    failed_created: "Tạo chiến dịch thất bại"
+    success_deleted: "Đã xoá chiến dịch thành công"
+    failed_deleted: "Đã xoá chiến dịch thất bại"
+    valid_image_format!: "Ảnh cần đúng định dạng"
+    valid_image_size!: "Ảnh phải nhỏ hơn 5MB"
+    alert_size_exceeded: "Dung lượng tối đa là 5MB. Vui lòng chọn ảnh nhỏ hơn."
+    new:
+      title: "Tạo chiến dịch mới"
+      embed_placeholder: "Hỗ trợ mã nhúng có dạng <iframe src='https://www.youtube.com/embed/8Qr9WW2bLAQ' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+      embed_tips_html: "<span class=\"text-primary font-weight-bold\">Gợi ý:</span> Để thực hiện việc lấy mã nhúng bạo vào video Youtube bạn chọn &gt; chọn Chia sẻ &gt; Embed &gt; Copy mã Nhúng. Hỗ trợ cả mã nhúng của Facebook, Vimeo... và các trang tương tự."
+      save_campaign: "Lưu chiến dịch"
   user_mailer:
     account_activation:
       subject: "Kích hoạt tài khoản"

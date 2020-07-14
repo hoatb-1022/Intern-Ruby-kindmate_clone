@@ -16,9 +16,8 @@ class UsersController < ApplicationController
 
     if @user.save
       @user.send_activation_email
-      flash[:success] = t "global.welcome"
-      log_in @user
-      redirect_to @user
+      flash[:success] = t ".new.success_create_account"
+      redirect_to login_url
     else
       flash.now[:danger] = t ".new.failed_create_account"
       render :new

@@ -9,6 +9,7 @@ en:
     error: "error"
     welcome: "Welcome to Kindmate"
     please_login: "Please login"
+    cancel: "Cancel"
   _header:
     brand: "Kindmate"
     about_us: "About us"
@@ -72,6 +73,7 @@ en:
     new:
       sign_up: "Sign up"
       create_my_account: "Create my account"
+      success_create_account: "Successfully created account, please check your email to activate your account"
       failed_create_account: "Failed to create account"
       have_account?: "Have an account?"
       log_in_now!: "Log in now!"
@@ -109,6 +111,19 @@ en:
     update:
       reset_pass_success: "Successfully reset password"
       reset_pass_failed: "Failed to reset password"
+  campaigns:
+    success_created: "Successfully create campaign"
+    failed_created: "Failed to create campaign"
+    success_deleted: "Successfully delete campaign"
+    failed_deleted: "Failed to delete campaign"
+    valid_image_format!: "must be a valid image format"
+    valid_image_size!: "must be a less than 5MB"
+    alert_size_exceeded: "Maximum file size is 5MB. Please choose a smaller file."
+    new:
+      title: "Create new campaign"
+      embed_placeholder: "Supported embedded link looks like <iframe src='https://www.youtube.com/embed/8Qr9WW2bLAQ' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+      embed_tips_html: "<span class=\"text-primary font-weight-bold\">Tips:</span> To get the embed code into a Youtube video you choose &gt; select Share &gt; Embed &gt; Copy Embed code. Support all Facebook, Vimeo ... and similar."
+      save_campaign: "Save campaign"
   user_mailer:
     account_activation:
       subject: "Account activation"
