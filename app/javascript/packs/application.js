@@ -10,18 +10,19 @@ require('channels')
 
 require('jquery')
 require('bootstrap')
+//= require_tree .
 
 import '@fortawesome/fontawesome-free/js/all'
 import {setupFlatpickr} from './flatpickr'
 import {setupQuill} from './quill'
 import {setupCampaignImage} from './campaignImage'
-
-//= require_tree .
+import {setupCampaignContent} from './campaignContent'
 
 $(document).on('turbolinks:load', function () {
-  setupFlatpickr()
-  setupQuill()
-  setupCampaignImage()
+    setupCampaignImage()
+    setupCampaignContent()
+    setupFlatpickr()
+    setupQuill()
 })
 
 // Uncomment to copy all static images under ../images to the output folder and reference

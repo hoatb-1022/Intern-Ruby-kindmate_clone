@@ -18,6 +18,14 @@ label {
   font-weight: 500;
 }
 
+.has-border-radius {
+  border-radius: $border-radius;
+}
+
+.has-box-shadow {
+  box-shadow: $box-shadow;
+}
+
 .input-group-append .input-group-text {
   background-color: $gray-100;
   border-color: $gray-200;
@@ -51,6 +59,14 @@ label {
   width: 300px;
   height: auto;
   max-width: 85%;
+}
+
+.progress {
+  height: 0.6rem;
+}
+
+img.embed-responsive-item {
+  object-fit: cover;
 }
 
 /* Fonts */
@@ -102,7 +118,7 @@ label {
     }
   }
 
-  &~.input-group-append {
+  & ~ .input-group-append {
     border-radius: 0 $common-border-radius $common-border-radius 0;
     border: 1px solid $danger
   }
@@ -169,7 +185,7 @@ label {
 }
 
 /* Campaign content editor */
-.field_with_errors~.campaign-content {
+.field_with_errors ~ .campaign-content {
   border: 1px solid $danger;
   transition: $transition-base;
 
@@ -196,8 +212,6 @@ label {
   cursor: pointer;
 
   #campaign-image {
-    width: 100%;
-    height: auto;
     border-radius: $border-radius;
   }
 

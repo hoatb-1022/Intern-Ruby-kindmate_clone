@@ -19,6 +19,10 @@
       border-radius: 50%;
     }
 
+    .campaign-title {
+      @include trim(3);
+    }
+
     .campaign-description {
       @include trim(4);
     }

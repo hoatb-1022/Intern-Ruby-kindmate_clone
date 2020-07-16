@@ -18,3 +18,6 @@ donation:
   max_message_length: 255
 tag:
   max_length: 50
+currency:
+  min: 0
+  step: 1000

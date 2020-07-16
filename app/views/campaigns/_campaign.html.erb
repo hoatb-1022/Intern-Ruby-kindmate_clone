@@ -1,4 +1,4 @@
-<div class="col-lg-3 col-md-4 col-sm-6 col-12">
+<div class="<%= local_assigns[:classes] || "col-lg-3 col-md-4 col-sm-6 col-12" %>">
   <article class="card card-campaign mb-4" id="campaign-<%= campaign.id %>">
     <div class="embed-responsive embed-responsive-16by9">
       <%= image_tag(campaign.image, class: "embed-responsive-item") if campaign.image.attached? %>
@@ -9,7 +9,7 @@
       </div>
       <div class="campaign-main-info">
         <%= link_to campaign do %>
-          <h5 class="card-title my-3 font-weight-bold">
+          <h5 class="card-title my-3 font-weight-bold campaign-title">
             <%= campaign.title %>
           </h5>
         <% end %>
@@ -25,12 +25,12 @@
         <div class="d-flex justify-content-between align-items-center">
           <div class="progress-circle progress-<%= campaign.finished_percentage %>"></div>
           <span class="text-primary font-weight-semibold ml-2">
-            <%= number_to_percentage campaign.finished_percentage, precision: 0 %>
+            <%= currency_no_precision campaign.finished_percentage %>
           </span>
         </div>
         <div class="text-right">
           <div class="font-weight-semibold">
-            <%= number_to_currency campaign.total_amount, locale: :vi %>
+            <%= currency_no_precision campaign.total_amount %>
           </div>
           <span class="small text-muted">
             <%= t "global.remaining_time", remaining: distance_of_time_in_words(Time.now, campaign.expired_at) %>

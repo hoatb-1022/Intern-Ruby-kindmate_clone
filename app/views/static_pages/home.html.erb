@@ -69,7 +69,7 @@
 
   <section id="list-campaign" class="mb-5">
     <div class="container">
-      <%= render "shared/list-campaigns", items: @campaigns %>
+      <%= render "shared/list_campaigns", items: @campaigns %>
       <div class="text-center mt-4">
         <%= link_to t(".see_all_campaigns"), campaigns_path, class: "btn btn-static-page btn-danger" %>
       </div>
@@ -78,9 +78,9 @@
 
   <section id="success-campaign" class="mb-5">
     <div class="container border-top mt-4 pt-5">
-      <h5 class="font-weight-medium mb-5"><%= t ".success_campaigns" %></h5>
+      <h5 class="font-weight-semibold mb-5"><%= t ".success_campaigns" %></h5>
     </div>
   </section>
 
-  <%= render "introduce-section" %>
+  <%= render "introduce_section" %>
 </div>

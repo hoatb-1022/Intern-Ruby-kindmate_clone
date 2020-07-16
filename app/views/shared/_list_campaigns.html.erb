@@ -6,6 +6,7 @@
       <%= image_tag "svg/no_data.svg", class: "no-data-image mb-3" %>
       <div class="font-weight-medium text-muted text-center w-100">
         <%= t "global.no_campaigns" %>
+        <%= link_to t("campaigns.create_now"), new_campaign_path, class: "text-primary" %>
       </div>
     </div>
   <% end %>

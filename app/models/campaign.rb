@@ -17,7 +17,7 @@ class Campaign < ApplicationRecord
   has_many :donations, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  delegate :name, to: :user, prefix: true, allow_nil: true
+  delegate :name, :campaigns, to: :user, prefix: true, allow_nil: true
 
   validates :content, :expired_at, presence: true
   validates :title,

@@ -1,5 +1,6 @@
 import Quill from 'quill/dist/quill.min'
 import 'quill/dist/quill.snow.css'
+import {isElementExist} from './helper'
 
 export function setupQuill() {
   let toolbarOptions = [
@@ -22,14 +23,16 @@ export function setupQuill() {
     ['clean']
   ]
 
-  let editor = new Quill('#content-editor', {
-    modules: {
-      toolbar: toolbarOptions
-    },
-    theme: 'snow'
-  })
+  if (isElementExist('#content-editor')) {
+    let editor = new Quill('#content-editor', {
+      modules: {
+        toolbar: toolbarOptions
+      },
+      theme: 'snow'
+    })
 
-  editor.on('text-change', function () {
-    $('#campaign_content').val(editor.root.innerHTML)
-  })
+    editor.on('text-change', function () {
+      $('#campaign_content').val(editor.root.innerHTML)
+    })
+  }
 }
