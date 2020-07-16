@@ -1,0 +1,31 @@
+<article class="w-100">
+  <div class="card card-shadow card-user-info">
+    <div class="card-body">
+      <div class="user-avatar">
+        <%= gravatar_for user %>
+      </div>
+      <div class="user-info">
+        <h4 class="user-info--name"><%= user.name %></h4>
+        <div class="user-info--address">
+          <i class="fas fa-map-marker-alt"></i>
+          <span><%= user.address %></span>
+        </div>
+        <div class="user-info--email">
+          <i class="fas fa-envelope"></i>
+          <span><%= user.email %></span>
+        </div>
+        <div class="user-info--phone">
+          <i class="fas fa-phone-alt"></i>
+          <span><%= user.phone %></span>
+        </div>
+        <hr>
+        <p class="text-center mb-3">
+          "<%= user.description %>"
+        </p>
+      </div>
+      <% if current_user? user %>
+        <%= link_to t("_header.settings"), edit_user_path(current_user), class: "btn btn-primary btn-edit-user" %>
+      <% end %>
+    </div>
+  </div>
+</article>

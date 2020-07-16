@@ -4,35 +4,7 @@
     <div class="top-introduce py-2">
       <div class="row">
         <div class="col-md-6 d-flex align-items-center">
-          <article class="w-100">
-            <div class="card card-shadow card-user-info">
-              <div class="card-body">
-                <div class="user-avatar">
-                  <%= gravatar_for @user %>
-                </div>
-                <div class="user-info">
-                  <h4 class="user-info--name"><%= @user.name %></h4>
-                  <div class="user-info--address">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span><%= @user.address %></span>
-                  </div>
-                  <div class="user-info--email">
-                    <i class="fas fa-envelope"></i>
-                    <span><%= @user.email %></span>
-                  </div>
-                  <div class="user-info--phone">
-                    <i class="fas fa-phone-alt"></i>
-                    <span><%= @user.phone %></span>
-                  </div>
-                  <hr>
-                  <p class="text-center mb-3">
-                    "<%= @user.description %>"
-                  </p>
-                </div>
-                <%= link_to t("_header.settings"), edit_user_path(current_user), class: "btn btn-primary btn-edit-user" %>
-              </div>
-            </div>
-          </article>
+          <%= render "shared/user_info_card", user: @user %>
         </div>
         <div class="col-md-6">
           <%= image_tag "svg/user_info.svg", class: "my-3", width: "100%" %>
@@ -41,8 +13,8 @@
     </div>
   </div>
   <div class="container border-top mt-4 pt-5">
-    <h5 class="font-weight-medium mb-5"><%= t ".your_campaigns" %></h5>
-    <%= render "shared/list-campaigns", items: @campaigns %>
+    <h5 class="font-weight-semibold mb-5"><%= t ".your_campaigns" %></h5>
+    <%= render "shared/list_campaigns", items: @campaigns %>
     <%= paginate @campaigns %>
   </div>
 </section>

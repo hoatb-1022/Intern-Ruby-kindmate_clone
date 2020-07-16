@@ -1,0 +1,76 @@
+#campaigns--show {
+  .campaign-navbar {
+    .nav-item {
+      .nav-link {
+        font-weight: 500;
+        transition: $transition-base;
+        border-bottom: 1px solid $primary;
+
+        border-radius: 0;
+        border-top-right-radius: 0.25rem;
+        border-top-left-radius: 0.25rem;
+
+        &:not(.active):hover {
+          background-color: $gray-200;
+        }
+      }
+
+      &:first-child .nav-link.active {
+        border-bottom-left-radius: 0.25rem;
+      }
+
+      &:last-child .nav-link.active {
+        border-bottom-right-radius: 0.25rem;
+      }
+    }
+  }
+
+  #campaign-content {
+    height: auto;
+    max-height: 600px;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 2.5rem;
+
+    &:not(.full-view):after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: block;
+      height: 100px;
+      width: 100%;
+      background: linear-gradient(transparent 40%, rgba(255, 255, 255, .8) 70%, rgba(255, 255, 255, .9) 87%, rgba(255, 255, 255, 1));
+    }
+
+    &.full-view {
+      max-height: unset;
+      overflow: visible;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .toggle-content {
+    position: relative;
+    background-color: transparent;
+    transform: translate(0, -50%);
+    text-align: center;
+
+    .btn {
+      position: relative;
+      border-radius: 2rem;
+    }
+
+    &:before {
+      position: absolute;
+      content: '';
+      top: 50%;
+      left: 0;
+      right: 0;
+      border-top: 1px solid $primary !important;
+    }
+  }
+}

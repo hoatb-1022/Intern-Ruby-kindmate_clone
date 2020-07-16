@@ -14,6 +14,8 @@ en:
     search: "Search"
     no_campaigns: "There are no campaigns!"
     created_by: "Created by"
+    donation: "donation"
+    you_sure?: "You sure?"
   _header:
     brand: "Kindmate"
     about_us: "About us"
@@ -116,8 +118,13 @@ en:
       reset_pass_success: "Successfully reset password"
       reset_pass_failed: "Failed to reset password"
   campaigns:
+    create_now: "Create now"
+    save_campaign: "Save campaign"
+    not_found: "Campaign not found!"
     success_created: "Successfully create campaign"
     failed_created: "Failed to create campaign"
+    success_updated: "Successfully update campaign"
+    failed_updated: "Failed to update campaign"
     success_deleted: "Successfully delete campaign"
     failed_deleted: "Failed to delete campaign"
     valid_image_format!: "must be a valid image format"
@@ -130,7 +137,22 @@ en:
       title: "Create new campaign"
       embed_placeholder: "Supported embedded link looks like <iframe src='https://www.youtube.com/embed/8Qr9WW2bLAQ' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
       embed_tips_html: "<span class=\"text-primary font-weight-bold\">Tips:</span> To get the embed code into a Youtube video you choose &gt; select Share &gt; Embed &gt; Copy Embed code. Support all Facebook, Vimeo ... and similar."
-      save_campaign: "Save campaign"
+    show:
+      content: "Content"
+      campaign_content: "Content of campaign"
+      donations: "Donations"
+      comments: "Comments"
+      creator: "Creator"
+      creator_info: "Creator's information"
+      creator_campaigns: "Creators's campaigns"
+      see_info: "See information"
+      share_tips_html: "<span class=\"text-primary font-weight-bold\">Tips:</span> Each of your shares can brings in 2 donations from your friends."
+      donate_now: "Donate now"
+      share_now: "Share now"
+      show_less: "Show less"
+      show_more: "Show more"
+    edit:
+      title: "Edit campaign"
   user_mailer:
     account_activation:
       subject: "Account activation"

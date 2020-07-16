@@ -7,4 +7,8 @@ module ApplicationHelper
   def get_locale
     I18n.locale
   end
+
+  def currency_no_precision number
+    number_to_currency number, precision: 0
+  end
 end
