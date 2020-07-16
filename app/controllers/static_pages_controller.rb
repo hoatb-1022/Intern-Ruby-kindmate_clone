@@ -1,5 +1,9 @@
 class StaticPagesController < ApplicationController
-  def home; end
+  def home
+    @campaigns = Campaign.ordered_campaigns.page(
+      Settings.campaign.page_show_homepage
+    )
+  end
 
   def about; end
 

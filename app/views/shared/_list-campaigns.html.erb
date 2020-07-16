@@ -1,0 +1,12 @@
+<div class="row list-campaigns">
+  <% if items.any? %>
+    <%= render items %>
+  <% else %>
+    <div class="w-100 d-flex flex-column align-items-center">
+      <%= image_tag "svg/no_data.svg", class: "no-data-image mb-3" %>
+      <div class="font-weight-medium text-muted text-center w-100">
+        <%= t "global.no_campaigns" %>
+      </div>
+    </div>
+  <% end %>
+</div>

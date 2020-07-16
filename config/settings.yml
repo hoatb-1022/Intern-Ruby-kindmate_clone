@@ -11,6 +11,8 @@ campaign:
   min_total_amount: 0
   max_image_size: <%= 5.megabytes %>
   format_image_accept: <%= %w(image/jpeg image/gif image/png) %>
+  per_page: 8
+  page_show_homepage: 1
 donation:
   min_amount: 0
   max_message_length: 255

@@ -11,7 +11,7 @@
             </p>
             <div class="take-action-buttons mb-3">
               <%= link_to t(".create_campaign"), new_campaign_path, class: "btn btn-static-page btn-primary mt-3 mr-2" %>
-              <%= link_to t("global.campaigns"), "#", class: "btn btn-static-page btn-danger mt-3" %>
+              <%= link_to t("global.campaigns"), campaigns_path, class: "btn btn-static-page btn-danger mt-3" %>
             </div>
           </div>
         </div>
@@ -67,19 +67,18 @@
     </div>
   </section>
 
-  <section id="list-campaign" class="pb-5">
+  <section id="list-campaign" class="mb-5">
     <div class="container">
-      <div class="row list-campaigns">
-      </div>
-      <div class="text-center mt-3">
-        <%= link_to t(".see_all_campaigns"), "#", class: "btn btn-static-page btn-danger" %>
+      <%= render "shared/list-campaigns", items: @campaigns %>
+      <div class="text-center mt-4">
+        <%= link_to t(".see_all_campaigns"), campaigns_path, class: "btn btn-static-page btn-danger" %>
       </div>
     </div>
   </section>
 
   <section id="success-campaign" class="mb-5">
-    <div class="container  border-top mt-4 pt-5">
-      <h5 class="font-weight-semibold text-muted mb-4"><%= t ".success_campaigns" %></h5>
+    <div class="container border-top mt-4 pt-5">
+      <h5 class="font-weight-medium mb-5"><%= t ".success_campaigns" %></h5>
     </div>
   </section>
 

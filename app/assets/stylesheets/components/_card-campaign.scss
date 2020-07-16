@@ -1,0 +1,26 @@
+.card-campaign {
+  overflow: hidden;
+  transition: $transition-base;
+
+  &:hover {
+    box-shadow: $box-shadow;
+  }
+
+  .card-body {
+    position: relative;
+    padding-top: 2rem;
+
+    .campaign-user-avatar {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: $common-shadow;
+      border-radius: 50%;
+    }
+
+    .campaign-description {
+      @include trim(4);
+    }
+  }
+}

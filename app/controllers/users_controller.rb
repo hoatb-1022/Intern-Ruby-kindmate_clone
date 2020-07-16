@@ -5,7 +5,9 @@ class UsersController < ApplicationController
 
   def index; end
 
-  def show; end
+  def show
+    @campaigns = @user.campaigns.ordered_campaigns.page params[:page]
+  end
 
   def new
     @user = User.new

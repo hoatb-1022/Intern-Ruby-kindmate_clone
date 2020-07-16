@@ -47,6 +47,12 @@ label {
   }
 }
 
+.no-data-image {
+  width: 300px;
+  height: auto;
+  max-width: 85%;
+}
+
 /* Fonts */
 .font-weight-medium {
   font-weight: 500;
@@ -57,7 +63,7 @@ label {
 }
 
 .bg-primary-light {
-  background-color: lighten($color-primary, 42);
+  background-color: lighten($primary, 42);
 }
 
 .btn-static-page {
