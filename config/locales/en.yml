@@ -11,6 +11,7 @@ en:
     please_login: "Please login"
     cancel: "Cancel"
     remaining_time: "%{remaining} remaining"
+    time_ago: "%{time} ago"
     search: "Search"
     no_campaigns: "There are no campaigns!"
     created_by: "Created by"
@@ -153,6 +154,14 @@ en:
       show_more: "Show more"
     edit:
       title: "Edit campaign"
+  donations:
+    success_donated: "Successfully donated campaign"
+    failed_donated: "Failed to donate campaign"
+    new:
+      title: "Donate campaign"
+      transfer: "Transfer"
+      payment: "Payment gateways"
+      cash: "Cash"
   user_mailer:
     account_activation:
       subject: "Account activation"

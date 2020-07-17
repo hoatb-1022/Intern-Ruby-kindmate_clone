@@ -1,0 +1,51 @@
+@import '@fortawesome/fontawesome-free/css/fontawesome.min';
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+
+#donations--new {
+  .select-payment {
+    .payment-box {
+      background-color: $gray-100;
+      border-radius: $border-radius;
+      transition: $transition-base;
+
+      img {
+        filter: grayscale(100%);
+      }
+
+      label {
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 0;
+      }
+
+      &.active {
+        background-color: lighten($primary, 40);
+        color: $primary;
+        position: relative;
+
+        img {
+          filter: grayscale(0);
+        }
+
+        &:after {
+          font-size: 18px !important;
+          font-family: "Font Awesome 5 Free";
+          font-weight: 900;
+          content: '\f058';
+
+          position: absolute;
+          top: 6px;
+          right: 6px;
+        }
+      }
+    }
+  }
+
+  .input-donate-amount {
+    .input-group-text, input {
+      font-weight: 600;
+      font-size: 1.4em;
+      color: $primary;
+    }
+  }
+}

@@ -16,7 +16,8 @@
 $primary: #654AD2;
 $danger: #FF4D5F;
 @import 'bootstrap';
-@import '@fortawesome/fontawesome-free/scss/fontawesome';
+@import 'font_awesome5_webfont';
+@import 'font_awesome5.css';
 
 @import 'ultilities/colors';
 @import 'ultilities/variables';

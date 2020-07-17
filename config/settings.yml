@@ -16,6 +16,8 @@ campaign:
 donation:
   min_amount: 0
   max_message_length: 255
+  per_page: 4
+  default_amount: 10000
 tag:
   max_length: 50
 currency:

@@ -51,6 +51,11 @@ class Campaign < ApplicationRecord
   paginates_per Settings.campaign.per_page
 
   def finished_percentage
-    ((donated_amount.to_f / total_amount) * 100).floor
+    percent = ((donated_amount.to_f / total_amount) * 100).floor
+    percent.negative? ? 0 : percent
+  end
+
+  def bound_percent_style
+    finished_percentage <= 100 ? finished_percentage : 100
   end
 end

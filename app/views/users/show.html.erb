@@ -15,6 +15,8 @@
   <div class="container border-top mt-4 pt-5">
     <h5 class="font-weight-semibold mb-5"><%= t ".your_campaigns" %></h5>
     <%= render "shared/list_campaigns", items: @campaigns %>
-    <%= paginate @campaigns %>
+    <div class="paginator-container">
+      <%= paginate @campaigns %>
+    </div>
   </div>
 </section>

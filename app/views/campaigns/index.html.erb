@@ -15,5 +15,7 @@
     <% end %>
   </div>
   <%= render "shared/list_campaigns", items: @campaigns %>
-  <%= paginate @campaigns %>
+  <div class="paginator-container">
+    <%= paginate @campaigns %>
+  </div>
 </section>
