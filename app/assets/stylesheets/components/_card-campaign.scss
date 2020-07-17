@@ -31,6 +31,9 @@
     }
 
     .campaign-description {
+      height: 65px;
+      overflow: hidden;
+
       @include trim(3);
     }
   }

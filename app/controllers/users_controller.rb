@@ -60,7 +60,6 @@ class UsersController < ApplicationController
 
   def find_user
     @user = User.find_by id: params[:id]
-
     return if @user
 
     flash[:danger] = t ".not_found"

@@ -27,7 +27,9 @@ class CampaignsController < ApplicationController
   end
 
   def show
-    @donations = @campaign.donations.page params[:page]
+    @donations = @campaign.donations.ordered_donations.page params[:page]
+    @comments = @campaign.comments.ordered_comments.page params[:page]
+    @new_comment = Comment.new
   end
 
   def edit; end
@@ -46,7 +48,7 @@ class CampaignsController < ApplicationController
     if @campaigns.destroy
       flash[:success] = t ".success_deleted"
     else
-      flash.now[:danger] = t ".failed_deleted"
+      flash[:danger] = t ".failed_deleted"
     end
 
     redirect_to root_url
@@ -60,7 +62,6 @@ class CampaignsController < ApplicationController
 
   def find_campaign
     @campaign = Campaign.find_by id: params[:id]
-
     return if @campaign
 
     flash[:danger] = t ".not_found"

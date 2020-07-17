@@ -24,6 +24,8 @@ class Donation < ApplicationRecord
 
   after_save :update_campaign
 
+  scope :ordered_donations, ->{order created_at: :desc}
+
   paginates_per Settings.donation.per_page
 
   class << self

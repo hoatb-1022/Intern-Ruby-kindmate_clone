@@ -17,6 +17,8 @@ en:
     created_by: "Created by"
     donation: "donation"
     you_sure?: "You sure?"
+    delete: "Delete"
+    edit: "Edit"
   _header:
     brand: "Kindmate"
     about_us: "About us"
@@ -162,6 +164,14 @@ en:
       transfer: "Transfer"
       payment: "Payment gateways"
       cash: "Cash"
+  comments:
+    not_found: "Comment not found!"
+    success_commented: "Successfully commented"
+    failed_commented: "Failed to comment"
+    success_updated: "Successfully update comment"
+    failed_updated: "Failed to update comment"
+    success_deleted: "Successfully delete comment"
+    failed_deleted: "Failed to delete comment"
   user_mailer:
     account_activation:
       subject: "Account activation"
