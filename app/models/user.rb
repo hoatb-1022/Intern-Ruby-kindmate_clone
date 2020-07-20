@@ -10,6 +10,8 @@ class User < ApplicationRecord
       password_confirmation
     ).freeze
 
+  enum role: {user: 0, admin: 1}
+
   attr_accessor :remember_token, :activation_token, :reset_token
 
   has_many :campaigns, dependent: :destroy

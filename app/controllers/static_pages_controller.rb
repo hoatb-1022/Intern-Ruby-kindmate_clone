@@ -3,6 +3,10 @@ class StaticPagesController < ApplicationController
     @campaigns = Campaign.ordered_campaigns.page(
       Settings.campaign.page_show_homepage
     )
+
+    @success_campaigns = Campaign.ordered_campaigns.limit(
+      Settings.campaign.success_show_homepage
+    )
   end
 
   def about; end

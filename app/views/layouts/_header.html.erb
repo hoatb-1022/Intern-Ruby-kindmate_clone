@@ -15,24 +15,18 @@
         <li class="nav-item">
           <%= link_to t("_header.about_us"), about_path, class: "nav-link" %>
         </li>
+        <% if current_user&.admin? %>
+          <li class="nav-item">
+            <%= link_to t("_header.manager"), admin_index_path, class: "nav-link" %>
+          </li>
+        <% end %>
       </ul>
       <ul class="navbar-nav ml-auto">
         <% if logged_in? %>
           <li class="nav-item d-flex align-items-center">
             <%= link_to t("static_pages.home.create_campaign"), new_campaign_path, class: "btn btn-outline-primary mr-3" %>
           </li>
-          <li class="nav-item dropdown">
-            <%= link_to "#", id: "navbarDropdown", class: "nav-link dropdown-toggle nav-user-info", "data-toggle": "dropdown",
-                        role: "button", "aria-haspopup": "true", "aria-expanded": "false" do %>
-              <%= gravatar_for current_user %>
-              <span class="font-weight-semibold"><%= current_user.name %></span>
-            <% end %>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to t("_header.profile"), current_user, class: "dropdown-item" %>
-              <div class="dropdown-divider"></div>
-              <%= link_to t("_header.logout"), logout_path, method: :delete, class: "dropdown-item" %>
-            </div>
-          </li>
+          <%= render "shared/header_user_info", user: current_user %>
         <% else %>
           <li class="nav-item">
             <%= link_to t("_header.create_account"), signup_path, class: "btn btn-outline-primary mr-3" %>

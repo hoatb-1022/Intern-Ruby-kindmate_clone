@@ -22,7 +22,10 @@ vi:
   _header:
     brand: "Kindmate"
     about_us: "Về chúng tôi"
+    manager: "Quản lý"
     create_account: "Tạo tài khoản"
+    manage_users: "Quản lý người dùng"
+    manage_campaigns: "Quản lý chiến dịch"
     login: "Đăng nhập"
     account: "Tài khoản"
     profile: "Thông tin cá nhân"
