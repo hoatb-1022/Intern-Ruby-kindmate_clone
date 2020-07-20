@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
     return if logged_in?
 
     store_location
-    flash[:danger] = t "global.please_login"
+    flash[:error] = t "global.please_login"
     redirect_to login_url
   end
 
@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
     @campaign = Campaign.find_by id: params[:campaign_id]
     return if @campaign
 
-    flash[:danger] = t "campaigns.not_found"
+    flash[:error] = t "campaigns.not_found"
     redirect_to root_url
   end
 end
