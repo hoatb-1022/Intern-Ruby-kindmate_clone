@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= full_title yield(:title) %></title>
+    <title><%= full_title yield(:title), true %></title>
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -17,7 +17,7 @@
 
   <body>
     <%= render "shared/flash_toaster" %>
-    <%= render "layouts/admin_header" %>
+    <%= render "layouts/admin/header" %>
     <main class="app-content">
       <%= yield %>
     </main>

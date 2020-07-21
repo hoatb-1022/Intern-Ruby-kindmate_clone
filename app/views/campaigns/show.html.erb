@@ -74,7 +74,7 @@
     <div class="col-lg-8">
       <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-content" role="tabpanel" aria-labelledby="pills-home-tab">
-          <div class="embed-responsive embed-responsive-16by9 has-box-shadow">
+          <div class="embed-responsive embed-responsive-16by9 shadow rounded">
             <%= campaign_main_title_frame @campaign %>
           </div>
           <div class="mt-5 border-top pt-4">
@@ -92,7 +92,7 @@
         </div>
         <div class="tab-pane fade" id="pills-donations" role="tabpanel" aria-labelledby="pills-profile-tab">
           <h5 class="font-weight-semibold mb-3">
-            <%= pluralize @campaign.donations.count, t("global.donation") %>
+            <%= pluralize @campaign.donations.size, t("global.donation") %>
           </h5>
           <div id="donation-render">
             <%= render @donations %>
@@ -104,7 +104,7 @@
         <div class="tab-pane fade" id="pills-creator" role="tabpanel" aria-labelledby="pills-contact-tab">
           <h5 class="font-weight-semibold mb-5"><%= t ".creator_info" %></h5>
           <div class="pt-4 mb-4">
-            <%= render "shared/user_info_card", user: @campaign.user %>
+            <%= render "users/user_info_card", user: @campaign.user %>
           </div>
           <div class="mt-5 border-top pt-4">
             <h5 class="font-weight-semibold mb-5"><%= t ".creator_campaigns" %></h5>
@@ -116,7 +116,7 @@
       </div>
     </div>
     <div class="col-lg-4">
-      <div class="has-border-radius bg-primary-light p-3">
+      <div class="rounded bg-primary-light p-3">
         <div class="campagin-progress">
           <div class="d-flex justify-content-between align-items-end flex-wrap">
             <h5 class="font-weight-semibold text-primary mb-0">
@@ -136,7 +136,7 @@
           </div>
           <div class="d-flex justify-content-between align-items-end">
             <span class="font-weight-semibold">
-              <%= pluralize @campaign.donations.count, t("global.donation") %>
+              <%= pluralize @campaign.donations.size, t("global.donation") %>
             </span>
             <span class="text-muted">
               <%= t "global.remaining_time", remaining: distance_of_time_in_words(Time.now, @campaign.expired_at) %>
@@ -170,7 +170,7 @@
       <div id="campaign-comments" class="mt-4 border-top pt-4">
         <h5 class="font-weight-semibold mb-3">
           <%= t ".comments" %>
-          <span>(<%= @campaign.comments.count %>)</span>
+          <span>(<%= @campaign.comments.size %>)</span>
         </h5>
         <%= form_for [@campaign, @new_comment] do |f| %>
           <div class="media">

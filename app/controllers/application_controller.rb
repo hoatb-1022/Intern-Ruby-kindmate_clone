@@ -27,11 +27,38 @@ class ApplicationController < ActionController::Base
     redirect_to login_url
   end
 
+  def find_user
+    @user = User.find_by id: params[:id]
+    return if @user
+
+    flash[:error] = t "users.not_found"
+    redirect_to request.referer || root_url
+  end
+
   def correct_campaign
     @campaign = Campaign.find_by id: params[:campaign_id]
     return if @campaign
 
     flash[:error] = t "campaigns.not_found"
-    redirect_to root_url
+    redirect_to request.referer || root_url
+  end
+
+  def find_campaign
+    @campaign = Campaign.find_by id: params[:id]
+    return if @campaign
+
+    flash[:error] = t "campaigns.not_found"
+    redirect_to request.referer || root_url
+  end
+
+  def current_user_admin?
+    current_user.admin?
+  end
+
+  def check_current_user_admin
+    return if logged_in? && current_user_admin?
+
+    flash[:error] = t "global.no_permission"
+    redirect_to request.referer || root_url
   end
 end

@@ -1,0 +1,36 @@
+<%= form_with url: admin_users_path, method: :get, local: true do %>
+  <div class="card-body">
+    <div class="form-row">
+      <div class="form-group col-md-4 col-sm-6">
+        <%= label_tag :name %>
+        <%= text_field_tag :name, nil, placeholder: t("users.of_user", attr: t("users.name")), value: params[:name], class: "form-control" %>
+      </div>
+      <div class="form-group col-md-4 col-sm-6">
+        <%= label_tag :email %>
+        <%= text_field_tag :email, nil, placeholder: t("users.of_user", attr: t("users.email")), value: params[:email], class: "form-control" %>
+      </div>
+      <div class="form-group col-md-4 col-sm-6">
+        <%= label_tag :phone %>
+        <%= text_field_tag :phone, nil, placeholder: t("users.of_user", attr: t("users.phone")), value: params[:phone], class: "form-control" %>
+      </div>
+      <div class="form-group col-md-4 col-sm-6 mb-md-0">
+        <%= label_tag :address %>
+        <%= text_field_tag :address, nil, placeholder: t("users.of_user", attr: t("users.address")), value: params[:address], class: "form-control" %>
+      </div>
+      <div class="form-group col-md-4 col-sm-6 mb-md-0">
+        <%= label_tag :desc %>
+        <%= text_field_tag :desc, nil, placeholder: t("users.of_user", attr: t("users.desc")), value: params[:desc], class: "form-control" %>
+      </div>
+      <div class="form-group col-md-4 col-sm-6 mb-0">
+        <%= label_tag :status %>
+        <%= select_tag :status, user_status_options, include_blank: t("global.all"), class: "form-control" %>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer bg-white py-4 d-flex justify-content-end">
+    <%= button_tag :submit, name: nil, class: "btn w-20 btn-primary" do %>
+      <i class="fas fa-search mr-1"></i>
+      <span><%= t "global.search" %></span>
+    <% end %>
+  </div>
+<% end %>
