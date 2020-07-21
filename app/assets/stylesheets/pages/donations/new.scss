@@ -19,7 +19,11 @@
       }
 
       &.active {
+<<<<<<< HEAD
         @extend .bg-primary-light;
+=======
+        background-color: $common-light-primary;
+>>>>>>> Admin features
         color: $primary;
         position: relative;
 
