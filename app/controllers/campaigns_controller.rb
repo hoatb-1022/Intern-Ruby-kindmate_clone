@@ -21,7 +21,7 @@ class CampaignsController < ApplicationController
       flash[:success] = t ".success_created"
       redirect_to root_url
     else
-      flash.now[:danger] = t ".failed_created"
+      flash.now[:error] = t ".failed_created"
       render :new
     end
   end
@@ -39,7 +39,7 @@ class CampaignsController < ApplicationController
       flash[:success] = t ".success_updated"
       redirect_to @campaign
     else
-      flash.now[:danger] = t ".failed_updated"
+      flash.now[:error] = t ".failed_updated"
       render :edit
     end
   end
@@ -48,7 +48,7 @@ class CampaignsController < ApplicationController
     if @campaigns.destroy
       flash[:success] = t ".success_deleted"
     else
-      flash[:danger] = t ".failed_deleted"
+      flash[:error] = t ".failed_deleted"
     end
 
     redirect_to root_url
@@ -64,7 +64,7 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.find_by id: params[:id]
     return if @campaign
 
-    flash[:danger] = t ".not_found"
+    flash[:error] = t ".not_found"
     redirect_to root_url
   end
 

@@ -311,3 +311,36 @@ img.embed-responsive-item {
     }
   }
 }
+
+/* Toaster */
+#toast-container {
+  .toast {
+    border: none;
+    transition: $transition-base;
+    border-radius: $border-radius;
+
+    &:hover {
+      box-shadow: $box-shadow;
+    }
+  }
+
+  & > div {
+    box-shadow: $common-shadow;
+  }
+
+  & .toast-error {
+    background-color: $danger;
+  }
+
+  & .toast-success {
+    background-color: $success;
+  }
+
+  & .toast-info {
+    background-color: $info;
+  }
+
+  & .toast-warning {
+    background-color: $warning;
+  }
+}

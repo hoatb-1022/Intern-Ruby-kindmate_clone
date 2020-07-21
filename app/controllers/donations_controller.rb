@@ -12,7 +12,7 @@ class DonationsController < ApplicationController
       flash[:success] = t ".success_donated"
       redirect_to @campaign
     else
-      flash.now[:danger] = t ".failed_donated"
+      flash.now[:error] = t ".failed_donated"
       render :new
     end
   end

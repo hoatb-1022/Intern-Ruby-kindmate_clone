@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     if @comment.save
       flash[:success] = t ".success_commented"
     else
-      flash[:danger] = t ".failed_commented"
+      flash[:error] = t ".failed_commented"
     end
 
     redirect_to @campaign, anchor: "campaign-comments"
@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
     if @comment.update comment_params
       flash[:success] = t ".success_updated"
     else
-      flash[:danger] = t ".failed_updated"
+      flash[:error] = t ".failed_updated"
     end
 
     redirect_to @campaign, anchor: "campaign-comments"
@@ -30,7 +30,7 @@ class CommentsController < ApplicationController
     if @comment.destroy
       flash[:success] = t ".success_deleted"
     else
-      flash[:danger] = t ".failed_deleted"
+      flash[:error] = t ".failed_deleted"
     end
 
     redirect_to @campaign, anchor: "campaign-comments"
@@ -48,7 +48,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find_by id: params[:id]
     return if @comment
 
-    flash[:danger] = t ".not_found"
+    flash[:error] = t ".not_found"
     redirect_to root_url
   end
 end

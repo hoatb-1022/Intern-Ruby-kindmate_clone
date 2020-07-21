@@ -21,7 +21,7 @@ class UsersController < ApplicationController
       flash[:success] = t ".new.success_create_account"
       redirect_to login_url
     else
-      flash.now[:danger] = t ".new.failed_create_account"
+      flash.now[:error] = t ".new.failed_create_account"
       render :new
     end
   end
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       flash[:success] = t ".edit.profile_updated"
       redirect_to @user
     else
-      flash.now[:danger] = t ".edit.failed_update_profile"
+      flash.now[:error] = t ".edit.failed_update_profile"
       render :edit
     end
   end
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     if @user.destroy
       flash[:success] = t ".edit.user_deleted"
     else
-      flash[:danger] = t ".edit.failed_delete_user"
+      flash[:error] = t ".edit.failed_delete_user"
     end
 
     redirect_to users_url
@@ -62,7 +62,7 @@ class UsersController < ApplicationController
     @user = User.find_by id: params[:id]
     return if @user
 
-    flash[:danger] = t ".not_found"
+    flash[:error] = t ".not_found"
     redirect_to root_url
   end
 end
