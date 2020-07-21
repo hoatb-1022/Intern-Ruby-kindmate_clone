@@ -22,7 +22,10 @@ en:
   _header:
     brand: "Kindmate"
     about_us: "About us"
+    manager: "Manager"
     create_account: "Create your account"
+    manage_users: "Manage users"
+    manage_campaigns: "Manage campaigns"
     login: "Login"
     account: "Account"
     profile: "Profile"

@@ -1,0 +1,12 @@
+.card-campaign-full {
+  .campaign-title {
+    font-weight: bold;
+    @include trim(4)
+  }
+
+  .campaign-description {
+    margin: 1rem 0;
+    color: $text-muted;
+    @include trim(5)
+  }
+}

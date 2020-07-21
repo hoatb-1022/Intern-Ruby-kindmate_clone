@@ -23,6 +23,7 @@ import {
 } from './campaigns'
 import {setupPaymentRadio} from './donations'
 import {setupCommentEdit} from './comments'
+import {setupNavbarItemMatchRoute} from './router'
 
 $(document).on('turbolinks:load', function () {
   setupCampaignImage()
@@ -33,6 +34,7 @@ $(document).on('turbolinks:load', function () {
   setupCommentEdit()
   setupFlatpickr()
   setupQuill()
+  setupNavbarItemMatchRoute()
 })
 
 // Uncomment to copy all static images under ../images to the output folder and reference

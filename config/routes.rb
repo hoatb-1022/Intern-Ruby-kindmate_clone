@@ -14,12 +14,18 @@ Rails.application.routes.draw do
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
 
-    resources :users, except: :new
+    resources :users, except: [:new, :create]
     resources :account_activations, only: :edit
     resources :password_resets, except: [:index, :destroy]
     resources :campaigns do
       resources :donations, only: [:new, :create]
       resources :comments, only: [:create, :update, :destroy]
+    end
+
+    resources :admin, only: :index
+    namespace :admin do
+      resources :users
+      resources :campaigns
     end
   end
 end

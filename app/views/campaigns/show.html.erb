@@ -75,11 +75,7 @@
       <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-content" role="tabpanel" aria-labelledby="pills-home-tab">
           <div class="embed-responsive embed-responsive-16by9 has-box-shadow">
-            <% if @campaign.embedded_link.present? %>
-              <%= @campaign.embedded_link.html_safe %>
-            <% else %>
-              <%= image_tag(@campaign.image, class: "has-border-radius embed-responsive-item") if @campaign.image.attached? %>
-            <% end %>
+            <%= campaign_main_title_frame @campaign %>
           </div>
           <div class="mt-5 border-top pt-4">
             <h5 class="font-weight-semibold mb-5"><%= t ".campaign_content" %></h5>
@@ -149,7 +145,7 @@
         </div>
         <div class="my-4">
           <%= link_to t(".donate_now"), new_campaign_donation_path(@campaign), class: "btn btn-block btn-primary" %>
-          <%= link_to t(".share_now"), "https://www.facebook.com/sharer/sharer.php?u=#{request.url}",
+          <%= link_to t(".share_now"), Settings.campaign.share_fb_prefix + request.url,
                       class: "btn btn-block btn-danger share",
                       data: {network: "facebook"}
           %>

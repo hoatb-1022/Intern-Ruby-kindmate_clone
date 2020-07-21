@@ -1,0 +1,52 @@
+<div class="row card-campaign-full">
+  <div class="col-md-7">
+    <div class="embed-responsive embed-responsive-16by9 mb-3 mb-md-0">
+      <%= campaign_main_title_frame campaign %>
+    </div>
+  </div>
+  <div class="col-md-5 d-flex flex-column align-items-start">
+    <div class="w-100">
+      <%= link_to campaign do %><h3 class="campaign-title"><%= campaign.title %></h3><% end %>
+      <p class="campaign-description"><%= campaign.description %></p>
+
+      <div class="campagin-progress">
+        <div class="d-flex justify-content-between align-items-end flex-wrap">
+          <h5 class="font-weight-semibold text-primary mb-0">
+            <span><%= currency_no_precision campaign.donated_amount %></span>
+            <small>(<%= percentage_no_precision campaign.finished_percentage %>)</small>
+          </h5>
+          <span><%= currency_no_precision campaign.total_amount %></span>
+        </div>
+        <div class="progress my-2">
+          <div class="progress-bar"
+               style="width: <%= campaign.finished_percentage %>%"
+               role="progressbar"
+               aria-valuenow="0"
+               aria-valuemin="0"
+               aria-valuemax="100">
+          </div>
+        </div>
+        <div class="d-flex justify-content-between align-items-end">
+          <span class="font-weight-semibold">
+            <%= pluralize campaign.donations.count, t("global.donation") %>
+          </span>
+          <span class="text-muted">
+            <%= t "global.remaining_time", remaining: distance_of_time_in_words(Time.now, campaign.expired_at) %>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="mt-3">
+      <div class="small font-weight-semibold text-muted text-uppercase mb-2">
+        <%= t "campaigns.show.creator" %>
+      </div>
+      <div class="media align-items-center">
+        <%= gravatar_for campaign.user %>
+        <div class="media-body pl-3">
+          <h6 class="font-weight-semibold mb-0"><%= campaign.user_name %></h6>
+          <small><%= link_to t("campaigns.show.see_info"), campaign.user, class: "text-primary" %></small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
