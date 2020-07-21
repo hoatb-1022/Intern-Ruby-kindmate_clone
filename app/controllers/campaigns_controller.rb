@@ -1,12 +1,14 @@
 class CampaignsController < ApplicationController
   before_action :logged_in_user, except: [:index, :show]
   before_action :find_campaign, except: [:index, :create, :new]
-  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :correct_user,
+                only: [:edit, :update, :destroy],
+                unless: :current_user_admin?
 
   def index
-    @campaigns = Campaign.filtered_campaigns(
+    @campaigns = Campaign.filter_by_title(
       params[:keyword]
-    ).ordered_campaigns.page params[:page]
+    ).ordered_campaigns_by_donated.includes(:user).page params[:page]
   end
 
   def new
@@ -27,8 +29,14 @@ class CampaignsController < ApplicationController
   end
 
   def show
-    @donations = @campaign.donations.ordered_donations.page params[:page]
-    @comments = @campaign.comments.ordered_comments.page params[:page]
+    @donations = @campaign.donations
+                          .ordered_donations
+                          .includes(:user)
+                          .page params[:page]
+    @comments = @campaign.comments
+                         .ordered_comments
+                         .includes(:user)
+                         .page params[:page]
     @new_comment = Comment.new
   end
 
@@ -58,14 +66,6 @@ class CampaignsController < ApplicationController
 
   def campaign_params
     params.require(:campaign).permit Campaign::PERMIT_ATTRIBUTES
-  end
-
-  def find_campaign
-    @campaign = Campaign.find_by id: params[:id]
-    return if @campaign
-
-    flash[:error] = t ".not_found"
-    redirect_to root_url
   end
 
   def correct_user

@@ -1,6 +1,7 @@
 en:
   global:
     app_title: "Kindmate - Easy and fast fundraising platform"
+    app_admin_title: "Kindmate Manager - Manage system"
     campaign: "Campaign"
     campaigns: "Campaigns"
     see_more: "See more"
@@ -9,6 +10,7 @@ en:
     error: "error"
     welcome: "Welcome to Kindmate"
     please_login: "Please login"
+    no_permission: "You do not have permission"
     cancel: "Cancel"
     remaining_time: "%{remaining} remaining"
     time_ago: "%{time} ago"
@@ -19,6 +21,7 @@ en:
     you_sure?: "You sure?"
     delete: "Delete"
     edit: "Edit"
+    all: "All"
   _header:
     brand: "Kindmate"
     about_us: "About us"
@@ -78,6 +81,17 @@ en:
     about:
       title: "About us"
   users:
+    of_user: "%{attr} of user"
+    name: "Name"
+    email: "Email"
+    phone: "Phone"
+    address: "Address"
+    desc: "Description"
+    status: "Status"
+    active: "Activated"
+    blocked: "Blocked"
+    do_active: "Active"
+    do_block: "Block"
     not_found: "User not found!"
     confirmation: "Confirmation"
     show:
@@ -124,6 +138,12 @@ en:
       reset_pass_success: "Successfully reset password"
       reset_pass_failed: "Failed to reset password"
   campaigns:
+    of_campaign: "%{attr} of campaign"
+    title: "Title"
+    desc: "Description"
+    creator: "Creator"
+    status: "Status"
+    completion: "Completion"
     create_now: "Create now"
     save_campaign: "Save campaign"
     not_found: "Campaign not found!"
@@ -133,9 +153,15 @@ en:
     failed_updated: "Failed to update campaign"
     success_deleted: "Successfully delete campaign"
     failed_deleted: "Failed to delete campaign"
+    do_run: "Run campaign"
+    do_stop: "Stop campaign"
     valid_image_format!: "must be a valid image format"
     valid_image_size!: "must be a less than 5MB"
     alert_size_exceeded: "Maximum file size is 5MB. Please choose a smaller file."
+    statuses:
+      pending: "Pending"
+      running: "Running"
+      stopped: "Stopped"
     index:
       title: "Explore campaigns"
       fill_in_keyword: "Fill in keywords"
@@ -175,6 +201,23 @@ en:
     failed_updated: "Failed to update comment"
     success_deleted: "Successfully delete comment"
     failed_deleted: "Failed to delete comment"
+  admin:
+    users:
+      index:
+        title: "Manage users"
+        filter: "Filter users"
+        filtered_users: "Filtered %{count}/%{all} users"
+      update:
+        success_change_status: "Successfully changed user's status"
+        failed_change_status: "Failed to change user's status"
+    campaigns:
+      index:
+        title: "Manage campaigns"
+        filter: "Filter campaigns"
+        filtered_campaigns: "Filtered %{count}/%{all} campaigns"
+      update:
+        success_change_status: "Successfully changed status of campaign"
+        failed_change_status: "Failed to change status of campaign"
   user_mailer:
     account_activation:
       subject: "Account activation"

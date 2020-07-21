@@ -1,6 +1,6 @@
 <div class="row card-campaign-full">
   <div class="col-md-7">
-    <div class="embed-responsive embed-responsive-16by9 mb-3 mb-md-0">
+    <div class="embed-responsive embed-responsive-16by9 mb-3 mb-md-0 shadow rounded">
       <%= campaign_main_title_frame campaign %>
     </div>
   </div>
@@ -28,7 +28,7 @@
         </div>
         <div class="d-flex justify-content-between align-items-end">
           <span class="font-weight-semibold">
-            <%= pluralize campaign.donations.count, t("global.donation") %>
+            <%= pluralize campaign.donations.size, t("global.donation") %>
           </span>
           <span class="text-muted">
             <%= t "global.remaining_time", remaining: distance_of_time_in_words(Time.now, campaign.expired_at) %>

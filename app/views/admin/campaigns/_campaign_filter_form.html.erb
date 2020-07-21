@@ -1,0 +1,28 @@
+<%= form_with url: admin_campaigns_path, method: :get, local: true do %>
+  <div class="card-body">
+    <div class="form-row">
+      <div class="form-group col-md-3 col-sm-6 mb-md-0">
+        <%= label_tag :title %>
+        <%= text_field_tag :title, nil, placeholder: t("campaigns.of_campaign", attr: t("campaigns.title")), value: params[:title], class: "form-control" %>
+      </div>
+      <div class="form-group col-md-3 col-sm-6 mb-md-0">
+        <%= label_tag :desc %>
+        <%= text_field_tag :desc, nil, placeholder: t("campaigns.of_campaign", attr: t("campaigns.desc")), value: params[:desc], class: "form-control" %>
+      </div>
+      <div class="form-group col-md-3 col-sm-6 mb-sm-0">
+        <%= label_tag :creator %>
+        <%= text_field_tag :creator, nil, placeholder: t("campaigns.of_campaign", attr: t("campaigns.creator")), value: params[:creator], class: "form-control" %>
+      </div>
+      <div class="form-group col-md-3 col-sm-6 mb-0">
+        <%= label_tag :status %>
+        <%= select_tag :status, campaign_status_options, include_blank: t("global.all"), class: "form-control" %>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer bg-white py-4 d-flex justify-content-end">
+    <%= button_tag :submit, name: nil, class: "btn w-20 btn-primary" do %>
+      <i class="fas fa-search mr-1"></i>
+      <span><%= t "global.search" %></span>
+    <% end %>
+  </div>
+<% end %>

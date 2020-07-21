@@ -23,8 +23,8 @@
           "<%= user.description %>"
         </p>
       </div>
-      <% if current_user? user %>
-        <%= link_to t("_header.settings"), edit_user_path(current_user), class: "btn btn-primary btn-edit-user" %>
+      <% if current_user?(user) || current_user.admin? %>
+        <%= link_to t("_header.settings"), edit_user_path(user), class: "btn btn-primary btn-edit-user" %>
       <% end %>
     </div>
   </div>

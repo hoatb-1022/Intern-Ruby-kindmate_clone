@@ -1,7 +1,12 @@
 module ApplicationHelper
   def full_title page_title
     base_title = t "global.app_title"
-    page_title.blank? ? base_title : "#{page_title} | #{base_title}"
+    page_title.blank? ? base_title : [page_title, base_title].join(" | ")
+  end
+
+  def full_admin_title page_title
+    base_title = t "global.app_admin_title"
+    page_title.blank? ? base_title : [page_title, base_title].join(" | ")
   end
 
   def get_locale
