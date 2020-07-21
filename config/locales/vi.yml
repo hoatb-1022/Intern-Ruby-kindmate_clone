@@ -17,6 +17,8 @@ vi:
     created_by: "Tạo bởi"
     donation: "sự ủng hộ"
     you_sure?: "Bạn chắc chắn?"
+    delete: "Xoá"
+    edit: "Chỉnh sửa"
   _header:
     brand: "Kindmate"
     about_us: "Về chúng tôi"
@@ -162,6 +164,14 @@ vi:
       transfer: "Chuyển khoản"
       payment: "Cổng thanh toán"
       cash: "Thu tiền mặt"
+  comments:
+    not_found: "Bình luận không tồn tại!"
+    success_commented: "Bình luận thành công"
+    failed_commented: "Bình luận thất bại"
+    success_updated: "Đã cập nhật bình luận thành công"
+    failed_updated: "Cập nhật bình luận thất bại"
+    success_deleted: "Đã xoá bình luận thành công"
+    failed_deleted: "Đã xoá bình luận thất bại"
   user_mailer:
     account_activation:
       subject: "Kích hoạt tài khoản"

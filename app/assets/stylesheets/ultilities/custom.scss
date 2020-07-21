@@ -271,3 +271,43 @@ img.embed-responsive-item {
     }
   }
 }
+
+/* Form campaign comment */
+.form-comment {
+  margin-bottom: 0;
+  position: relative;
+  overflow: hidden;
+
+  .form-control {
+    transition: $transition-base;
+    padding-right: calc(0.75rem + 50px);
+  }
+
+  .submit-comment {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 50px;
+    transition: $transition-base;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .btn {
+      flex: 1 1;
+      width: 100%;
+      border-radius: 0;
+
+      &:first-child {
+        border-top-right-radius: 0.2rem;
+      }
+
+      &:last-child {
+        border-bottom-right-radius: 0.2rem;
+      }
+    }
+  }
+}

@@ -26,4 +26,12 @@ class ApplicationController < ActionController::Base
     flash[:danger] = t "global.please_login"
     redirect_to login_url
   end
+
+  def correct_campaign
+    @campaign = Campaign.find_by id: params[:campaign_id]
+    return if @campaign
+
+    flash[:danger] = t "campaigns.not_found"
+    redirect_to root_url
+  end
 end

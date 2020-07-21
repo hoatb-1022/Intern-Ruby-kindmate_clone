@@ -17,14 +17,20 @@ import {setupFlatpickr} from './flatpickr'
 import {setupQuill} from './quill'
 import {
   setupCampaignImage,
-  setupCampaignContent
+  setupContentToggle,
+  setupSeeCreatorInfoLink,
+  setupFacebookSharingBtn
 } from './campaigns'
 import {setupPaymentRadio} from './donations'
+import {setupCommentEdit} from './comments'
 
 $(document).on('turbolinks:load', function () {
   setupCampaignImage()
-  setupCampaignContent()
+  setupContentToggle()
+  setupSeeCreatorInfoLink()
+  setupFacebookSharingBtn()
   setupPaymentRadio()
+  setupCommentEdit()
   setupFlatpickr()
   setupQuill()
 })

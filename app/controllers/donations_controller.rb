@@ -33,12 +33,4 @@ class DonationsController < ApplicationController
       user_id: current_user.id
     }
   end
-
-  def correct_campaign
-    @campaign = Campaign.find_by id: params[:campaign_id]
-    return if @campaign
-
-    flash[:danger] = t "campaigns.not_found"
-    redirect_to root_url
-  end
 end
