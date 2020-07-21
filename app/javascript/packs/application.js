@@ -15,14 +15,18 @@ require('bootstrap')
 import '@fortawesome/fontawesome-free/js/all'
 import {setupFlatpickr} from './flatpickr'
 import {setupQuill} from './quill'
-import {setupCampaignImage} from './campaignImage'
-import {setupCampaignContent} from './campaignContent'
+import {
+  setupCampaignImage,
+  setupCampaignContent
+} from './campaigns'
+import {setupPaymentRadio} from './donations'
 
 $(document).on('turbolinks:load', function () {
-    setupCampaignImage()
-    setupCampaignContent()
-    setupFlatpickr()
-    setupQuill()
+  setupCampaignImage()
+  setupCampaignContent()
+  setupPaymentRadio()
+  setupFlatpickr()
+  setupQuill()
 })
 
 // Uncomment to copy all static images under ../images to the output folder and reference

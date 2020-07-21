@@ -26,7 +26,9 @@ class CampaignsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @donations = @campaign.donations.page params[:page]
+  end
 
   def edit; end
 

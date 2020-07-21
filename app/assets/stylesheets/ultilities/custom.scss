@@ -8,7 +8,8 @@ a {
 }
 
 form {
-  .form-control, .form-control[readonly] {
+  .form-control,
+  .form-control[readonly] {
     background-color: $gray-100;
     border-color: $gray-200;
   }
@@ -26,7 +27,8 @@ label {
   box-shadow: $box-shadow;
 }
 
-.input-group-append .input-group-text {
+.input-group-append .input-group-text,
+.input-group-prepend .input-group-text {
   background-color: $gray-100;
   border-color: $gray-200;
 }
@@ -41,7 +43,8 @@ label {
   .ql-container {
     border-radius: 0 0 $common-border-radius $common-border-radius;
 
-    &:focus, &:focus-within {
+    &:focus,
+    &:focus-within {
       background-color: white;
       border-radius: $common-border-radius;
       border-color: #bcb0eb;
@@ -50,7 +53,8 @@ label {
     }
   }
 
-  .ql-toolbar, .ql-container {
+  .ql-toolbar,
+  .ql-container {
     border-color: $gray-200 !important;
   }
 }
@@ -97,7 +101,7 @@ img.embed-responsive-item {
 /* Forms */
 #error_explanation {
   color: $danger;
-  margin: 25px 0;
+  margin: 10px 0 25px 0;
 
   ul {
     color: $danger;
@@ -118,10 +122,18 @@ img.embed-responsive-item {
     }
   }
 
-  & ~ .input-group-append {
+  & ~ .input-group-append,
+  & ~ .input-group-prepend {
     border-radius: 0 $common-border-radius $common-border-radius 0;
     border: 1px solid $danger
   }
+}
+
+.paginator-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Gravatar */
@@ -156,7 +168,9 @@ img.embed-responsive-item {
         font-weight: bold;
       }
 
-      &--address, &--email, &--phone {
+      &--address,
+      &--email,
+      &--phone {
         display: flex;
         align-items: center;
         justify-content: center;

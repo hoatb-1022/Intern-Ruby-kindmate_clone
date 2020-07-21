@@ -1,0 +1,11 @@
+.card-donation {
+  padding: 1rem;
+  background-color: $gray-100;
+  margin-bottom: 1.2rem;
+  border-radius: $border-radius;
+  transition: $transition-base;
+
+  &:hover {
+    box-shadow: $box-shadow;
+  }
+}

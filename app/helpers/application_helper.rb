@@ -8,6 +8,10 @@ module ApplicationHelper
     I18n.locale
   end
 
+  def percentage_no_precision percent
+    number_to_percentage percent, precision: 0
+  end
+
   def currency_no_precision number
     number_to_currency number, precision: 0
   end

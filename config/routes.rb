@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
 
+    get "/donate/:campaign_id", to: "donations#new", as: "donate"
+    post "/donate/:campaign_id", to: "donations#create"
+
     resources :users, except: :new
     resources :account_activations, only: :edit
     resources :password_resets, except: [:index, :destroy]

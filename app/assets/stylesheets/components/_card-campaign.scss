@@ -20,11 +20,18 @@
     }
 
     .campaign-title {
-      @include trim(3);
+      display: flex;
+      align-items: center;
+      height: 65px;
+      overflow: hidden;
+
+      .card-title {
+        @include trim(2);
+      }
     }
 
     .campaign-description {
-      @include trim(4);
+      @include trim(3);
     }
   }
 }

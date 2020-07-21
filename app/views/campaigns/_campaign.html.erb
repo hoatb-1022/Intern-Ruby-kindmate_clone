@@ -8,10 +8,10 @@
         <%= gravatar_for campaign.user %>
       </div>
       <div class="campaign-main-info">
-        <%= link_to campaign do %>
-          <h5 class="card-title my-3 font-weight-bold campaign-title">
+        <%= link_to campaign, class: "campaign-title" do %>
+          <h6 class="card-title my-3 font-weight-bold">
             <%= campaign.title %>
-          </h5>
+          </h6>
         <% end %>
         <div class="card-text campaign-description">
           <%= campaign.description %>
@@ -23,9 +23,9 @@
       </div>
       <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top w-100">
         <div class="d-flex justify-content-between align-items-center">
-          <div class="progress-circle progress-<%= campaign.finished_percentage %>"></div>
+          <div class="progress-circle progress-<%= campaign.bound_percent_style %>"></div>
           <span class="text-primary font-weight-semibold ml-2">
-            <%= currency_no_precision campaign.finished_percentage %>
+            <%= percentage_no_precision campaign.finished_percentage %>
           </span>
         </div>
         <div class="text-right">

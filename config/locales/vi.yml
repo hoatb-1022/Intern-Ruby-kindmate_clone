@@ -11,6 +11,7 @@ vi:
     please_login: "Vui lòng đăng nhập"
     cancel: "Huỷ"
     remaining_time: "Còn lại %{remaining}"
+    time_ago: "%{time} trước đây"
     search: "Tìm kiếm"
     no_campaigns: "Không có chiến dịch nào!"
     created_by: "Tạo bởi"
@@ -153,6 +154,14 @@ vi:
       show_more: "Hiển thị nhiều hơn"
     edit:
       title: "Cập nhật chiến dịch"
+  donations:
+    success_donated: "Ủng hộ chiến dịch thành công"
+    failed_donated: "Ủng hộ chiến dịch thất bại"
+    new:
+      title: "Ủng hộ chiến dịch"
+      transfer: "Chuyển khoản"
+      payment: "Cổng thanh toán"
+      cash: "Thu tiền mặt"
   user_mailer:
     account_activation:
       subject: "Kích hoạt tài khoản"
