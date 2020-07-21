@@ -37,10 +37,12 @@ class CampaignsController < ApplicationController
                    .ordered_donations
                    .includes(:user)
                    .page params[:page]
+
     @comments = @campaign.comments
                   .ordered_comments
                   .includes(:user)
                   .page params[:page]
+
     @new_comment = Comment.new
   end
 
