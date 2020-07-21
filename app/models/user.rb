@@ -10,6 +10,8 @@ class User < ApplicationRecord
       password_confirmation
     ).freeze
 
+  enum role: {user: 0, admin: 1}
+
   attr_accessor :remember_token, :activation_token, :reset_token
 
   has_many :campaigns, dependent: :destroy
@@ -30,6 +32,56 @@ class User < ApplicationRecord
 
   before_save :downcase_email
   before_create :create_activation_digest
+
+  scope :ordered_users, ->{order created_at: :desc}
+
+  scope :filter_by_name, (lambda do |name|
+    if name.present?
+      where arel_table[:name].lower.matches(
+        "%#{name.downcase}%"
+      )
+    end
+  end)
+
+  scope :filter_by_email, (lambda do |email|
+    if email.present?
+      where arel_table[:email].lower.matches(
+        "%#{email.downcase}%"
+      )
+    end
+  end)
+
+  scope :filter_by_phone, (lambda do |phone|
+    if phone.present?
+      where arel_table[:phone].lower.matches(
+        "%#{phone.downcase}%"
+      )
+    end
+  end)
+
+  scope :filter_by_address, (lambda do |address|
+    if address.present?
+      where arel_table[:address].lower.matches(
+        "%#{address.downcase}%"
+      )
+    end
+  end)
+
+  scope :filter_by_desc, (lambda do |desc|
+    if desc.present?
+      where arel_table[:description].lower.matches(
+        "%#{desc.downcase}%"
+      )
+    end
+  end)
+
+  scope :filter_by_status, (lambda do |status|
+    if status.present?
+      where arel_table[:is_blocked].eq(
+        status
+      )
+    end
+  end)
 
   has_secure_password
 

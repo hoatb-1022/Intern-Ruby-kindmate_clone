@@ -1,6 +1,7 @@
 en:
   global:
     app_title: "Kindmate - Easy and fast fundraising platform"
+    app_admin_title: "Kindmate Manager - Manage system"
     campaign: "Campaign"
     campaigns: "Campaigns"
     see_more: "See more"
@@ -9,6 +10,7 @@ en:
     error: "error"
     welcome: "Welcome to Kindmate"
     please_login: "Please login"
+    no_permission: "You do not have permission"
     cancel: "Cancel"
     remaining_time: "%{remaining} remaining"
     time_ago: "%{time} ago"
@@ -17,10 +19,16 @@ en:
     created_by: "Created by"
     donation: "donation"
     you_sure?: "You sure?"
+    delete: "Delete"
+    edit: "Edit"
+    all: "All"
   _header:
     brand: "Kindmate"
     about_us: "About us"
+    manager: "Manager"
     create_account: "Create your account"
+    manage_users: "Manage users"
+    manage_campaigns: "Manage campaigns"
     login: "Login"
     account: "Account"
     profile: "Profile"
@@ -73,6 +81,17 @@ en:
     about:
       title: "About us"
   users:
+    of_user: "%{attr} of user"
+    name: "Name"
+    email: "Email"
+    phone: "Phone"
+    address: "Address"
+    desc: "Description"
+    status: "Status"
+    active: "Activated"
+    blocked: "Blocked"
+    do_active: "Active"
+    do_block: "Block"
     not_found: "User not found!"
     confirmation: "Confirmation"
     show:
@@ -119,6 +138,12 @@ en:
       reset_pass_success: "Successfully reset password"
       reset_pass_failed: "Failed to reset password"
   campaigns:
+    of_campaign: "%{attr} of campaign"
+    title: "Title"
+    desc: "Description"
+    creator: "Creator"
+    status: "Status"
+    completion: "Completion"
     create_now: "Create now"
     save_campaign: "Save campaign"
     not_found: "Campaign not found!"
@@ -162,6 +187,25 @@ en:
       transfer: "Transfer"
       payment: "Payment gateways"
       cash: "Cash"
+  comments:
+    not_found: "Comment not found!"
+    success_commented: "Successfully commented"
+    failed_commented: "Failed to comment"
+    success_updated: "Successfully update comment"
+    failed_updated: "Failed to update comment"
+    success_deleted: "Successfully delete comment"
+    failed_deleted: "Failed to delete comment"
+  admin:
+    users:
+      index:
+        title: "Manage users"
+        filter: "Filter users"
+        filtered_users: "Filtered %{count}/%{all} users"
+    campaigns:
+      index:
+        title: "Manage campaigns"
+        filter: "Filter campaigns"
+        filtered_campaigns: "Filtered %{count}/%{all} campaigns"
   user_mailer:
     account_activation:
       subject: "Account activation"

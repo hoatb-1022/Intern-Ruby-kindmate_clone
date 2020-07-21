@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, except: [:create, :new]
+  before_action :logged_in_user, except: [:create, :new, :show]
   before_action :find_user, except: [:index, :create, :new]
-  before_action :correct_user, only: [:edit, :update]
+  before_action :correct_user,
+                only: [:edit, :update, :destroy],
+                unless: :current_user_admin?
 
   def index; end
 
   def show
-    @campaigns = @user.campaigns.ordered_campaigns.page params[:page]
+    @campaigns = @user.campaigns.ordered_campaigns_by_donated.page params[:page]
   end
 
   def new
@@ -21,7 +23,7 @@ class UsersController < ApplicationController
       flash[:success] = t ".new.success_create_account"
       redirect_to login_url
     else
-      flash.now[:danger] = t ".new.failed_create_account"
+      flash.now[:error] = t ".new.failed_create_account"
       render :new
     end
   end
@@ -33,7 +35,7 @@ class UsersController < ApplicationController
       flash[:success] = t ".edit.profile_updated"
       redirect_to @user
     else
-      flash.now[:danger] = t ".edit.failed_update_profile"
+      flash.now[:error] = t ".edit.failed_update_profile"
       render :edit
     end
   end
@@ -42,10 +44,10 @@ class UsersController < ApplicationController
     if @user.destroy
       flash[:success] = t ".edit.user_deleted"
     else
-      flash[:danger] = t ".edit.failed_delete_user"
+      flash[:error] = t ".edit.failed_delete_user"
     end
 
-    redirect_to users_url
+    redirect_to admin_users_path
   end
 
   private
@@ -56,14 +58,5 @@ class UsersController < ApplicationController
 
   def correct_user
     redirect_to root_url unless current_user? @user
-  end
-
-  def find_user
-    @user = User.find_by id: params[:id]
-
-    return if @user
-
-    flash[:danger] = t ".not_found"
-    redirect_to root_url
   end
 end

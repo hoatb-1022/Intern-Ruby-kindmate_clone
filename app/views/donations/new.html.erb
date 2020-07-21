@@ -3,9 +3,9 @@
   <div class="row">
     <%= render @campaign, classes: "col-lg-3" %>
     <div class="col-lg-9">
-      <div class="card has-box-shadow border-0 p-3 p-md-4">
+      <div class="card shadow border-0 p-3 p-md-4">
         <h3 class="mb-4 font-weight-bold"><%= t ".title" %></h3>
-        <%= form_for @donation, url: donate_path do |f| %>
+        <%= form_for [@campaign, @donation] do |f| %>
           <%= render "shared/error_messages", object: f.object %>
           <div class="select-payment">
             <div class="form-row">

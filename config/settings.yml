@@ -13,11 +13,15 @@ campaign:
   format_image_accept: <%= %w(image/jpeg image/gif image/png) %>
   per_page: 8
   page_show_homepage: 1
+  success_show_homepage: 3
+  share_fb_prefix: "https://www.facebook.com/sharer/sharer.php?u="
 donation:
   min_amount: 0
   max_message_length: 255
-  per_page: 4
+  per_page: 5
   default_amount: 10000
+comment:
+  per_page: 5
 tag:
   max_length: 50
 currency:

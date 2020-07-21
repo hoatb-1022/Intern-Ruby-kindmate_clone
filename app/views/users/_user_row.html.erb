@@ -1,0 +1,36 @@
+<tr>
+  <th scope="row">
+    <span class="mb-0 text-sm font-weight-semibold">
+      <%= link_to user.name, user, target: "_blank" %>
+    </span>
+  </th>
+  <td class="w-15 word-break-all">
+    <%= user.email %>
+  </td>
+  <td>
+    <%= user.phone %>
+  </td>
+  <td>
+    <%= user.address %>
+  </td>
+  <td>
+    <%= user.description %>
+  </td>
+  <td>
+    <span class="badge badge-<%= user_status_badge(user)[:variant] %>">
+      <%= user_status_badge(user)[:text] %>
+    </span>
+  </td>
+  <td class="text-right">
+    <div class="dropdown">
+      <a class="btn btn-sm btn-default common-icon-btn" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-ellipsis-v"></i>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right">
+        <%= user_change_status_link user %>
+        <%= link_to t("global.edit"), edit_user_path(user), class: "dropdown-item" %>
+        <%= link_to t("global.delete"), user, method: :delete, data: {confirm: t("global.you_sure?")}, class: "dropdown-item" %>
+      </div>
+    </div>
+  </td>
+</tr>

@@ -40,9 +40,9 @@
           </li>
           <li class="nav-item" role="presentation">
             <%= link_to t(".comments"),
-                        "javascript:;",
-                        class: "nav-link",
-                        id: "pills-comments-tab"
+                        "#campaign-comments",
+                        target: "_self",
+                        class: "nav-link"
             %>
           </li>
           <li class="nav-item" role="presentation">
@@ -60,7 +60,7 @@
       </div>
     </div>
     <div class="col-md-4">
-      <% if @campaign.user == current_user %>
+      <% if current_user? @campaign.user %>
         <div class="w-100 d-flex justify-content-end my-md-4 mt-0 mb-4">
           <%= link_to edit_campaign_path, class: "btn btn-outline-secondary mr-2" do %>
             <i class="fas fa-cog"></i>
@@ -74,12 +74,8 @@
     <div class="col-lg-8">
       <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-content" role="tabpanel" aria-labelledby="pills-home-tab">
-          <div class="embed-responsive embed-responsive-16by9 has-box-shadow">
-            <% if @campaign.embedded_link.present? %>
-              <%= @campaign.embedded_link.html_safe %>
-            <% else %>
-              <%= image_tag(@campaign.image, class: "has-border-radius embed-responsive-item") if @campaign.image.attached? %>
-            <% end %>
+          <div class="embed-responsive embed-responsive-16by9 shadow rounded">
+            <%= campaign_main_title_frame @campaign %>
           </div>
           <div class="mt-5 border-top pt-4">
             <h5 class="font-weight-semibold mb-5"><%= t ".campaign_content" %></h5>
@@ -108,7 +104,7 @@
         <div class="tab-pane fade" id="pills-creator" role="tabpanel" aria-labelledby="pills-contact-tab">
           <h5 class="font-weight-semibold mb-5"><%= t ".creator_info" %></h5>
           <div class="pt-4 mb-4">
-            <%= render "shared/user_info_card", user: @campaign.user %>
+            <%= render "users/user_info_card", user: @campaign.user %>
           </div>
           <div class="mt-5 border-top pt-4">
             <h5 class="font-weight-semibold mb-5"><%= t ".creator_campaigns" %></h5>
@@ -120,7 +116,7 @@
       </div>
     </div>
     <div class="col-lg-4">
-      <div class="has-border-radius bg-primary-light p-3">
+      <div class="rounded bg-primary-light p-3">
         <div class="campagin-progress">
           <div class="d-flex justify-content-between align-items-end flex-wrap">
             <h5 class="font-weight-semibold text-primary mb-0">
@@ -148,8 +144,11 @@
           </div>
         </div>
         <div class="my-4">
-          <%= link_to t(".donate_now"), donate_path(@campaign), class: "btn btn-block btn-primary" %>
-          <%= link_to t(".share_now"), "#", class: "btn btn-block btn-danger" %>
+          <%= link_to t(".donate_now"), new_campaign_donation_path(@campaign), class: "btn btn-block btn-primary" %>
+          <%= link_to t(".share_now"), Settings.campaign.share_fb_prefix + request.url,
+                      class: "btn btn-block btn-danger share",
+                      data: {network: "facebook"}
+          %>
         </div>
         <small><%= t ".share_tips_html" %></small>
         <hr>
@@ -161,7 +160,7 @@
             <%= gravatar_for @campaign.user %>
             <div class="media-body pl-3">
               <h6 class="font-weight-semibold mb-0"><%= @campaign.user_name %></h6>
-              <small><%= link_to t(".see_info"), @campaign.user, class: "text-primary" %></small>
+              <small><%= link_to t(".see_info"), "javascript:;", class: "text-primary", id: "see-creator-info-link" %></small>
             </div>
           </div>
         </div>
@@ -169,7 +168,33 @@
     </div>
     <div class="col-lg-8">
       <div id="campaign-comments" class="mt-4 border-top pt-4">
-        <h5 class="font-weight-semibold mb-5"><%= t ".comments" %></h5>
+        <h5 class="font-weight-semibold mb-3">
+          <%= t ".comments" %>
+          <span>(<%= @campaign.comments.count %>)</span>
+        </h5>
+        <%= form_for [@campaign, @new_comment] do |f| %>
+          <div class="media">
+            <%= gravatar_for current_user %>
+            <div class="media-body ml-3">
+              <div class="form-group form-comment">
+                <%= f.text_area :content, rows: 3, class: "form-control" %>
+                <div class="submit-comment">
+                  <%= button_tag :submit, name: "commit", class: "btn btn-primary" do %>
+                    <i class="fas fa-paper-plane"></i>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <div class="comments-container">
+          <div id="comment-render">
+            <%= render @comments %>
+          </div>
+          <div id="comment-paginator" class="paginator-container">
+            <%= paginate @comments, remote: true %>
+          </div>
+        </div>
       </div>
     </div>
   </div>

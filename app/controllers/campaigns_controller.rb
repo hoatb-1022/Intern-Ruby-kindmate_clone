@@ -1,12 +1,14 @@
 class CampaignsController < ApplicationController
   before_action :logged_in_user, except: [:index, :show]
   before_action :find_campaign, except: [:index, :create, :new]
-  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :correct_user,
+                only: [:edit, :update, :destroy],
+                unless: :current_user_admin?
 
   def index
     @campaigns = Campaign.filtered_campaigns(
       params[:keyword]
-    ).ordered_campaigns.page params[:page]
+    ).ordered_campaigns_by_donated.includes(:user).page params[:page]
   end
 
   def new
@@ -21,13 +23,21 @@ class CampaignsController < ApplicationController
       flash[:success] = t ".success_created"
       redirect_to root_url
     else
-      flash.now[:danger] = t ".failed_created"
+      flash.now[:error] = t ".failed_created"
       render :new
     end
   end
 
   def show
-    @donations = @campaign.donations.page params[:page]
+    @donations = @campaign.donations
+                          .ordered_donations
+                          .includes(:user)
+                          .page params[:page]
+    @comments = @campaign.comments
+                         .ordered_comments
+                         .includes(:user)
+                         .page params[:page]
+    @new_comment = Comment.new
   end
 
   def edit; end
@@ -37,7 +47,7 @@ class CampaignsController < ApplicationController
       flash[:success] = t ".success_updated"
       redirect_to @campaign
     else
-      flash.now[:danger] = t ".failed_updated"
+      flash.now[:error] = t ".failed_updated"
       render :edit
     end
   end
@@ -46,7 +56,7 @@ class CampaignsController < ApplicationController
     if @campaigns.destroy
       flash[:success] = t ".success_deleted"
     else
-      flash.now[:danger] = t ".failed_deleted"
+      flash[:error] = t ".failed_deleted"
     end
 
     redirect_to root_url
@@ -56,15 +66,6 @@ class CampaignsController < ApplicationController
 
   def campaign_params
     params.require(:campaign).permit Campaign::PERMIT_ATTRIBUTES
-  end
-
-  def find_campaign
-    @campaign = Campaign.find_by id: params[:id]
-
-    return if @campaign
-
-    flash[:danger] = t ".not_found"
-    redirect_to root_url
   end
 
   def correct_user

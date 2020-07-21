@@ -11,13 +11,17 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_self
+ *= require toastr
  */
 
-$primary: #654AD2;
-$danger: #FF4D5F;
+$primary: #654ad2;
+$danger: #ff4d5f;
+$success: #16d23d;
+$warning: #eabb0b;
 @import 'bootstrap';
 @import 'font_awesome5_webfont';
 @import 'font_awesome5.css';
+@import 'toastr/build/toastr.min';
 
 @import 'ultilities/colors';
 @import 'ultilities/variables';

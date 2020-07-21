@@ -78,7 +78,27 @@
 
   <section id="success-campaign" class="mb-5">
     <div class="container border-top mt-4 pt-5">
-      <h5 class="font-weight-semibold mb-5"><%= t ".success_campaigns" %></h5>
+      <h5 class="font-weight-semibold mb-0"><%= t ".success_campaigns" %></h5>
+      <div id="carouselSuccessCampaigns" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <% @success_campaigns.each_with_index do |campaign, index| %>
+            <li data-target="#carouselSuccessCampaigns" data-slide-to="<%= index %>" class="<%= index == 0 ? "active" : "" %>"></li>
+          <% end %>
+        </ol>
+        <div class="carousel-inner">
+          <% @success_campaigns.each_with_index do |campaign, index| %>
+            <div class="carousel-item <%= index == 0 ? "active" : "" %>">
+              <%= render "campaigns/campaign_full", campaign: campaign %>
+            </div>
+          <% end %>
+        </div>
+        <%= link_to "#carouselSuccessCampaigns", class: "carousel-control-prev", role: "button", "data-slide": "prev" do %>
+          <i class="fas fa-chevron-left" aria-hidden="true"></i>
+        <% end %>
+        <%= link_to "#carouselSuccessCampaigns", class: "carousel-control-next", role: "button", "data-slide": "next" do %>
+          <i class="fas fa-chevron-right" aria-hidden="true"></i>
+        <% end %>
+      </div>
     </div>
   </section>
 

@@ -1,0 +1,87 @@
+<% provide :title, t(".title") %>
+<div class="container">
+  <h4 class="font-weight-semibold mb-4"><%= t ".title" %></h4>
+  <div class="row">
+    <div class="col-12">
+      <div class="card shadow border-0 mb-4">
+        <div class="card-header bg-primary text-white d-flex align-items-center">
+          <i class="fas fa-filter mr-2"></i>
+          <h6 class="font-weight-semibold mb-0">
+            <%= t ".filter" %>
+          </h6>
+        </div>
+        <%= form_with url: admin_users_path, method: "get", local: true do %>
+          <div class="card-body">
+            <div class="form-row">
+              <div class="form-group col-md-4 col-sm-6">
+                <%= label_tag :name %>
+                <%= text_field_tag :name, nil, placeholder: t("users.of_user", attr: t("users.name")), value: params[:name], class: "form-control" %>
+              </div>
+              <div class="form-group col-md-4 col-sm-6">
+                <%= label_tag :email %>
+                <%= text_field_tag :email, nil, placeholder: t("users.of_user", attr: t("users.email")), value: params[:email], class: "form-control" %>
+              </div>
+              <div class="form-group col-md-4 col-sm-6">
+                <%= label_tag :phone %>
+                <%= text_field_tag :phone, nil, placeholder: t("users.of_user", attr: t("users.phone")), value: params[:phone], class: "form-control" %>
+              </div>
+              <div class="form-group col-md-4 col-sm-6 mb-md-0">
+                <%= label_tag :address %>
+                <%= text_field_tag :address, nil, placeholder: t("users.of_user", attr: t("users.address")), value: params[:address], class: "form-control" %>
+              </div>
+              <div class="form-group col-md-4 col-sm-6 mb-md-0">
+                <%= label_tag :desc %>
+                <%= text_field_tag :desc, nil, placeholder: t("users.of_user", attr: t("users.desc")), value: params[:desc], class: "form-control" %>
+              </div>
+              <div class="form-group col-md-4 col-sm-6 mb-0">
+                <%= label_tag :status %>
+                <%= select_tag :status, raw("<option value="">#{t "global.all"}</option>") + options_for_select([[t("users.active"), 0], [t("users.blocked"), 1]], params[:status]), class: "form-control" %>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer bg-white py-4 d-flex justify-content-end">
+            <%= button_tag :submit, name: nil, class: "btn w-20 btn-primary" do %>
+              <i class="fas fa-search mr-1"></i>
+              <span><%= t "global.search" %></span>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="card shadow border-0">
+        <div class="card-header bg-primary border-0 text-white d-flex align-items-center">
+          <i class="fas fa-list mr-2"></i>
+          <h6 class="font-weight-semibold mb-0">
+            <%= t ".filtered_users", count: @users.count, all: User.all.count %>
+          </h6>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col"><%= t "users.name" %></th>
+                <th scope="col"><%= t "users.email" %></th>
+                <th scope="col"><%= t "users.phone" %></th>
+                <th scope="col"><%= t "users.address" %></th>
+                <th scope="col"><%= t "users.desc" %></th>
+                <th scope="col"><%= t "users.status" %></th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @users.each do |user| %>
+                <%= render "users/user_row", user: user %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer bg-white py-4">
+          <div class="paginator-container">
+            <%= paginate @users %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

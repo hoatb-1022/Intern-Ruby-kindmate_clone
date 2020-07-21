@@ -7,7 +7,7 @@ function checkCampaignImageSize(image) {
   return size_in_megabytes <= 5
 }
 
-function setupContentToggle() {
+export function setupContentToggle() {
   let toggleBtn = $('#toggle-campaign-content')
   toggleBtn.click(function () {
     let campaignContentEl = $('#campaign-content')
@@ -21,9 +21,21 @@ function setupContentToggle() {
   })
 }
 
-function setupCommentScroll() {
-  $('#pills-comments-tab').click(function () {
-    $('#campaign-comments')[0].scrollIntoView()
+export function setupFacebookSharingBtn() {
+  $('a.share').click(function (event) {
+    event.preventDefault()
+
+    let $link = $(this)
+    let href = $link.attr('href')
+    let network = $link.attr('data-network')
+    let networks = {
+      facebook: {width: 600, height: 300}
+    }
+    let popup = function (network) {
+      let options = 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,'
+      window.open(href, '', options + 'height=' + networks[network].height + ',width=' + networks[network].width)
+    }
+    popup(network)
   })
 }
 
@@ -38,7 +50,9 @@ export function setupCampaignImage() {
   })
 }
 
-export function setupCampaignContent() {
-  setupContentToggle()
-  setupCommentScroll()
+export function setupSeeCreatorInfoLink() {
+  $('#see-creator-info-link').click(function (event) {
+    event.preventDefault()
+    $('#pills-creator-tab')[0].click()
+  })
 }

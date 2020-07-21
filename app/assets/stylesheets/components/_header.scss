@@ -12,6 +12,7 @@
       margin: 0 1rem;
       transition: $transition-base;
 
+      &.active,
       &:hover {
         border-bottom: 2px solid $primary;
       }
@@ -28,6 +29,30 @@
       width: 35px;
       height: auto;
       margin-right: 5px;
+    }
+  }
+
+  &:not(&__dark) .navbar-toggler {
+    border-color: $primary;
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(101,74,210, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    }
+  }
+
+  &__dark {
+    background-image: linear-gradient(to right, #311a8b, #461887, #561682, #62167e, #6d177a);
+
+    .navbar-nav--left {
+      .nav-item {
+        &.active,
+        &:hover {
+          border-bottom: 2px solid lighten($primary, 35);
+        }
+      }
+    }
+
+    .nav-link {
+      color: white !important;
     }
   }
 }

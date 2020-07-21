@@ -1,6 +1,7 @@
 vi:
   global:
     app_title: "Kindmate - Nền tảng gây quỹ dễ dàng và nhanh chóng"
+    app_admin_title: "Kindmate Manager - Quản lý hệ thống"
     campaign: "Chiến dịch"
     campaigns: "Các chiến dịch"
     see_more: "Tìm hiểu thêm"
@@ -9,6 +10,7 @@ vi:
     error: "lỗi"
     welcome: "Chào mừng đến với Kindmate"
     please_login: "Vui lòng đăng nhập"
+    no_permission: "Bạn không có quyền truy cập"
     cancel: "Huỷ"
     remaining_time: "Còn lại %{remaining}"
     time_ago: "%{time} trước đây"
@@ -17,10 +19,16 @@ vi:
     created_by: "Tạo bởi"
     donation: "sự ủng hộ"
     you_sure?: "Bạn chắc chắn?"
+    delete: "Xoá"
+    edit: "Chỉnh sửa"
+    all: "Tất cả"
   _header:
     brand: "Kindmate"
     about_us: "Về chúng tôi"
+    manager: "Quản lý"
     create_account: "Tạo tài khoản"
+    manage_users: "Quản lý người dùng"
+    manage_campaigns: "Quản lý chiến dịch"
     login: "Đăng nhập"
     account: "Tài khoản"
     profile: "Thông tin cá nhân"
@@ -73,6 +81,17 @@ vi:
     about:
       title: "Về chúng tôi"
   users:
+    of_user: "%{attr} của người dùng"
+    name: "Họ tên"
+    email: "Email"
+    phone: "Số điện thoại"
+    address: "Địa chỉ"
+    desc: "Mô tả"
+    status: "Trạng thái"
+    active: "Đang hoạt động"
+    blocked: "Đã bị chặn"
+    do_active: "Bỏ chặn"
+    do_block: "Chặn"
     not_found: "Người dùng không tồn tại!"
     confirmation: "Xác nhận"
     show:
@@ -119,6 +138,12 @@ vi:
       reset_pass_success: "Đặt lại mật khẩu thành công"
       reset_pass_failed: "Đặt lại mật khẩu thất bại"
   campaigns:
+    of_campaign: "%{attr} của chiến dịch"
+    title: "Tiêu đề"
+    desc: "Mô tả"
+    creator: "Chủ chiến dịch"
+    status: "Trạng thái"
+    completion: "Độ hoàn thành"
     create_now: "Tạo ngay"
     save_campaign: "Lưu chiến dịch"
     not_found: "Chiến dịch không tồn tại!"
@@ -162,6 +187,25 @@ vi:
       transfer: "Chuyển khoản"
       payment: "Cổng thanh toán"
       cash: "Thu tiền mặt"
+  comments:
+    not_found: "Bình luận không tồn tại!"
+    success_commented: "Bình luận thành công"
+    failed_commented: "Bình luận thất bại"
+    success_updated: "Đã cập nhật bình luận thành công"
+    failed_updated: "Cập nhật bình luận thất bại"
+    success_deleted: "Đã xoá bình luận thành công"
+    failed_deleted: "Đã xoá bình luận thất bại"
+  admin:
+    users:
+      index:
+        title: "Quản lý người dùng"
+        filter: "Bộ lọc người dùng"
+        filtered_users: "Đã lọc ra %{count}/%{all} người dùng"
+    campaigns:
+      index:
+        title: "Quản lý chiến dịch"
+        filter: "Bộ lọc chiến dịch"
+        filtered_campaigns: "Đã lọc ra %{count}/%{all} chiến dịch"
   user_mailer:
     account_activation:
       subject: "Kích hoạt tài khoản"

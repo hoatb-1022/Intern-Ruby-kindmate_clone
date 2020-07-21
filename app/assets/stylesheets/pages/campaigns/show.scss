@@ -73,4 +73,8 @@
       border-top: 1px solid $primary !important;
     }
   }
+
+  .new_comment .form-control {
+    @extend .bg-primary-light;
+  }
 }

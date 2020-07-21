@@ -12,21 +12,32 @@ require('jquery')
 require('bootstrap')
 //= require_tree .
 
+import toastr from 'toastr'
+window.toastr = toastr
+
 import '@fortawesome/fontawesome-free/js/all'
 import {setupFlatpickr} from './flatpickr'
 import {setupQuill} from './quill'
 import {
   setupCampaignImage,
-  setupCampaignContent
+  setupContentToggle,
+  setupSeeCreatorInfoLink,
+  setupFacebookSharingBtn
 } from './campaigns'
 import {setupPaymentRadio} from './donations'
+import {setupCommentEdit} from './comments'
+import {setupNavbarItemMatchRoute} from './router'
 
 $(document).on('turbolinks:load', function () {
   setupCampaignImage()
-  setupCampaignContent()
+  setupContentToggle()
+  setupSeeCreatorInfoLink()
+  setupFacebookSharingBtn()
   setupPaymentRadio()
+  setupCommentEdit()
   setupFlatpickr()
   setupQuill()
+  setupNavbarItemMatchRoute()
 })
 
 // Uncomment to copy all static images under ../images to the output folder and reference

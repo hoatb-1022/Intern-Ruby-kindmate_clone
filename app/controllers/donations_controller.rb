@@ -12,7 +12,7 @@ class DonationsController < ApplicationController
       flash[:success] = t ".success_donated"
       redirect_to @campaign
     else
-      flash.now[:danger] = t ".failed_donated"
+      flash.now[:error] = t ".failed_donated"
       render :new
     end
   end
@@ -32,13 +32,5 @@ class DonationsController < ApplicationController
       payment_code: Donation.generate_payment_code(campaign_id),
       user_id: current_user.id
     }
-  end
-
-  def correct_campaign
-    @campaign = Campaign.find_by id: params[:campaign_id]
-    return if @campaign
-
-    flash[:danger] = t "campaigns.not_found"
-    redirect_to root_url
   end
 end

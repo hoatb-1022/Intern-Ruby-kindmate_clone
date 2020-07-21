@@ -1,0 +1,78 @@
+<% provide :title, t(".title") %>
+<div class="container">
+  <h4 class="font-weight-semibold mb-4"><%= t ".title" %></h4>
+  <div class="row">
+    <div class="col-12">
+      <div class="card shadow border-0 mb-4">
+        <div class="card-header bg-primary text-white d-flex align-items-center">
+          <i class="fas fa-filter mr-2"></i>
+          <h6 class="font-weight-semibold mb-0">
+            <%= t ".filter" %>
+          </h6>
+        </div>
+        <%= form_with url: admin_campaigns_path, method: "get", local: true do %>
+          <div class="card-body">
+            <div class="form-row">
+              <div class="form-group col-md-3 col-sm-6 mb-md-0">
+                <%= label_tag :title %>
+                <%= text_field_tag :title, nil, placeholder: t("campaigns.of_campaign", attr: t("campaigns.title")), value: params[:title], class: "form-control" %>
+              </div>
+              <div class="form-group col-md-3 col-sm-6 mb-md-0">
+                <%= label_tag :desc %>
+                <%= text_field_tag :desc, nil, placeholder: t("campaigns.of_campaign", attr: t("campaigns.desc")), value: params[:desc], class: "form-control" %>
+              </div>
+              <div class="form-group col-md-3 col-sm-6 mb-sm-0">
+                <%= label_tag :creator %>
+                <%= text_field_tag :creator, nil, placeholder: t("campaigns.of_campaign", attr: t("campaigns.creator")), value: params[:creator], class: "form-control" %>
+              </div>
+              <div class="form-group col-md-3 col-sm-6 mb-0">
+                <%= label_tag :status %>
+                <%= select_tag :status, raw("<option value="">#{t "global.all"}</option>") + options_for_select(Campaign.statuses.map {|k, v| [k.humanize.capitalize, v]}, params[:status]), class: "form-control" %>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer bg-white py-4 d-flex justify-content-end">
+            <%= button_tag :submit, name: nil, class: "btn w-20 btn-primary" do %>
+              <i class="fas fa-search mr-1"></i>
+              <span><%= t "global.search" %></span>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="card shadow border-0">
+        <div class="card-header bg-primary border-0 text-white d-flex align-items-center">
+          <i class="fas fa-list mr-2"></i>
+          <h6 class="font-weight-semibold mb-0">
+            <%= t ".filtered_campaigns", count: @campaigns.count, all: Campaign.all.count %>
+          </h6>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col"><%= t "campaigns.title" %></th>
+                <th scope="col"><%= t "campaigns.desc" %></th>
+                <th scope="col"><%= t "campaigns.creator" %></th>
+                <th scope="col"><%= t "campaigns.status" %></th>
+                <th scope="col"><%= t "campaigns.completion" %></th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @campaigns.each do |campaign| %>
+                <%= render "campaigns/campaign_row", campaign: campaign %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer bg-white py-4">
+          <div class="paginator-container">
+            <%= paginate @campaigns %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
