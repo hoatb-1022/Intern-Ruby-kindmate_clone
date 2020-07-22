@@ -1,0 +1,6 @@
+<div id="comment-render">
+  <%= render comments %>
+</div>
+<div id="comment-paginator" class="paginator-container">
+  <%= paginate comments, remote: true %>
+</div>

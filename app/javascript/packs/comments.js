@@ -1,5 +1,5 @@
 export function setupCommentEdit() {
-  $('.card-comment .edit-comment-item').click(function (event) {
+  $('body').on('click', '.card-comment .edit-comment-item', function (event) {
     event.preventDefault()
 
     let commentId = this.getAttribute('target-id')

@@ -8,32 +8,26 @@ class CommentsController < ApplicationController
     @comment = @campaign.comments.build comment_params
 
     if @comment.save
-      flash[:success] = t ".success_commented"
-    else
-      flash[:error] = t ".failed_commented"
+      refind_comments
     end
 
-    redirect_to @campaign, anchor: "campaign-comments"
+    respond_to :js
   end
 
   def update
     if @comment.update comment_params
-      flash[:success] = t ".success_updated"
-    else
-      flash[:error] = t ".failed_updated"
+      refind_comments
     end
 
-    redirect_to @campaign, anchor: "campaign-comments"
+    respond_to :js
   end
 
   def destroy
     if @comment.destroy
-      flash[:success] = t ".success_deleted"
-    else
-      flash[:error] = t ".failed_deleted"
+      refind_comments
     end
 
-    redirect_to @campaign, anchor: "campaign-comments"
+    respond_to :js
   end
 
   private
@@ -50,5 +44,12 @@ class CommentsController < ApplicationController
 
     flash[:error] = t ".not_found"
     redirect_to root_url
+  end
+
+  def refind_comments
+    @comments = @campaign.comments
+                         .ordered_comments
+                         .includes(:user)
+                         .page params[:page]
   end
 end
