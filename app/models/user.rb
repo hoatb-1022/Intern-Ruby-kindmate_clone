@@ -6,6 +6,7 @@ class User < ApplicationRecord
       phone
       address
       description
+      avatar
       password
       password_confirmation
     ).freeze
@@ -18,6 +19,8 @@ class User < ApplicationRecord
   has_many :donations, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  has_one_attached :avatar
+
   validates :name, presence: true
   validates :email,
             presence: true,
@@ -29,6 +32,18 @@ class User < ApplicationRecord
             presence: true,
             length: {minimum: Settings.user.password.min_length},
             allow_nil: true
+  validates :avatar,
+            content_type: {
+              in: Settings.global.format_image_accept,
+              message: I18n.t("global.valid_image_format!")
+            },
+            size: {
+              less_than: Settings.user.max_image_size,
+              message: I18n.t(
+                "global.valid_image_size!",
+                maximum: Settings.user.max_image_num
+              )
+            }
 
   before_save :downcase_email
   before_create :create_activation_digest

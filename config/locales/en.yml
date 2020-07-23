@@ -22,6 +22,9 @@ en:
     delete: "Delete"
     edit: "Edit"
     all: "All"
+    valid_image_format!: "Image must has valid format"
+    valid_image_size!: "Image's size must be a less than %{maximum}MB"
+    alert_size_exceeded: "Maximum image's size is %{maximum}MB. Please choose a smaller image."
   _header:
     brand: "Kindmate"
     about_us: "About us"
@@ -156,9 +159,6 @@ en:
     failed_deleted: "Failed to delete campaign"
     do_run: "Run campaign"
     do_stop: "Stop campaign"
-    valid_image_format!: "must be a valid image format"
-    valid_image_size!: "must be a less than 5MB"
-    alert_size_exceeded: "Maximum file size is 5MB. Please choose a smaller file."
     statuses:
       pending: "Pending"
       running: "Running"

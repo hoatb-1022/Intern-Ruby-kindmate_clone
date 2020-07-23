@@ -8,13 +8,19 @@
             <div class="card card-shadow card-user-info">
               <div class="card-body">
                 <div class="user-avatar">
-                  <%= gravatar_for @user %>
+                  <div class="position-relative">
+                    <%= gravatar_for @user, "user-avatar" %>
+                    <%= label_tag "user_avatar", id: "user_avatar_toggle" do %>
+                      <i class="far fa-image"></i>
+                    <% end %>
+                  </div>
                 </div>
                 <div class="user-info">
                   <h4 class="user-info--name"><%= @user.name %></h4>
                 </div>
                 <%= form_for @user do |f| %>
                   <%= render "shared/error_messages", object: f.object %>
+                  <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png", class: "d-none" %>
                   <div class="form-group">
                     <%= f.label :name %> *
                     <%= f.text_field :name, class: "form-control" %>

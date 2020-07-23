@@ -34,12 +34,15 @@ class Campaign < ApplicationRecord
   validates :image,
             presence: true,
             content_type: {
-              in: Settings.campaign.format_image_accept,
-              message: I18n.t("campaigns.valid_image_format!")
+              in: Settings.global.format_image_accept,
+              message: I18n.t("global.valid_image_format!")
             },
             size: {
               less_than: Settings.campaign.max_image_size,
-              message: I18n.t("campaigns.valid_image_size!")
+              message: I18n.t(
+                "global.valid_image_size!",
+                maximum: Settings.campaign.max_image_num
+              )
             }
 
   scope :ordered_campaigns, ->{order created_at: :desc}
