@@ -39,12 +39,12 @@ module UsersHelper
   end
 
   def user_change_status_link user
-    link_text = t "users.do_active"
-    link_status = 0
+    link_text = t "users.do_block"
+    link_status = 1
 
     if user.is_blocked?
-      link_text = t "users.do_block"
-      link_status = 1
+      link_text = t "users.do_active"
+      link_status = 0
     end
 
     link_to(
