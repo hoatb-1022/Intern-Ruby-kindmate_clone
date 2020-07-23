@@ -1,5 +1,10 @@
 <% provide :title, @campaign.title %>
 <section id="campaigns--show" class="container">
+  <% if @campaign.pending? %>
+    <div class="alert alert-warning" role="alert">
+      <%= t ".pending_alert" %>
+    </div>
+  <% end %>
   <section id="campaign-top-header">
     <div class="row">
       <div class="col-lg-10">
@@ -7,6 +12,9 @@
           <div class="media-body">
             <h3 class="font-weight-bold"><%= @campaign.title %></h3>
             <p class="mb-1 text-muted"><%= @campaign.description %></p>
+            <div class="badge badge-<%= campaign_status_badge(@campaign)[:variant] %>">
+              <%= campaign_status_badge(@campaign)[:text] %>
+            </div>
           </div>
         </div>
       </div>
@@ -15,7 +23,7 @@
   <div class="row">
     <div class="col-md-8">
       <div class="my-4">
-        <ul class="nav nav-pills campaign-navbar" id="campaign-pills-tab" role="tablist">
+        <ul class="nav nav-pills kindmate-nav-pills" id="campaign-pills-tab" role="tablist">
           <li class="nav-item" role="presentation">
             <%= link_to t(".content"),
                         "#pills-content",
@@ -23,7 +31,7 @@
                         id: "pills-content-tab",
                         "data-toggle": "pill",
                         role: "tab",
-                        "aria-controls": "pills-contact",
+                        "aria-controls": "pills-campaigns",
                         "aria-selected": "false"
             %>
           </li>
@@ -34,7 +42,7 @@
                         id: "pills-donations-tab",
                         "data-toggle": "pill",
                         role: "tab",
-                        "aria-controls": "pills-contact",
+                        "aria-controls": "pills-campaigns",
                         "aria-selected": "false"
             %>
           </li>
@@ -52,7 +60,7 @@
                         id: "pills-creator-tab",
                         "data-toggle": "pill",
                         role: "tab",
-                        "aria-controls": "pills-contact",
+                        "aria-controls": "pills-campaigns",
                         "aria-selected": "false"
             %>
           </li>
@@ -101,7 +109,7 @@
             <%= paginate @donations, remote: true %>
           </div>
         </div>
-        <div class="tab-pane fade" id="pills-creator" role="tabpanel" aria-labelledby="pills-contact-tab">
+        <div class="tab-pane fade" id="pills-creator" role="tabpanel" aria-labelledby="pills-campaigns-tab">
           <h5 class="font-weight-semibold mb-5"><%= t ".creator_info" %></h5>
           <div class="pt-4 mb-4">
             <%= render "users/user_info_card", user: @campaign.user %>
@@ -116,7 +124,7 @@
       </div>
     </div>
     <div class="col-lg-4">
-      <div class="rounded bg-primary-light p-3">
+      <div class="rounded bg-primary-more-light p-3">
         <div class="campagin-progress">
           <div class="d-flex justify-content-between align-items-end flex-wrap">
             <h5 class="font-weight-semibold text-primary mb-0">
@@ -144,7 +152,9 @@
           </div>
         </div>
         <div class="my-4">
-          <%= link_to t(".donate_now"), new_campaign_donation_path(@campaign), class: "btn btn-block btn-primary" %>
+          <% if @campaign.running? %>
+            <%= link_to t(".donate_now"), new_campaign_donation_path(@campaign), class: "btn btn-block btn-primary" %>
+          <% end %>
           <%= link_to t(".share_now"), Settings.campaign.share_fb_prefix + request.url,
                       class: "btn btn-block btn-danger share",
                       data: {network: "facebook"}

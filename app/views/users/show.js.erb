@@ -1,0 +1,11 @@
+$("#campaign-render").html("<%= j render @campaigns %>");
+$("#campaign-paginator").html("<%= j paginate @campaigns, remote: true %>");
+
+$("#campaign-pending-render").html("<%= j render @campaigns_pending %>");
+$("#campaign-pending-paginator").html("<%= j paginate @campaigns_pending, remote: true %>");
+
+$("#campaign-running-render").html("<%= j render @campaigns_running %>");
+$("#campaign-running-paginator").html("<%= j paginate @campaigns_running, remote: true %>");
+
+$("#campaign-stopped-render").html("<%= j render @campaigns_stopped %>");
+$("#campaign-stopped-paginator").html("<%= j paginate @campaigns_stopped, remote: true %>");

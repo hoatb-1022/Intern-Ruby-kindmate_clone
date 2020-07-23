@@ -19,7 +19,7 @@
       }
 
       &.active {
-        background-color: $common-light-primary;
+        @extend .bg-primary-light;
         color: $primary;
         position: relative;
 

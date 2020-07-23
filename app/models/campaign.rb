@@ -58,6 +58,12 @@ class Campaign < ApplicationRecord
     where User.arel_table[:name].lower.matches("%#{creator.downcase}%")
   end)
 
+  scope :pending_campaigns, ->{filter_by_status Campaign.statuses[:pending]}
+
+  scope :running_campaigns, ->{filter_by_status Campaign.statuses[:running]}
+
+  scope :stopped_campaigns, ->{filter_by_status Campaign.statuses[:stopped]}
+
   paginates_per Settings.campaign.per_page
 
   def finished_percentage

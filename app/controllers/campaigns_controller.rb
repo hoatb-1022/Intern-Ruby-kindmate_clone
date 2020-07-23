@@ -6,9 +6,13 @@ class CampaignsController < ApplicationController
                 unless: :current_user_admin?
 
   def index
-    @campaigns = Campaign.filter_by_title(
-      params[:keyword]
-    ).ordered_campaigns_by_donated.includes(:user).page params[:page]
+    @campaigns = Campaign.running_campaigns
+                         .or(Campaign.stopped_campaigns)
+
+    @campaigns = @campaigns.filter_by_title(params[:keyword])
+                         .or(@campaigns.filter_by_desc(params[:keyword]))
+                         .ordered_campaigns
+                         .page params[:page]
   end
 
   def new
@@ -30,13 +34,13 @@ class CampaignsController < ApplicationController
 
   def show
     @donations = @campaign.donations
-                          .ordered_donations
-                          .includes(:user)
-                          .page params[:page]
+                   .ordered_donations
+                   .includes(:user)
+                   .page params[:page]
     @comments = @campaign.comments
-                         .ordered_comments
-                         .includes(:user)
-                         .page params[:page]
+                  .ordered_comments
+                  .includes(:user)
+                  .page params[:page]
     @new_comment = Comment.new
   end
 

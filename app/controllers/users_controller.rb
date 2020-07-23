@@ -8,7 +8,10 @@ class UsersController < ApplicationController
   def index; end
 
   def show
-    @campaigns = @user.campaigns.ordered_campaigns_by_donated.page params[:page]
+    @campaigns = @user.campaigns.ordered_campaigns.page params[:page]
+    @campaigns_pending = @campaigns.pending_campaigns.ordered_campaigns.page params[:page]
+    @campaigns_running = @campaigns.running_campaigns.ordered_campaigns.page params[:page]
+    @campaigns_stopped = @campaigns.stopped_campaigns.ordered_campaigns.page params[:page]
   end
 
   def new
