@@ -23,6 +23,10 @@ module SessionsHelper
     current_user.present?
   end
 
+  def user_activated?
+    !current_user.is_blocked?
+  end
+
   def remember user
     user.remember
     cookies.permanent.signed[:user_id] = user.id

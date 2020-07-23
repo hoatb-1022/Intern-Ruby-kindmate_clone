@@ -13,6 +13,7 @@ require('bootstrap')
 //= require_tree .
 
 import toastr from 'toastr'
+
 window.toastr = toastr
 
 import '@fortawesome/fontawesome-free/js/all'

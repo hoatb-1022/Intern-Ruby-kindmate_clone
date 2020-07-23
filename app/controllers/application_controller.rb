@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
 
-  before_action :set_locale
+  before_action :set_locale, :check_user_activated
 
   private
 
@@ -24,6 +24,14 @@ class ApplicationController < ActionController::Base
 
     store_location
     flash[:error] = t "global.please_login"
+    redirect_to login_url
+  end
+
+  def check_user_activated
+    return if !logged_in? || user_activated?
+
+    flash[:error] = t "sessions.blocked_account"
+    log_out
     redirect_to login_url
   end
 
@@ -56,7 +64,7 @@ class ApplicationController < ActionController::Base
   end
 
   def check_current_user_admin
-    return if logged_in? && current_user_admin?
+    return if logged_in? && current_user.admin?
 
     flash[:error] = t "global.no_permission"
     redirect_to request.referer || root_url

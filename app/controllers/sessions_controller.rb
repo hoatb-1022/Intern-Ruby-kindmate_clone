@@ -7,11 +7,14 @@ class SessionsController < ApplicationController
 
   def create
     if @user&.authenticate params[:session][:password]
-      if @user.activated?
-        login_checked_user
-      else
+      if !@user.activated?
         flash[:warning] = t ".check_active_mail"
-        redirect_to root_url
+        redirect_to login_path
+      elsif @user.is_blocked?
+        flash[:error] = t ".blocked_account"
+        redirect_to login_path
+      else
+        login_checked_user
       end
     else
       flash.now[:error] = t ".invalid_email_password_combination"

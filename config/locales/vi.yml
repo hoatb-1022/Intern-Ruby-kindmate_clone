@@ -116,6 +116,7 @@ vi:
       failed_delete_user: "Xoá người dùng thất bại"
   sessions:
     check_active_mail: "Vui lòng kiểm tra email của bạn để kích hoạt tài khoản"
+    blocked_account: "Tài khoản của bạn đã bị chặn, vui lòng liên hệ chúng tôi để biết thêm thông tin chi tiết"
     invalid_email_password_combination: "Email và mật khẩu không khớp nhau"
     new:
       log_in: "Đăng nhập"

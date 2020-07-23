@@ -116,6 +116,7 @@ en:
       failed_delete_user: "Failed to delete user"
   sessions:
     check_active_mail: "Please check your email to activate account"
+    blocked_account: "Your account is blocked, please contact us for more information"
     invalid_email_password_combination: "Invalid email or password"
     new:
       log_in: "Log in"

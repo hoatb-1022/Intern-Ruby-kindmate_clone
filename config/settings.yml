@@ -31,4 +31,4 @@ tag:
   max_length: 50
 currency:
   min: 0
-  step: 1000
+  step: 1
