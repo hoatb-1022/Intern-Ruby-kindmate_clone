@@ -241,3 +241,23 @@ vi:
       next: "Tiếp"
       previous: "Trước"
       truncate: "Rút gọn"
+  form:
+    user:
+      name: "Họ và tên *"
+      email: "Email *"
+      phone: "Số điện thoại *"
+      address: "Địa chỉ"
+      description: "Giới thiệu bản thân"
+      password: "Mật khẩu *"
+      password_confirmation: "Xác nhận mật khẩu *"
+      remember_me: "Ghi nhớ đăng nhập"
+      status: "Trạng thái"
+    campaign:
+      title: "Tiêu đề *"
+      description: "Mô tả *"
+      total_amount: "Số tiền cần ủng hộ *"
+      expired_at: "Ngày kết thúc *"
+      embedded_link: "Video đính kèm"
+      content: "Nội dung *"
+      status: "Trạng thái"
+      creator: "Chủ chiến dịch"

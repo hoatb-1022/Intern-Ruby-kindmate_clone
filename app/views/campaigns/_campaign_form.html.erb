@@ -14,15 +14,15 @@
     </div>
     <div class="col-lg-4 col-md-4">
       <div class="form-group">
-        <%= f.label :title %> *
+        <%= f.label :title, t("form.campaign.title") %>
         <%= f.text_field :title, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= f.label :description %> *
+        <%= f.label :description, t("form.campaign.description") %>
         <%= f.text_area :description, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= f.label :total_amount %> *
+        <%= f.label :total_amount, t("form.campaign.total_amount") %>
         <div class="input-group">
           <div class="input-group-prepend">
             <span class="input-group-text">$</span>
@@ -31,7 +31,7 @@
         </div>
       </div>
       <div class="form-group">
-        <%= f.label :expired_at %> *
+        <%= f.label :expired_at, t("form.campaign.expired_at") %>
         <div class="input-group">
           <%= f.text_field :expired_at, id: "campaign_expired_date", class: "form-control" %>
           <div class="input-group-append">
@@ -44,12 +44,12 @@
     </div>
     <div class="col-lg-8 col-md-8">
       <div class="form-group">
-        <%= f.label :embedded_link %>
+        <%= f.label :embedded_link, t("form.campaign.embedded_link") %>
         <%= f.text_area :embedded_link, rows: 3, placeholder: t("campaigns.new.embed_placeholder"), class: "form-control" %>
         <small class="form-text text-muted mt-2"><%= t "campaigns.new.embed_tips_html" %></small>
       </div>
       <div class="form-group">
-        <%= f.label :content %> *
+        <%= f.label :content, t("form.campaign.content") %>
         <%= f.cktext_area :content %>
       </div>
       <div class="d-flex justify-content-between mt-4">

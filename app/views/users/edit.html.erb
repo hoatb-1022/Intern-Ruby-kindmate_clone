@@ -22,32 +22,32 @@
                   <%= render "shared/error_messages", object: f.object %>
                   <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png", class: "d-none" %>
                   <div class="form-group">
-                    <%= f.label :name %> *
+                    <%= f.label :name, t("form.user.name") %>
                     <%= f.text_field :name, class: "form-control" %>
                   </div>
                   <div class="form-row">
                     <div class="form-group col-md-6">
-                      <%= f.label :email %> *
+                      <%= f.label :email, t("form.user.email") %>
                       <%= f.email_field :email, class: "form-control" %>
                     </div>
                     <div class="form-group col-md-6">
-                      <%= f.label :phone %> *
+                      <%= f.label :phone, t("form.user.phone") %>
                       <%= f.text_field :phone, class: "form-control" %>
                     </div>
                     <div class="form-group col-md-12">
-                      <%= f.label :address %>
+                      <%= f.label :address, t("form.user.address") %>
                       <%= f.text_field :address, class: "form-control" %>
                     </div>
                     <div class="form-group col-md-12">
-                      <%= f.label :description %>
+                      <%= f.label :description, t("form.user.description") %>
                       <%= f.text_area :description, class: "form-control" %>
                     </div>
                     <div class="form-group col-md-6">
-                      <%= f.label :password %>
+                      <%= f.label :password, t("form.user.password") %>
                       <%= f.password_field :password, class: "form-control" %>
                     </div>
                     <div class="form-group col-md-6">
-                      <%= f.label :password_confirmation %>
+                      <%= f.label :password_confirmation, t("form.user.password_confirmation") %>
                       <%= f.password_field :password_confirmation, class: "form-control" %>
                     </div>
                   </div>

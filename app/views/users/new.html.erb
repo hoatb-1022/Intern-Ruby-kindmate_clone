@@ -11,24 +11,24 @@
                 <%= form_for @user, url: signup_path do |f| %>
                   <%= render "shared/error_messages", object: f.object %>
                   <div class="form-group">
-                    <%= f.label :name %> *
+                    <%= f.label :name, t("form.user.name") %>
                     <%= f.text_field :name, class: "form-control" %>
                   </div>
                   <div class="form-row">
                     <div class="form-group col-md-6">
-                      <%= f.label :email %> *
+                      <%= f.label :email, t("form.user.email") %>
                       <%= f.email_field :email, class: "form-control" %>
                     </div>
                     <div class="form-group col-md-6">
-                      <%= f.label :phone %> *
+                      <%= f.label :phone, t("form.user.phone") %>
                       <%= f.text_field :phone, class: "form-control" %>
                     </div>
                     <div class="form-group col-md-6">
-                      <%= f.label :password %> *
+                      <%= f.label :password, t("form.user.password") %>
                       <%= f.password_field :password, class: "form-control" %>
                     </div>
                     <div class="form-group col-md-6">
-                      <%= f.label :password_confirmation %> *
+                      <%= f.label :password_confirmation, t("form.user.password_confirmation") %>
                       <%= f.password_field :password_confirmation, class: "form-control" %>
                     </div>
                   </div>

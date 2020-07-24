@@ -1,6 +1,6 @@
 class Admin::UsersController < AdminController
   before_action :logged_in_user,
-                :check_current_user_admin,
+                :check_logged_user_admin,
                 only: [:index, :update]
   before_action :filter_user, only: :index
   before_action :find_user, only: :update

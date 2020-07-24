@@ -63,7 +63,7 @@ class ApplicationController < ActionController::Base
     current_user.admin?
   end
 
-  def check_current_user_admin
+  def check_logged_user_admin
     return if logged_in? && current_user.admin?
 
     flash[:error] = t "global.no_permission"

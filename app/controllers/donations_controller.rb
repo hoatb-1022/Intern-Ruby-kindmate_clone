@@ -1,7 +1,7 @@
 class DonationsController < ApplicationController
   before_action :logged_in_user,
                 :correct_campaign,
-                :running_campaign,
+                :running_campaign?,
                 only: [:new, :create]
 
   def new
@@ -37,7 +37,7 @@ class DonationsController < ApplicationController
     }
   end
 
-  def running_campaign
+  def running_campaign?
     return if @campaign.running?
 
     flash[:error] = t "campaigns.not_running"
