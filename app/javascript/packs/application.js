@@ -28,7 +28,6 @@ import {setupPaymentRadio} from './donations'
 import {setupCommentEdit} from './comments'
 import {setupNavbarItemMatchRoute} from './router'
 import {setupFlatpickr} from './flatpickr'
-import {setupQuill} from './quill'
 
 $(document).on('turbolinks:load', function () {
   setupUserAvatar()
@@ -39,7 +38,6 @@ $(document).on('turbolinks:load', function () {
   setupPaymentRadio()
   setupCommentEdit()
   setupFlatpickr()
-  setupQuill()
   setupNavbarItemMatchRoute()
 })
 

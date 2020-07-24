@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/galetahub/ckeditor.git
+  revision: f9e48420ccb6dc99f4453397554a6ae60bc2274b
+  specs:
+    ckeditor (5.1.0)
+      orm_adapter (~> 0.5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -185,6 +192,7 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
+    orm_adapter (0.5.0)
     parallel (1.19.2)
     parser (2.7.1.4)
       ast (~> 2.4.1)
@@ -316,6 +324,7 @@ DEPENDENCIES
   bootstrap (~> 4.5)
   byebug
   capybara (>= 2.15)
+  ckeditor!
   config (~> 2.2, >= 2.2.1)
   faker (~> 2.12)
   figaro (~> 1.2)

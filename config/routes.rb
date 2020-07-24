@@ -27,5 +27,7 @@ Rails.application.routes.draw do
       resources :users
       resources :campaigns
     end
+
+    mount Ckeditor::Engine => '/ckeditor'
   end
 end

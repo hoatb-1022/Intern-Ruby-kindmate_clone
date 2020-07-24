@@ -30,4 +30,11 @@ module UsersHelper
       {text: t("users.active"), variant: "success"}
     end
   end
+
+  def user_status_options
+    options_for_select(
+      [[t("users.active"), 0], [t("users.blocked"), 1]],
+      params[:status]
+    )
+  end
 end
