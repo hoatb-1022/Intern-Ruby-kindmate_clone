@@ -2,7 +2,7 @@
   <%= gravatar_for comment.user %>
   <div class="media-body ml-3">
     <h6 class="mb-0"><%= comment.user_name %></h6>
-    <%= form_for [comment.campaign, comment], html: {class: "edit_comment d-none"} do |f| %>
+    <%= form_for [comment.campaign, comment], html: {class: "edit_comment d-none"}, remote: true do |f| %>
       <div class="form-group form-comment">
         <%= f.text_area :content, class: "form-control", "origin-val": comment.content %>
         <div class="submit-comment">
@@ -28,7 +28,7 @@
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <%= link_to t("global.edit"), "javascript:;", class: "dropdown-item edit-comment-item", "target-id": comment.id %>
-          <%= link_to t("global.delete"), [comment.campaign, comment], method: :delete, data: {confirm: t("global.you_sure?")}, class: "dropdown-item" %>
+          <%= link_to t("global.delete"), [comment.campaign, comment], method: :delete, data: {confirm: t("global.you_sure?")}, remote: true, class: "dropdown-item" %>
         </div>
       </div>
     <% end %>

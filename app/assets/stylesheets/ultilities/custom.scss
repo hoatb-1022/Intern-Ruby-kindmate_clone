@@ -324,6 +324,7 @@ img.embed-responsive-item {
     border: none;
     transition: $transition-base;
     border-radius: $border-radius;
+    opacity: 1;
 
     &:hover {
       box-shadow: $box-shadow;
