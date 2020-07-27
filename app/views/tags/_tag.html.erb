@@ -1,0 +1,12 @@
+<div class="form-group col-md-6 tag-form">
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text">#</span>
+    </div>
+    <%= t.text_field :name, class: "form-control" %>
+  </div>
+  <%= t.hidden_field :_destroy, value: "0" %>
+  <%= link_to "#", class: "btn-remove-tag" do %>
+    <i class="fas fa-times"></i>
+  <% end %>
+</div>

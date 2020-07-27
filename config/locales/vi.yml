@@ -160,6 +160,7 @@ vi:
     failed_deleted: "Đã xoá chiến dịch thất bại"
     do_run: "Chạy chiến dịch"
     do_stop: "Ngừng chiến dịch"
+    at_least_one_tag: "Chiến dịch cần có ít nhất một nhãn"
     statuses:
       pending: "Chờ phê duyệt"
       running: "Đang chạy"
@@ -177,6 +178,7 @@ vi:
       donations: "Danh sách ủng hộ"
       comments: "Bình luận"
       creator: "Chủ chiến dịch"
+      tags: "Nhãn"
       creator_info: "Thông tin chủ chiến dịch"
       creator_campaigns: "Chiến dịch cùng chủ"
       see_info: "Xem thông tin"
@@ -261,3 +263,4 @@ vi:
       content: "Nội dung *"
       status: "Trạng thái"
       creator: "Chủ chiến dịch"
+      tags: "Nhãn *"

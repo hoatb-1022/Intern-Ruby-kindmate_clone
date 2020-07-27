@@ -20,6 +20,7 @@ campaign:
   page_show_homepage: 1
   success_show_homepage: 3
   share_fb_prefix: "https://www.facebook.com/sharer/sharer.php?u="
+  min_tag_size: 1
 donation:
   min_amount: 0
   max_message_length: 255

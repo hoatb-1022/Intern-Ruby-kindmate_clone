@@ -59,10 +59,6 @@ class ApplicationController < ActionController::Base
     redirect_to request.referer || root_url
   end
 
-  def current_user_admin?
-    current_user.admin?
-  end
-
   def check_logged_user_admin
     return if logged_in? && current_user.admin?
 
