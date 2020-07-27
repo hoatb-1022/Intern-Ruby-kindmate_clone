@@ -172,7 +172,7 @@
           <%= t ".comments" %>
           <span>(<%= @campaign.comments.size %>)</span>
         </h5>
-        <%= form_for [@campaign, @new_comment] do |f| %>
+        <%= form_for [@campaign, @new_comment], remote: true do |f| %>
           <div class="media">
             <%= gravatar_for current_user %>
             <div class="media-body ml-3">
@@ -187,13 +187,8 @@
             </div>
           </div>
         <% end %>
-        <div class="comments-container">
-          <div id="comment-render">
-            <%= render @comments %>
-          </div>
-          <div id="comment-paginator" class="paginator-container">
-            <%= paginate @comments, remote: true %>
-          </div>
+        <div id="comments-container">
+          <%= render "comments/list_comments", comments: @comments, remote: true %>
         </div>
       </div>
     </div>

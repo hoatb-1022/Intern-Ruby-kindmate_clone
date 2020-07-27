@@ -1,0 +1,8 @@
+<% if @comment.errors.blank? %>
+  toastr.success(I18n.t("comments.success_deleted"))
+  $('#comments-container').html(
+    "<%= j render "comments/list_comments", comments: @comments, remote: true %>"
+  )
+<% else %>
+  toastr.error(I18n.t("comments.failed_deleted"))
+<% end %>

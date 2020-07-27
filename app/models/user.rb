@@ -47,8 +47,6 @@ class User < ApplicationRecord
 
   scope :filter_by_status, ->(value){filter_by_number_attr :is_blocked, value}
 
-  # TODO: Wrong filter...........!!!!!!
-
   has_secure_password
 
   def authenticated? attribute, token
