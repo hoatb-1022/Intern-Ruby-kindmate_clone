@@ -96,7 +96,7 @@ vi:
     not_found: "Người dùng không tồn tại!"
     confirmation: "Xác nhận"
     show:
-      your_campaigns: "Chiến dịch của bạn"
+      created_campaigns: "Chiến dịch đã tạo"
     registrations:
       new:
         sign_up: "Đăng ký"
@@ -159,6 +159,7 @@ vi:
     create_now: "Tạo ngay"
     save_campaign: "Lưu chiến dịch"
     not_found: "Chiến dịch không tồn tại!"
+    not_running: "Chiến dịch chưa được khởi chạy"
     success_created: "Đã tạo chiến dịch thành công"
     failed_created: "Tạo chiến dịch thất bại"
     success_updated: "Đã cập nhật chiến dịch thành công"
@@ -195,6 +196,7 @@ vi:
       share_now: "Chia sẻ ngay"
       show_less: "Hiển thị ít hơn"
       show_more: "Hiển thị nhiều hơn"
+      pending_alert: "Bài viết của bạn đang chờ được phê duyệt nên chưa được hiển thị công khai, bạn có thể liên lạc với chúng tôi để quá trình phê duyệt thông tin diễn ra nhanh chóng hơn. Kindmate xin chân thành cảm ơn!"
     edit:
       title: "Cập nhật chiến dịch"
   donations:

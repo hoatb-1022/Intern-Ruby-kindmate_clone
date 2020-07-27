@@ -92,6 +92,10 @@ img.embed-responsive-item {
   background-color: $common-light-primary;
 }
 
+.bg-primary-more-light {
+  background-color: $common-more-light-primary;
+}
+
 .btn-static-page {
   border-radius: 1.25rem;
   font-weight: 500;
@@ -432,5 +436,46 @@ img.embed-responsive-item {
   &:active {
     transform: translateY(-1px);
     box-shadow: $common-shadow;
+  }
+}
+
+/* Custom nav pills */
+.kindmate-nav-pills {
+  .nav-item {
+    .nav-link {
+      display: flex;
+      align-items: center;
+
+      font-weight: 500;
+      transition: $transition-base;
+      border-bottom: 1px solid $primary;
+
+      border-radius: 0;
+      border-top-right-radius: 0.25rem;
+      border-top-left-radius: 0.25rem;
+
+      &:not(.active):hover {
+        background-color: $gray-200;
+      }
+
+      .badge {
+        margin-left: 5px;
+        display: none;
+      }
+
+      &.active {
+        .badge {
+          display: initial;
+        }
+      }
+    }
+
+    &:first-child .nav-link.active {
+      border-bottom-left-radius: 0.25rem;
+    }
+
+    &:last-child .nav-link.active {
+      border-bottom-right-radius: 0.25rem;
+    }
   }
 }

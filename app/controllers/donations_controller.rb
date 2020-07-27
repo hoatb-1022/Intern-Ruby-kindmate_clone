@@ -1,5 +1,8 @@
 class DonationsController < ApplicationController
-  before_action :logged_in_user, :correct_campaign, only: [:new, :create]
+  before_action :logged_in_user,
+                :correct_campaign,
+                :running_campaign,
+                only: [:new, :create]
 
   def new
     @donation = Donation.new
@@ -32,5 +35,12 @@ class DonationsController < ApplicationController
       payment_code: Donation.generate_payment_code(campaign_id),
       user_id: current_user.id
     }
+  end
+
+  def running_campaign
+    return if @campaign.running?
+
+    flash[:error] = t "campaigns.not_running"
+    redirect_to request.referer || root_url
   end
 end

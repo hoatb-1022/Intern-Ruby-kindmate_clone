@@ -7,7 +7,7 @@
     }
 
     .btn-category {
-      background-color: $common-light-primary;
+      @extend .bg-primary-light;
       font-size: .85em;
     }
   }

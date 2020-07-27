@@ -59,7 +59,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user_admin?
-    current_user.admin?
+    current_user&.admin?
   end
 
   def check_current_user_admin

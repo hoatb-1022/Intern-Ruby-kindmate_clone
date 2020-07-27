@@ -1,6 +1,6 @@
 <% provide :title, @user.name %>
 <section class="py-2">
-  <div class="container">
+  <div class="container mb-5">
     <div class="top-introduce py-2">
       <div class="row">
         <div class="col-md-6 d-flex align-items-center">
@@ -13,10 +13,54 @@
     </div>
   </div>
   <div class="container border-top mt-4 pt-5">
-    <h5 class="font-weight-semibold mb-5"><%= t ".your_campaigns" %></h5>
-    <%= render "shared/list_campaigns", items: @campaigns %>
-    <div class="paginator-container">
-      <%= paginate @campaigns %>
+    <div class="row align-items-center mb-5">
+      <div class="col-md-4">
+        <h5 class="font-weight-semibold">
+          <%= t ".created_campaigns" %>
+          <span>(<%= @user.campaigns.size %>)</span>
+        </h5>
+      </div>
+      <div class="col-md-8">
+        <div>
+          <ul class="nav nav-pills kindmate-nav-pills justify-content-end" id="campaign-pills-tab" role="tablist">
+            <% Settings.campaign.types.each do |type| %>
+              <li class="nav-item" role="presentation">
+                <%= link_to "#pills-#{type}",
+                            class: "nav-link #{type === 'all' ? 'active' : ''}",
+                            id: "pills-#{type}-tab",
+                            "data-toggle": "pill",
+                            role: "tab",
+                            "aria-controls": "pills-campaigns",
+                            "aria-selected": "false" do
+                %>
+                  <% if type === "all" %>
+                    <span><%= t("global.all") %></span>
+                    <span class="badge badge-light"><%= @user.campaigns.size %></span>
+                  <% else %>
+                    <span><%= t("campaigns.statuses.#{type}") %></span>
+                    <span class="badge badge-light"><%= @user.campaigns.send(type).size %></span>
+                  <% end %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="tab-content" id="pills-tabContent">
+      <% Settings.campaign.types.each do |type| %>
+        <div class="tab-pane fade <%= type == "all" ? 'show active' : '' %>"
+             id="pills-<%= type %>"
+             role="tabpanel"
+             aria-labelledby="pills-<%= type %>-tab">
+          <div id="campaign-<%= type %>-render" class="row">
+            <%= render @campaigns[type.to_sym] %>
+          </div>
+          <div id="campaign-<%= type %>-paginator" class="paginator-container">
+            <%= paginate @campaigns[type.to_sym], param_name: "page_#{type}", remote: true %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </section>

@@ -6,7 +6,16 @@ class UsersController < ApplicationController
                 unless: :current_user_admin?
 
   def show
-    @campaigns = @user.campaigns.ordered_campaigns_by_donated.page params[:page]
+    usr_camps = @user.campaigns
+    @campaigns = {
+      all: usr_camps,
+      pending: usr_camps.pending,
+      running: usr_camps.running,
+      stopped: usr_camps.stopped
+    }
+    @campaigns.each do |key, val|
+      @campaigns[key] = val.ordered_and_paginated params["page_#{key}"]
+    end
   end
 
   def edit; end

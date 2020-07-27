@@ -44,6 +44,8 @@ class Campaign < ApplicationRecord
 
   scope :ordered_campaigns, ->{order created_at: :desc}
 
+  scope :ordered_and_paginated, ->(page){ordered_campaigns.page page}
+
   scope :ordered_campaigns_by_donated, ->{order donated_amount: :desc}
 
   scope :filter_by_title, ->(value){filter_by_string_attr :title, value}
@@ -56,6 +58,10 @@ class Campaign < ApplicationRecord
     return if creator.blank?
 
     where User.arel_table[:name].lower.matches("%#{creator.downcase}%")
+  end)
+
+  scope :filter_by_title_or_desc, (lambda do |keyword|
+    filter_by_title(keyword).or(filter_by_desc(keyword))
   end)
 
   paginates_per Settings.campaign.per_page

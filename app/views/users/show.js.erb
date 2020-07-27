@@ -1,0 +1,11 @@
+$("#campaign-all-render").html("<%= j render @campaigns[:all] %>");
+$("#campaign-all-paginator").html("<%= j paginate @campaigns[:all], param_name: :page_all, remote: true %>");
+
+$("#campaign-pending-render").html("<%= j render @campaigns[:pending] %>");
+$("#campaign-pending-paginator").html("<%= j paginate @campaigns[:pending], param_name: :page_pending, remote: true %>");
+
+$("#campaign-running-render").html("<%= j render @campaigns[:running] %>");
+$("#campaign-running-paginator").html("<%= j paginate @campaigns[:running], param_name: :page_running, remote: true %>");
+
+$("#campaign-stopped-render").html("<%= j render @campaigns[:stopped] %>");
+$("#campaign-stopped-paginator").html("<%= j paginate @campaigns[:stopped], param_name: :page_stopped, remote: true %>");

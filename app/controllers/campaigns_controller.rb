@@ -6,9 +6,10 @@ class CampaignsController < ApplicationController
                 unless: :current_user_admin?
 
   def index
-    @campaigns = Campaign.filter_by_title(
-      params[:keyword]
-    ).ordered_campaigns_by_donated.includes(:user).page params[:page]
+    @campaigns = Campaign.not_pending
+                         .filter_by_title_or_desc(params[:keyword])
+                         .ordered_campaigns
+                         .page params[:page]
   end
 
   def new

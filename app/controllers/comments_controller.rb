@@ -7,7 +7,6 @@ class CommentsController < ApplicationController
   def create
     @comment = @campaign.comments.build comment_params
     refind_comments if @comment.save
-
     respond_to :js
   end
 
