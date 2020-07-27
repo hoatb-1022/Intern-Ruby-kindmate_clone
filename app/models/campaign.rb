@@ -10,6 +10,8 @@ class Campaign < ApplicationRecord
       expired_at
     ).freeze
 
+  enum status: {pending: 0, running: 1, stopped: 2}
+
   belongs_to :user
 
   has_one_attached :image
@@ -40,12 +42,20 @@ class Campaign < ApplicationRecord
               message: I18n.t("campaigns.valid_image_size!")
             }
 
-  scope :ordered_campaigns, ->{order donated_amount: :desc}
+  scope :ordered_campaigns, ->{order created_at: :desc}
 
-  scope :filtered_campaigns, (lambda do |keyword|
-    if keyword.present?
-      where arel_table[:title].lower.matches("%#{keyword.downcase}%")
-    end
+  scope :ordered_campaigns_by_donated, ->{order donated_amount: :desc}
+
+  scope :filter_by_title, ->(value){filter_by_string_attr :title, value}
+
+  scope :filter_by_desc, ->(value){filter_by_string_attr :description, value}
+
+  scope :filter_by_status, ->(value){filter_by_number_attr :status, value}
+
+  scope :filter_by_creator, (lambda do |creator|
+    return if creator.blank?
+
+    where User.arel_table[:name].lower.matches("%#{creator.downcase}%")
   end)
 
   paginates_per Settings.campaign.per_page

@@ -1,6 +1,7 @@
 vi:
   global:
     app_title: "Kindmate - Nền tảng gây quỹ dễ dàng và nhanh chóng"
+    app_admin_title: "Kindmate Manager - Quản lý hệ thống"
     campaign: "Chiến dịch"
     campaigns: "Các chiến dịch"
     see_more: "Tìm hiểu thêm"
@@ -9,6 +10,7 @@ vi:
     error: "lỗi"
     welcome: "Chào mừng đến với Kindmate"
     please_login: "Vui lòng đăng nhập"
+    no_permission: "Bạn không có quyền truy cập"
     cancel: "Huỷ"
     remaining_time: "Còn lại %{remaining}"
     time_ago: "%{time} trước đây"
@@ -19,6 +21,7 @@ vi:
     you_sure?: "Bạn chắc chắn?"
     delete: "Xoá"
     edit: "Chỉnh sửa"
+    all: "Tất cả"
   _header:
     brand: "Kindmate"
     about_us: "Về chúng tôi"
@@ -78,6 +81,17 @@ vi:
     about:
       title: "Về chúng tôi"
   users:
+    of_user: "%{attr} của người dùng"
+    name: "Họ tên"
+    email: "Email"
+    phone: "Số điện thoại"
+    address: "Địa chỉ"
+    desc: "Mô tả"
+    status: "Trạng thái"
+    active: "Đang hoạt động"
+    blocked: "Đã bị chặn"
+    do_active: "Bỏ chặn"
+    do_block: "Chặn"
     not_found: "Người dùng không tồn tại!"
     confirmation: "Xác nhận"
     show:
@@ -124,6 +138,12 @@ vi:
       reset_pass_success: "Đặt lại mật khẩu thành công"
       reset_pass_failed: "Đặt lại mật khẩu thất bại"
   campaigns:
+    of_campaign: "%{attr} của chiến dịch"
+    title: "Tiêu đề"
+    desc: "Mô tả"
+    creator: "Chủ chiến dịch"
+    status: "Trạng thái"
+    completion: "Độ hoàn thành"
     create_now: "Tạo ngay"
     save_campaign: "Lưu chiến dịch"
     not_found: "Chiến dịch không tồn tại!"
@@ -133,9 +153,15 @@ vi:
     failed_updated: "Cập nhật chiến dịch thất bại"
     success_deleted: "Đã xoá chiến dịch thành công"
     failed_deleted: "Đã xoá chiến dịch thất bại"
+    do_run: "Chạy chiến dịch"
+    do_stop: "Ngừng chiến dịch"
     valid_image_format!: "Ảnh cần đúng định dạng"
     valid_image_size!: "Ảnh phải nhỏ hơn 5MB"
     alert_size_exceeded: "Dung lượng tối đa là 5MB. Vui lòng chọn ảnh nhỏ hơn."
+    statuses:
+      pending: "Chờ phê duyệt"
+      running: "Đang chạy"
+      stopped: "Đã ngừng"
     index:
       title: "Khám phá chiến dịch"
       fill_in_keyword: "Nhập từ khoá"
@@ -175,6 +201,23 @@ vi:
     failed_updated: "Cập nhật bình luận thất bại"
     success_deleted: "Đã xoá bình luận thành công"
     failed_deleted: "Đã xoá bình luận thất bại"
+  admin:
+    users:
+      index:
+        title: "Quản lý người dùng"
+        filter: "Bộ lọc người dùng"
+        filtered_users: "Đã lọc ra %{count}/%{all} người dùng"
+      update:
+        success_change_status: "Đổi trạng thái người dùng thành công"
+        failed_change_status: "Đổi trạng thái người dùng thành công"
+    campaigns:
+      index:
+        title: "Quản lý chiến dịch"
+        filter: "Bộ lọc chiến dịch"
+        filtered_campaigns: "Đã lọc ra %{count}/%{all} chiến dịch"
+      update:
+        success_change_status: "Đổi trạng thái chiến dịch thành công"
+        failed_change_status: "Đổi trạng thái chiến dịch thành công"
   user_mailer:
     account_activation:
       subject: "Kích hoạt tài khoản"

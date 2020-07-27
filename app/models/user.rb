@@ -33,6 +33,22 @@ class User < ApplicationRecord
   before_save :downcase_email
   before_create :create_activation_digest
 
+  scope :ordered_users, ->{order created_at: :desc}
+
+  scope :filter_by_name, ->(value){filter_by_string_attr :name, value}
+
+  scope :filter_by_email, ->(value){filter_by_string_attr :email, value}
+
+  scope :filter_by_phone, ->(value){filter_by_string_attr :phone, value}
+
+  scope :filter_by_address, ->(value){filter_by_string_attr :address, value}
+
+  scope :filter_by_desc, ->(value){filter_by_string_attr :description, value}
+
+  scope :filter_by_status, ->(value){filter_by_number_attr :is_blocked, value}
+
+  # TODO: Wrong filter...........!!!!!!
+
   has_secure_password
 
   def authenticated? attribute, token

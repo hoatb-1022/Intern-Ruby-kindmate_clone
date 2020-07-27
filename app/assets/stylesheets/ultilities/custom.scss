@@ -19,14 +19,6 @@ label {
   font-weight: 500;
 }
 
-.has-border-radius {
-  border-radius: $border-radius;
-}
-
-.has-box-shadow {
-  box-shadow: $box-shadow;
-}
-
 .input-group-append .input-group-text,
 .input-group-prepend .input-group-text {
   background-color: $gray-100;
@@ -73,6 +65,20 @@ img.embed-responsive-item {
   object-fit: cover;
 }
 
+.w-auto {
+  width: auto !important;
+}
+
+@for $i from 1 through 100 {
+  .w-#{$i} {
+    width: $i * 1% !important;
+  }
+}
+
+.word-break-all {
+  word-break: break-all !important;
+}
+
 /* Fonts */
 .font-weight-medium {
   font-weight: 500;
@@ -83,7 +89,7 @@ img.embed-responsive-item {
 }
 
 .bg-primary-light {
-  background-color: lighten($primary, 42);
+  background-color: $common-light-primary;
 }
 
 .btn-static-page {
@@ -342,5 +348,88 @@ img.embed-responsive-item {
 
   & .toast-warning {
     background-color: $warning;
+  }
+}
+
+/* Custom bootstrap table */
+.table {
+  th, td {
+    padding: 1rem;
+    vertical-align: top;
+    border-top: 1px solid $common-light-primary;
+  }
+
+  thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid $common-light-primary;
+  }
+
+  tbody + tbody {
+    border-top: 2px solid $common-light-primary;
+  }
+
+  .table {
+    background-color: $common-light-primary;
+  }
+}
+
+.table .thead-light th {
+  font-size: .9em;
+  color: #8173b8;
+  border-color: #f0f0f6;
+  background-color: #f0f0f6;
+}
+
+.card .table {
+  margin-bottom: 0;
+}
+
+.card .table td,
+.card .table th {
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+/* Custom bootstrap dropdown */
+.dropdown-menu {
+  box-shadow: $box-shadow;
+  border: none;
+
+  .dropdown-item {
+    font-weight: 500;
+    font-size: .85rem;
+    padding: .5rem 1rem;
+
+    &:hover {
+      background-color: $common-light-primary;
+    }
+
+    &:focus,
+    &:focus-within{
+      background-color: $primary;
+    }
+  }
+}
+
+.common-icon-btn {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  color: $gray-600;
+  border-radius: $border-radius;
+
+  i {
+    line-height: 32px;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $box-shadow;
+    color: black;
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: $common-shadow;
   }
 }

@@ -4,6 +4,8 @@ user:
     max_length: 255
   password:
     min_length: 6
+  is_blocked: "1"
+  is_unblocked: "0"
 session:
   remember_me?: "1"
 campaign:
