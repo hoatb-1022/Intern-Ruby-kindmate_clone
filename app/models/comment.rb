@@ -1,10 +1,13 @@
 class Comment < ApplicationRecord
   PERMIT_ATTRIBUTES = :content
 
+  include Notifier
+
   belongs_to :user
   belongs_to :campaign
 
   delegate :name, to: :user, prefix: true, allow_nil: true
+  delegate :id, to: :campaign, prefix: true, allow_nil: true
 
   validates :content,
             presence: true,

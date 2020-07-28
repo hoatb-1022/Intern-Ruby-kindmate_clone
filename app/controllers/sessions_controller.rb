@@ -37,9 +37,9 @@ class SessionsController < ApplicationController
     log_in @user
 
     if params[:session][:remember_me] == Settings.session.remember_me?
-      remember(@user)
+      remember @user
     else
-      forget(@user)
+      forget @user
     end
 
     redirect_back_or @user

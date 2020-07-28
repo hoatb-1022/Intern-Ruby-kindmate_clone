@@ -160,7 +160,7 @@ en:
     failed_deleted: "Failed to delete campaign"
     do_run: "Run campaign"
     do_stop: "Stop campaign"
-    at_least_one_tag: "Campaign must have at least one tag"
+    at_most_three_tags: "Campaign must have at most 3 tags"
     statuses:
       pending: "Pending"
       running: "Running"
@@ -264,3 +264,17 @@ en:
       status: "Status"
       creator: "Creator"
       tags: "Tags *"
+  notify:
+    campaign:
+      approve_request: "Request for approving"
+      updated: "There is an updated campaign, please check it"
+      created: "There is a new campaign, please check it"
+      status_changed: "Changed campaign's status"
+      running: "Your campaign is running"
+      stopped: "Your campaign is stopped"
+    comment:
+      new: "New comment"
+      created: "Your campaign had a new comment"
+    donation:
+      new: "New donation"
+      created: "Your campaign had a new donation"

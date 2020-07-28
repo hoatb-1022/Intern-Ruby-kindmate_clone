@@ -24,6 +24,9 @@ class CampaignsController < ApplicationController
 
     if @campaign.save
       flash[:success] = t ".success_created"
+      @campaign.notify_to_admin(t("notify.campaign.approve_request"),
+                                t("notify.campaign.created"),
+                                admin_campaigns_url(status: Campaign.statuses[:pending]))
       redirect_to root_url
     else
       flash.now[:error] = t ".failed_created"
@@ -52,6 +55,9 @@ class CampaignsController < ApplicationController
   def update
     if @campaign.update campaign_params
       flash[:success] = t ".success_updated"
+      @campaign.notify_to_admin(t("notify.campaign.approve_request"),
+                                t("notify.campaign.updated"),
+                                admin_campaigns_url(status: Campaign.statuses[:pending]))
       redirect_to @campaign
     else
       flash.now[:error] = t ".failed_updated"

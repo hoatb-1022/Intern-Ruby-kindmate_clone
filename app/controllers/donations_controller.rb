@@ -13,6 +13,10 @@ class DonationsController < ApplicationController
 
     if @donation.save
       flash[:success] = t ".success_donated"
+      @donation.notify_to_user(@campaign.user_id,
+                               t("notify.donation.new"),
+                               t("notify.donation.created"),
+                               campaign_url(id: @campaign.id))
       redirect_to @campaign
     else
       flash.now[:error] = t ".failed_donated"

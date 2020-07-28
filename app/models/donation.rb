@@ -9,6 +9,8 @@ class Donation < ApplicationRecord
 
   enum payment_type: {transfer: 0, payment: 1, cash: 2}
 
+  include Notifier
+
   delegate :name, to: :user, prefix: true, allow_nil: true
 
   belongs_to :user

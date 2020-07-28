@@ -22,8 +22,13 @@
       overflow: visible;
     }
 
-    img {
-      max-width: 100%;
+    img, iframe {
+      width: 100%;
+    }
+
+    iframe {
+      height: auto;
+      min-height: 400px;
     }
   }
 

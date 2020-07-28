@@ -2,7 +2,11 @@ export function setupPaymentRadio() {
   $('.payment-box').click(function (event) {
     event.preventDefault()
 
-    $('.payment-box.active').removeClass('active')
+    let currentActive = $('.payment-box.active')
+    currentActive.removeClass('active')
+    currentActive.find('input').removeAttr('checked')
+
     this.classList.add('active')
+    this.querySelector('input').setAttribute('checked', 'checked')
   })
 }

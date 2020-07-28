@@ -9,45 +9,21 @@
           <%= render "shared/error_messages", object: f.object %>
           <div class="select-payment">
             <div class="form-row">
-              <div class="form-group col-md-4">
-                <div class="payment-box active" data-active="transfer">
-                  <%= f.label :payment_type, value: "transfer" do %>
-                    <div class="media align-items-center p-3">
-                      <%= image_tag "svg/transfer.svg" %>
-                      <div class="media-body ml-3">
-                        <%= t ".transfer" %>
+              <% Donation.payment_types.each do |key, val| %>
+                <div class="form-group col-md-4">
+                  <div class="payment-box <%= val == 0 ? 'active' : '' %>" data-active="<%= key %>">
+                    <%= f.label :payment_type, value: key do %>
+                      <div class="media align-items-center p-3">
+                        <%= image_tag "svg/#{key}.svg" %>
+                        <div class="media-body ml-3">
+                          <%= t ".#{key}" %>
+                        </div>
                       </div>
-                    </div>
-                  <% end %>
-                  <%= f.radio_button :payment_type, "transfer", checked: true, hidden: true %>
+                    <% end %>
+                    <%= f.radio_button :payment_type, key, hidden: true %>
+                  </div>
                 </div>
-              </div>
-              <div class="form-group col-md-4">
-                <div class="payment-box" data-active="payment">
-                  <%= f.label :payment_type, value: "payment" do %>
-                    <div class="media align-items-center p-3">
-                      <%= image_tag "svg/payment.svg" %>
-                      <div class="media-body ml-3">
-                        <%= t ".payment" %>
-                      </div>
-                    </div>
-                  <% end %>
-                  <%= f.radio_button :payment_type, "payment", hidden: true %>
-                </div>
-              </div>
-              <div class="form-group col-md-4">
-                <div class="payment-box" data-active="cash">
-                  <%= f.label :payment_type, value: "cash" do %>
-                    <div class="media align-items-center p-3">
-                      <%= image_tag "svg/cash.svg" %>
-                      <div class="media-body ml-3">
-                        <%= t ".cash" %>
-                      </div>
-                    </div>
-                  <% end %>
-                  <%= f.radio_button :payment_type, "cash", hidden: true %>
-                </div>
-              </div>
+              <% end %>
               <div class="form-group mt-3 col-md-12">
                 <%= f.label :amount %>
                 <div class="input-group input-donate-amount">

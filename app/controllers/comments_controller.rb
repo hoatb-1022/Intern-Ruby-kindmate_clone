@@ -8,6 +8,10 @@ class CommentsController < ApplicationController
     @comment = @campaign.comments.build comment_params
 
     if @comment.save
+      @comment.notify_to_user(@campaign.user_id,
+                              t("notify.comment.new"),
+                              t("notify.comment.created"),
+                              campaign_url(id: @comment.campaign_id))
       refind_comments
     end
 

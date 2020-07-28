@@ -27,7 +27,10 @@ class User < ApplicationRecord
             length: {maximum: Settings.user.email.max_length},
             format: {with: URI::MailTo::EMAIL_REGEXP},
             uniqueness: true
-  validates :phone, presence: true, uniqueness: true
+  validates :phone,
+            presence: true,
+            format: {with: Settings.user.phone_regex},
+            uniqueness: true
   validates :password,
             presence: true,
             length: {minimum: Settings.user.password.min_length},

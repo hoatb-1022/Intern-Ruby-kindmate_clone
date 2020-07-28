@@ -13,14 +13,23 @@ class Admin::CampaignsController < AdminController
     success = case params[:status].to_i
               when Campaign.statuses[:pending]
                 @campaign.pending!
+                notify_body = ""
               when Campaign.statuses[:running]
                 @campaign.running!
+                notify_body = t "notify.campaign.running"
               else
                 @campaign.stopped!
+                notify_body = t "notify.campaign.stopped"
               end
 
     if success
       flash[:success] = t ".success_change_status"
+      unless @campaign.pending?
+        @campaign.notify_to_user(@campaign.user_id,
+                                 t("notify.campaign.status_changed"),
+                                 notify_body,
+                                 campaign_url(id: @campaign.id))
+      end
     else
       flash[:error] = t ".failed_change_status"
     end

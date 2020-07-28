@@ -1,5 +1,6 @@
 <%= form_for @campaign do |f| %>
   <%= render "shared/error_messages", object: f.object %>
+  <%= f.hidden_field :status, value: :pending %>
   <div class="row">
     <div class="col-lg-8 col-12">
       <div class="row">

@@ -7,6 +7,7 @@ class Campaign < ApplicationRecord
     :embedded_link,
     :total_amount,
     :expired_at,
+    :status,
     tags_attributes: [
       :id,
       :name,
@@ -15,6 +16,8 @@ class Campaign < ApplicationRecord
   ].freeze
 
   enum status: {pending: 0, running: 1, stopped: 2}
+
+  include Notifier
 
   belongs_to :user
 
@@ -54,7 +57,7 @@ class Campaign < ApplicationRecord
                 maximum: Settings.campaign.max_image_num
               )
             }
-  validate :require_one_tag
+  validate :require_max_tag
 
   scope :ordered_campaigns, ->{order created_at: :desc}
 
@@ -95,8 +98,8 @@ class Campaign < ApplicationRecord
     attributes[:name].blank?
   end
 
-  def require_one_tag
+  def require_max_tag
     alive_tags = tags.select { |tag| !tag.marked_for_destruction? }
-    errors.add(:base, "You must provide at least one tag") if alive_tags.size < Settings.campaign.min_tag_size
+    errors.add(:base, t("campaigns.at_most_three_tags")) if alive_tags.size > Settings.campaign.max_tags_size
   end
 end
