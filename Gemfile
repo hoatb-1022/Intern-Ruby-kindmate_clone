@@ -7,6 +7,7 @@ gem "active_storage_validations", "~> 0.8.9"
 gem "bcrypt", "~> 3.1", ">= 3.1.13"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "bootstrap", "~> 4.5"
+gem "ckeditor", github: "galetahub/ckeditor"
 gem "config", "~> 2.2", ">= 2.2.1"
 gem "faker", "~> 2.12"
 gem "figaro", "~> 1.2"
@@ -29,7 +30,9 @@ gem "webpacker", "~> 4.0"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "factory_bot_rails"
   gem "pry-rails", "~> 0.3.9"
+  gem "rspec-rails"
   gem "rubocop", "~> 0.74.0", require: false
   gem "rubocop-rails", "~> 2.3.2", require: false
 end
@@ -43,7 +46,10 @@ end
 
 group :test do
   gem "capybara", ">= 2.15"
+  gem "database_cleaner-active_record"
   gem "selenium-webdriver"
+  gem "shoulda-matchers"
+  gem "simplecov", require: false
   gem "webdrivers"
 end
 
