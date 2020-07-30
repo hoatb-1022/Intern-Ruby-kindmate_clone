@@ -23,12 +23,17 @@ campaign:
   success_show_homepage: 3
   share_fb_prefix: "https://www.facebook.com/sharer/sharer.php?u="
   max_tags_size: 3
+  min_faker_amount: 10000
+  max_faker_amount: 500000
 donation:
   min_amount: 0
   max_message_length: 255
   per_page: 5
   default_amount: 10000
+  min_faker_amount: 10000
+  max_faker_amount: 90000
 comment:
+  max_content_length: 500
   per_page: 5
 tag:
   max_length: 50
