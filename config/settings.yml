@@ -6,6 +6,10 @@ user:
     min_length: 6
   is_blocked: "1"
   is_unblocked: "0"
+  max_image_size_num: 3
+  max_image_size: <%= 3.megabytes %>
+  phone_regex: !ruby/regexp /(03|09|01[2|6|8|9])+([0-9]{8})\b/
+  default_password: "123123"
 session:
   remember_me?: "1"
 campaign:
