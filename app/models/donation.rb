@@ -30,7 +30,7 @@ class Donation < ApplicationRecord
 
   class << self
     def generate_payment_code campaign_id
-      "KM#{campaign_id + Time.zone.now.strftime('%Y%m%d%H%M%S')}"
+      "KM#{campaign_id.to_s + Time.zone.now.strftime('%Y%m%d%H%M%S')}"
     end
   end
 
