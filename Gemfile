@@ -33,6 +33,7 @@ group :development, :test do
   gem "factory_bot_rails"
   gem "pry-rails", "~> 0.3.9"
   gem "rspec-rails"
+  gem "rails-controller-testing"
   gem "rubocop", "~> 0.74.0", require: false
   gem "rubocop-rails", "~> 2.3.2", require: false
 end
