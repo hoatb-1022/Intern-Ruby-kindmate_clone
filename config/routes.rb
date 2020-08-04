@@ -7,16 +7,24 @@ Rails.application.routes.draw do
     get "/terms_of_use", to: "static_pages#terms_of_use"
     get "/faqs", to: "static_pages#faqs"
 
-    get "/signup", to: "users#new"
-    post "/signup", to: "users#create"
+    devise_for :users
+    devise_scope :user do
+      get "signup", to: "users/registrations#new"
+      post "signup", to: "users/registrations#create"
 
-    get "/login", to: "sessions#new"
-    post "/login", to: "sessions#create"
-    delete "/logout", to: "sessions#destroy"
+      get "login", to: "users/sessions#new"
+      post "login", to: "users/sessions#create"
+      delete "logout", to: "users/sessions#destroy"
 
-    resources :users, except: [:new, :create]
+      get "password_reset", to: "users/passwords#new"
+      post "password_reset", to: "users/passwords#create"
+      patch "password_reset", to: "users/passwords#update"
+      put "password_reset", to: "users/passwords#update"
+      get "password_reset/edit", to: "users/passwords#edit", as: "edit_password_reset"
+    end
+
+    resources :users, except: [:index, :new, :create]
     resources :account_activations, only: :edit
-    resources :password_resets, except: [:index, :destroy]
     resources :campaigns do
       resources :donations, only: [:new, :create]
       resources :comments, only: [:create, :update, :destroy]

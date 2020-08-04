@@ -9,6 +9,7 @@ gem "bootsnap", ">= 1.4.2", require: false
 gem "bootstrap", "~> 4.5"
 gem "ckeditor", github: "galetahub/ckeditor"
 gem "config", "~> 2.2", ">= 2.2.1"
+gem "devise"
 gem "faker", "~> 2.12"
 gem "figaro", "~> 1.2"
 gem "font_awesome5_rails"

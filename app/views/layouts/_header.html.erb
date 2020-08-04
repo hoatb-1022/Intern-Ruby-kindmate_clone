@@ -22,7 +22,7 @@
         <% end %>
       </ul>
       <ul class="navbar-nav ml-auto">
-        <% if logged_in? %>
+        <% if user_signed_in? %>
           <li class="nav-item d-flex align-items-center">
             <%= link_to t("static_pages.home.create_campaign"), new_campaign_path, class: "btn btn-outline-primary mr-3" %>
           </li>

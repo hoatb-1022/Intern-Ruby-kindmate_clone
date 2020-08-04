@@ -4,7 +4,7 @@ RSpec.describe Donation, type: :model do
   let!(:user) {FactoryBot.create :user}
   let!(:campaign) {FactoryBot.create :campaign, user_id: user.id}
 
-   describe "Validations" do
+  describe "Validations" do
     context "when all fields given" do
       let(:donations) {FactoryBot.create :donation, user_id: user.id, campaign_id: campaign.id}
 

@@ -15,7 +15,7 @@ Rails.application.configure do
   # Mailer configs
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = {host: ENV["host"] }
+  config.action_mailer.default_url_options = {host: ENV["host"], port: ENV["port"] }
 
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {

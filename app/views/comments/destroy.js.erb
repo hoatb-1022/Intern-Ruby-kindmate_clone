@@ -3,6 +3,9 @@
   $('#comments-container').html(
     "<%= j render "comments/list_comments", comments: @comments, remote: true %>"
   )
+  $('#comment-title-size').html(
+    "(<%= @campaign.comments.size %>)"
+  )
 <% else %>
   toastr.error(I18n.t("comments.failed_deleted"))
 <% end %>
