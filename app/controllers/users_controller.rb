@@ -1,31 +1,12 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, except: [:create, :new, :show]
-  before_action :find_user, except: [:index, :create, :new]
+  before_action :authenticate_user!, except: :show
+  before_action :find_user
   before_action :correct_user,
                 only: [:edit, :update, :destroy],
                 unless: :current_user_admin?
 
-  def index; end
-
   def show
     @campaigns = @user.campaigns.ordered_campaigns_by_donated.page params[:page]
-  end
-
-  def new
-    @user = User.new
-  end
-
-  def create
-    @user = User.new user_params
-
-    if @user.save
-      @user.send_activation_email
-      flash[:success] = t ".new.success_create_account"
-      redirect_to login_url
-    else
-      flash.now[:error] = t ".new.failed_create_account"
-      render :new
-    end
   end
 
   def edit; end

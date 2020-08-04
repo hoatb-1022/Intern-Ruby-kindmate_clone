@@ -170,7 +170,7 @@
       <div id="campaign-comments" class="mt-4 border-top pt-4">
         <h5 class="font-weight-semibold mb-3">
           <%= t ".comments" %>
-          <span>(<%= @campaign.comments.size %>)</span>
+          <span id="comment-title-size">(<%= @campaign.comments.size %>)</span>
         </h5>
         <%= form_for [@campaign, @new_comment], remote: true do |f| %>
           <div class="media">

@@ -2,7 +2,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
 
+  before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: User::PERMIT_ATTRIBUTES)
+  end
 
   private
 
@@ -20,7 +27,7 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in_user
-    return if logged_in?
+    return if user_signed_in?
 
     store_location
     flash[:error] = t "global.please_login"
@@ -56,7 +63,7 @@ class ApplicationController < ActionController::Base
   end
 
   def check_current_user_admin
-    return if logged_in? && current_user_admin?
+    return if user_signed_in? && current_user_admin?
 
     flash[:error] = t "global.no_permission"
     redirect_to request.referer || root_url
