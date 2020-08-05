@@ -7,6 +7,10 @@ module SessionsHelper
     user.admin?
   end
 
+  def user_activated?
+    !current_user&.is_blocked?
+  end
+
   def redirect_back_or default
     redirect_to(session[:forwarding_url] || default)
     session.delete :forwarding_url

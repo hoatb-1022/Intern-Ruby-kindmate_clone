@@ -7,12 +7,12 @@ module UsersHelper
   end
 
   def user_change_status_link user
-    link_text = t "users.do_active"
-    link_status = Settings.user.is_unblocked
+    link_text = t "users.do_block"
+    link_status = Settings.user.is_blocked
 
     if user.is_blocked?
-      link_text = t "users.do_block"
-      link_status = Settings.user.is_blocked
+      link_text = t "users.do_active"
+      link_status = Settings.user.is_unblocked
     end
 
     link_to(

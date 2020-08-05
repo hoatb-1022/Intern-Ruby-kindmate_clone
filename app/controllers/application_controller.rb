@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :set_locale
+  before_action :set_locale, :check_user_activated
 
   protected
 
@@ -32,6 +32,13 @@ class ApplicationController < ActionController::Base
     store_location
     flash[:error] = t "global.please_login"
     redirect_to login_url
+  end
+
+  def check_user_activated
+    return if !user_signed_in? || user_activated?
+
+    flash[:error] = t "users.sessions.blocked_account"
+    sign_out current_user
   end
 
   def find_user

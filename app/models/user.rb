@@ -26,6 +26,8 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :phone, presence: true, uniqueness: true
 
+  before_save :downcase_email
+
   scope :ordered_users, ->{order created_at: :desc}
 
   scope :filter_by_name, ->(value){filter_by_string_attr :name, value}
@@ -41,6 +43,10 @@ class User < ApplicationRecord
   scope :filter_by_status, ->(value){filter_by_number_attr :is_blocked, value}
 
   protected
+
+  def downcase_email
+    email.downcase!
+  end
 
   def password_required?
     new_record? ? super : false
