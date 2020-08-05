@@ -23,6 +23,9 @@ vi:
     delete: "Xoá"
     edit: "Chỉnh sửa"
     all: "Tất cả"
+    valid_image_format!: "Ảnh cần đúng định dạng"
+    valid_image_size!: "Ảnh phải có dung lượng nhỏ hơn %{maximum}MB"
+    alert_size_exceeded: "Dung lượng ảnh tối đa là %{maximum}MB. Vui lòng chọn ảnh nhỏ hơn."
   _header:
     brand: "Kindmate"
     about_us: "Về chúng tôi"
@@ -168,9 +171,6 @@ vi:
     failed_deleted: "Đã xoá chiến dịch thất bại"
     do_run: "Chạy chiến dịch"
     do_stop: "Ngừng chiến dịch"
-    valid_image_format!: "Ảnh cần đúng định dạng"
-    valid_image_size!: "Ảnh phải nhỏ hơn 5MB"
-    alert_size_exceeded: "Dung lượng tối đa là 5MB. Vui lòng chọn ảnh nhỏ hơn."
     statuses:
       pending: "Chờ phê duyệt"
       running: "Đang chạy"

@@ -16,8 +16,7 @@ import toastr from 'toastr'
 window.toastr = toastr
 
 import '@fortawesome/fontawesome-free/js/all'
-import {setupFlatpickr} from './flatpickr'
-import {setupQuill} from './quill'
+import {setupUserAvatar} from './users'
 import {
   setupCampaignImage,
   setupContentToggle,
@@ -27,8 +26,11 @@ import {
 import {setupPaymentRadio} from './donations'
 import {setupCommentEdit} from './comments'
 import {setupNavbarItemMatchRoute} from './router'
+import {setupFlatpickr} from './flatpickr'
+import {setupQuill} from './quill'
 
 $(document).on('turbolinks:load', function () {
+  setupUserAvatar()
   setupCampaignImage()
   setupContentToggle()
   setupSeeCreatorInfoLink()

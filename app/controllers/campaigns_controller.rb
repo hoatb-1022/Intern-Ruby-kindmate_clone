@@ -8,8 +8,6 @@ class CampaignsController < ApplicationController
   def index
     @campaigns = Campaign.not_pending
                          .filter_by_title_or_desc(params[:keyword])
-                         .ordered_campaigns
-                         .page params[:page]
   end
 
   def new
@@ -34,10 +32,12 @@ class CampaignsController < ApplicationController
                           .ordered_donations
                           .includes(:user)
                           .page params[:page]
+
     @comments = @campaign.comments
                          .ordered_comments
                          .includes(:user)
                          .page params[:page]
+
     @new_comment = Comment.new
   end
 
