@@ -16,9 +16,10 @@ RSpec.describe CampaignsController, type: :controller do
       it "should assign @campaigns" do
         expect(assigns(:campaigns)).to(
           eq(
-            Campaign.filter_by_title("").ordered_campaigns_by_donated
-                                        .includes(:user)
-                                        .page 1
+            Campaign.not_pending
+              .filter_by_title_or_desc(params[:keyword])
+              .ordered_campaigns
+              .page params[:page]
           )
         )
       end

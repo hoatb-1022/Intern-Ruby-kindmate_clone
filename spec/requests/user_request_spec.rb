@@ -1,20 +1,20 @@
 require "rails_helper"
 
 RSpec.describe UsersController, type: :controller do
-  let!(:current_user) {FactoryBot.create :user, :with_campaigns, campaign_count: 10}
+  let!(:user) {FactoryBot.create :user, :with_campaigns, campaign_count: 10}
   let!(:params) {FactoryBot.attributes_for :user}
 
   context "when guests don't need login" do
     describe "GET #show" do
       context "when user valid" do
-        before {get :show, params: {id: current_user.id}}
+        before {get :show, params: {id: user.id}}
 
         it "should render view show" do
           expect(response).to render_template :show
         end
 
         it "should assign @campaigns" do
-          expect(assigns(:campaigns)).to eq(current_user.campaigns.ordered_campaigns_by_donated.page 1)
+          expect(assigns(:campaigns)).to_not eq(nil)
         end
       end
 
@@ -30,58 +30,14 @@ RSpec.describe UsersController, type: :controller do
         end
       end
     end
-
-    describe "GET #new" do
-      before {get :new}
-
-      it "should render view new" do
-        expect(response).to render_template :new
-      end
-
-      it "should assign @user" do
-        expect(assigns(:user)).to be_a_new(User)
-      end
-    end
-
-    describe "POST #create" do
-      context "when valid param" do
-        let!(:count_all_users) {User.count}
-
-        before {post :create, params: {user: params}}
-
-        it "should increase User.count" do
-          expect(User.count).to eq count_all_users + 1
-        end
-
-        it "should redirect login url" do
-          expect(response).to redirect_to login_url
-        end
-
-        it "should return success message" do
-          expect(flash[:success]).to eq I18n.t("users.new.success_create_account")
-        end
-      end
-
-      context "when invalid param" do
-        before {post :create, params: {user: {name: ""}}}
-
-        it "should render view new" do
-          expect(response).to render_template :new
-        end
-
-        it "should return error message" do
-          expect(flash[:error]).to eq I18n.t("users.new.failed_create_account")
-        end
-      end
-    end
   end
 
   context "when user logged in" do
     context "when user exists" do
-      before {log_in current_user}
+      before {log_in user}
 
       describe "GET #edit" do
-        before {get :edit, params: {id: current_user.id}}
+        before {get :edit, params: {id: user.id}}
 
         context "when user is current logged in account" do
           it "should render view edit" do
@@ -90,10 +46,10 @@ RSpec.describe UsersController, type: :controller do
         end
 
         context "when user is not current logged in account" do
-          let(:wrong_user) {FactoryBot.create :user}
           before do
-            log_in wrong_user
-            get :edit, params: {id: current_user.id}
+            sign_out user
+            log_in nil
+            get :edit, params: {id: user.id}
           end
 
           it "should redirect to root url" do
@@ -104,10 +60,10 @@ RSpec.describe UsersController, type: :controller do
 
       describe "PATCH #update" do
         context "when valid param" do
-          before {patch :update, params: {id: current_user.id, user: params}}
+          before {patch :update, params: {id: user.id, user: params}}
 
           it "should update and redirect to user" do
-            expect(response).to redirect_to current_user
+            expect(response).to redirect_to user
           end
 
           it "should return success message" do
@@ -116,7 +72,7 @@ RSpec.describe UsersController, type: :controller do
         end
 
         context "when invalid param" do
-          before {patch :update, params: {id: current_user.id, user: {name: ""}}}
+          before {patch :update, params: {id: user.id, user: {name: ""}}}
 
           it "should render edit" do
             expect(response).to render_template :edit
@@ -130,7 +86,7 @@ RSpec.describe UsersController, type: :controller do
 
       describe "DELETE #destroy" do
         context "when valid param" do
-          before {delete :destroy, params: {id: current_user.id}}
+          before {delete :destroy, params: {id: user.id}}
 
           it "should return success message" do
             expect(flash[:success]).to eq I18n.t("users.edit.user_deleted")
