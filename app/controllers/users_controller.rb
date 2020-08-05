@@ -22,6 +22,8 @@ class UsersController < ApplicationController
 
   def update
     if @user.update user_params
+      @user.avatar.attach user_params[:avatar] unless @user.avatar.attached?
+
       flash[:success] = t ".edit.profile_updated"
       redirect_to @user
     else

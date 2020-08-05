@@ -6,6 +6,7 @@ class User < ApplicationRecord
       phone
       address
       description
+      avatar
       password
       password_confirmation
     ).freeze
@@ -19,6 +20,8 @@ class User < ApplicationRecord
   has_many :campaigns, dependent: :destroy
   has_many :donations, dependent: :destroy
   has_many :comments, dependent: :destroy
+
+  has_one_attached :avatar
 
   validates :name, presence: true
   validates :phone, presence: true, uniqueness: true

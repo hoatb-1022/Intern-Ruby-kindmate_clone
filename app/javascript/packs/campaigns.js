@@ -45,7 +45,7 @@ export function setupCampaignImage() {
     if (checkCampaignImageSize(image)) {
       previewCampaignImage(image)
     } else {
-      alert(I18n.t('campaigns.alert_size_exceeded'))
+      alert(I18n.t('global.alert_size_exceeded', {maximum: 5}))
     }
   })
 }
