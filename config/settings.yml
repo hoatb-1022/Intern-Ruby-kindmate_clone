@@ -26,6 +26,7 @@ campaign:
   max_tags_size: 3
   min_faker_amount: 10000
   max_faker_amount: 500000
+  types: ["all", "pending", "running", "stopped"]
 donation:
   min_amount: 0
   max_message_length: 255

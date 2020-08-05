@@ -16,10 +16,15 @@
         <div class="card-text campaign-description">
           <%= campaign.description %>
         </div>
-        <small class="d-block card-text text-right text-muted mt-3">
-          <span><%= t "global.created_by" %></span>
-          <%= link_to campaign.user_name, campaign.user, class: "font-weight-medium" %>
-        </small>
+        <div class="d-flex flex-wrap justify-content-between">
+          <div class="badge badge-<%= campaign_status_badge(campaign)[:variant] %> mt-3">
+            <%= campaign_status_badge(campaign)[:text] %>
+          </div>
+          <small class="card-text text-right text-muted mt-3">
+            <span><%= t "global.created_by" %></span>
+            <%= link_to campaign.user_name, campaign.user, class: "font-weight-medium" %>
+          </small>
+        </div>
       </div>
       <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top w-100">
         <div class="d-flex justify-content-between align-items-center">

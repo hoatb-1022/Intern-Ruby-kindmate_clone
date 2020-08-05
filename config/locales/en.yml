@@ -96,7 +96,7 @@ en:
     not_found: "User not found!"
     confirmation: "Confirmation"
     show:
-      your_campaigns: "Your campaigns"
+      created_campaigns: "Created campaigns"
     registrations:
       new:
         sign_up: "Sign up"
@@ -159,6 +159,7 @@ en:
     create_now: "Create now"
     save_campaign: "Save campaign"
     not_found: "Campaign not found!"
+    not_running: "Campaign is not running"
     success_created: "Successfully create campaign"
     failed_created: "Failed to create campaign"
     success_updated: "Successfully update campaign"
@@ -195,6 +196,7 @@ en:
       share_now: "Share now"
       show_less: "Show less"
       show_more: "Show more"
+      pending_alert: "Your campaign is awaiting approval so it has not been publicly shown, you can contact us for the information approval process to take place faster. Kindmate sincerely thank!"
     edit:
       title: "Edit campaign"
   donations:
