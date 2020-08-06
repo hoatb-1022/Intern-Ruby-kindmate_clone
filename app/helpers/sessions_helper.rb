@@ -3,8 +3,8 @@ module SessionsHelper
     user == current_user
   end
 
-  def user_admin? user
-    user.admin?
+  def current_user_or_admin? user
+    current_user?(user) || current_user.admin?
   end
 
   def user_activated?

@@ -20,7 +20,7 @@
                 </div>
                 <%= form_for @user do |f| %>
                   <%= render "shared/error_messages", object: f.object %>
-                  <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png", class: "d-none" %>
+                  <%= f.file_field :avatar, accept: Settings.global.format_image_accept_html, class: "d-none" %>
                   <div class="form-group">
                     <%= f.label :name, t("form.user.name") %>
                     <%= f.text_field :name, class: "form-control" %>

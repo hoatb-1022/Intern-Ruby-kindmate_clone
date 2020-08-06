@@ -1,14 +1,14 @@
 class Campaign < ApplicationRecord
-  PERMIT_ATTRIBUTES =
-    %i(
-      title
-      content
-      description
-      image
-      embedded_link
-      total_amount
-      expired_at
-    ).freeze
+  PERMIT_ATTRIBUTES = [
+    :title,
+    :content,
+    :description,
+    :image,
+    :embedded_link,
+    :total_amount,
+    :expired_at,
+    tags_attributes: [:id, :name, :_destroy].freeze
+  ].freeze
 
   enum status: {pending: 0, running: 1, stopped: 2}
 
@@ -18,6 +18,12 @@ class Campaign < ApplicationRecord
 
   has_many :donations, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :classifications, dependent: :destroy
+  has_many :tags, through: :classifications
+
+  accepts_nested_attributes_for :tags,
+                                allow_destroy: true,
+                                reject_if: :reject_tags
 
   delegate :name, :campaigns, to: :user, prefix: true, allow_nil: true
 
@@ -44,6 +50,7 @@ class Campaign < ApplicationRecord
                 maximum: Settings.campaign.max_image_num
               )
             }
+  validate :require_max_tag
 
   scope :ordered_campaigns, ->{order created_at: :desc}
 
@@ -76,5 +83,16 @@ class Campaign < ApplicationRecord
 
   def bound_percent_style
     finished_percentage <= 100 ? finished_percentage : 100
+  end
+
+  private
+
+  def reject_tags attributes
+    attributes[:name].blank?
+  end
+
+  def require_max_tag
+    alive_tags = tags.reject(&:marked_for_destruction?)
+    errors.add(:base, t("campaigns.at_most_three_tags")) if alive_tags.size > Settings.campaign.max_tags_size
   end
 end

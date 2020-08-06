@@ -29,9 +29,9 @@
   </td>
   <td class="text-right">
     <div class="dropdown">
-      <a class="btn btn-sm btn-default common-icon-btn" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <%= link_to "#", class: "btn btn-sm btn-default common-icon-btn", role: "button", "data-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false" do %>
         <i class="fas fa-ellipsis-v"></i>
-      </a>
+      <% end %>
       <div class="dropdown-menu dropdown-menu-right">
         <%= campaign_change_status_link campaign %>
         <%= link_to t("global.edit"), edit_campaign_path(campaign), class: "dropdown-item" %>

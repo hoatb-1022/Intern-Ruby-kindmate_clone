@@ -1,5 +1,6 @@
 global:
   format_image_accept: <%= %w(image/jpeg image/gif image/png) %>
+  format_image_accept_html: "image/jpeg,image/gif,image/png"
 user:
   email:
     max_length: 255
