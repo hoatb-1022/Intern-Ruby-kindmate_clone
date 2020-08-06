@@ -37,7 +37,7 @@ module UsersHelper
         [t("users.active"), Settings.user.is_unblocked.to_i],
         [t("users.blocked"), Settings.user.is_blocked.to_i]
       ],
-      params[:status]
+      params[:q].try(:[], :is_blocked_eq)
     )
   end
 end

@@ -89,7 +89,7 @@ vi:
     email: "Email"
     phone: "Số điện thoại"
     address: "Địa chỉ"
-    desc: "Mô tả"
+    description: "Mô tả"
     status: "Trạng thái"
     active: "Đang hoạt động"
     blocked: "Đã bị chặn"
@@ -155,7 +155,7 @@ vi:
   campaigns:
     of_campaign: "%{attr} của chiến dịch"
     title: "Tiêu đề"
-    desc: "Mô tả"
+    description: "Mô tả"
     creator: "Chủ chiến dịch"
     status: "Trạng thái"
     completion: "Độ hoàn thành"

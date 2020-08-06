@@ -59,7 +59,7 @@ module CampaignsHelper
       Campaign.statuses.map do |k, v|
         [t("campaigns.statuses.#{k.humanize.downcase}"), v]
       end,
-      params[:status]
+      params[:q].try(:[], :status_eq)
     )
   end
 end

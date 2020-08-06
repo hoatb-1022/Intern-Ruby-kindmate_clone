@@ -1,29 +1,47 @@
-<%= form_with url: admin_users_path, method: :get, local: true do %>
+<%= search_form_for @query, url: admin_users_path do |f| %>
   <div class="card-body">
     <div class="form-row">
       <div class="form-group col-md-4 col-sm-6">
-        <%= label_tag :name, t("form.admin.user.name") %>
-        <%= text_field_tag :name, nil, placeholder: t("users.of_user", attr: t("users.name")), value: params[:name], class: "form-control" %>
+        <%= f.label :name_cont, t("form.admin.user.name") %>
+        <%= f.text_field :name_cont,
+                         placeholder: t("users.of_user", attr: t("users.name")),
+                         value: params[:q].try(:[], :name_cont),
+                         class: "form-control" %>
       </div>
       <div class="form-group col-md-4 col-sm-6">
-        <%= label_tag :email, t("form.admin.user.email") %>
-        <%= text_field_tag :email, nil, placeholder: t("users.of_user", attr: t("users.email")), value: params[:email], class: "form-control" %>
+        <%= f.label :email_cont, t("form.admin.user.email") %>
+        <%= f.text_field :email_cont,
+                         placeholder: t("users.of_user", attr: t("users.email")),
+                         value: params[:q].try(:[], :email_cont),
+                         class: "form-control" %>
       </div>
       <div class="form-group col-md-4 col-sm-6">
-        <%= label_tag :phone, t("form.admin.user.phone") %>
-        <%= text_field_tag :phone, nil, placeholder: t("users.of_user", attr: t("users.phone")), value: params[:phone], class: "form-control" %>
+        <%= f.label :phone_cont, t("form.admin.user.phone") %>
+        <%= f.text_field :phone_cont,
+                         placeholder: t("users.of_user", attr: t("users.phone")),
+                         value: params[:q].try(:[], :phone_cont),
+                         class: "form-control" %>
       </div>
       <div class="form-group col-md-4 col-sm-6 mb-md-0">
-        <%= label_tag :address, t("form.user.address") %>
-        <%= text_field_tag :address, nil, placeholder: t("users.of_user", attr: t("users.address")), value: params[:address], class: "form-control" %>
+        <%= f.label :address_cont, t("form.user.address") %>
+        <%= f.text_field :address_cont,
+                         placeholder: t("users.of_user", attr: t("users.address")),
+                         value: params[:q].try(:[], :address_cont),
+                         class: "form-control" %>
       </div>
       <div class="form-group col-md-4 col-sm-6 mb-md-0">
-        <%= label_tag :desc, t("form.user.description") %>
-        <%= text_field_tag :desc, nil, placeholder: t("users.of_user", attr: t("users.desc")), value: params[:desc], class: "form-control" %>
+        <%= f.label :description_cont, t("form.user.description") %>
+        <%= f.text_field :description_cont,
+                         placeholder: t("users.of_user", attr: t("users.description")),
+                         value: params[:q].try(:[], :description_cont),
+                         class: "form-control" %>
       </div>
       <div class="form-group col-md-4 col-sm-6 mb-0">
-        <%= label_tag :status, t("form.user.status") %>
-        <%= select_tag :status, user_status_options, include_blank: t("global.all"), class: "form-control" %>
+        <%= f.label :is_blocked_eq, t("form.user.status") %>
+        <%= f.select :is_blocked_eq,
+                     user_status_options,
+                     {include_blank: t("global.all")},
+                     {class: "form-control"} %>
       </div>
     </div>
   </div>
