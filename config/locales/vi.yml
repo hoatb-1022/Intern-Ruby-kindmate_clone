@@ -272,3 +272,18 @@ vi:
       campaign:
         title: "Tiêu đề"
         description: "Mô tả"
+  notify:
+    campaign:
+      approve_request: "Yêu cầu phê duyệt"
+      updated: "Có chiến dịch được cập nhật, vui lòng kiểm tra"
+      created: "Có chiến dịch được tạo mới, vui lòng kiểm tra"
+      status_changed: "Thay đổi trạng thái chiến dịch"
+      pending: "Chiến dịch của bạn đang chờ xét duyệt"
+      running: "Chiến dịch của bạn đã được khởi chạy"
+      stopped: "Chiến dịch của bạn đã được khởi chạy"
+    comment:
+      new: "Bình luận mới"
+      created: "Chiến dịch của bạn có bình luận mới"
+    donation:
+      new: "Ủng hộ mới"
+      created: "Chiến dịch của bạn nhận được sự ủng hộ mới"

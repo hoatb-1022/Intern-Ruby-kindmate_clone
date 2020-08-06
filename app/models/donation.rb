@@ -9,6 +9,9 @@ class Donation < ApplicationRecord
 
   enum payment_type: {transfer: 0, payment: 1, cash: 2}
 
+  include Notifier
+  include Rails.application.routes.url_helpers
+
   delegate :name, to: :user, prefix: true, allow_nil: true
 
   belongs_to :user
@@ -23,6 +26,7 @@ class Donation < ApplicationRecord
   validates :message, length: {maximum: Settings.donation.max_message_length}
 
   after_save :update_campaign
+  after_create :notify_new_donation
 
   scope :ordered_donations, ->{order created_at: :desc}
 
@@ -36,5 +40,14 @@ class Donation < ApplicationRecord
 
   def update_campaign
     campaign.update donated_amount: (campaign.donated_amount + amount)
+  end
+
+  def notify_new_donation
+    notify_to_user(
+      campaign.user_id,
+      I18n.t("notify.donation.new"),
+      I18n.t("notify.donation.created"),
+      campaign_url(id: campaign.id)
+    )
   end
 end

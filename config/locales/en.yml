@@ -273,3 +273,18 @@ en:
       campaign:
         title: "Titlte"
         description: "Description"
+  notify:
+    campaign:
+      approve_request: "Request for approving"
+      updated: "There is an updated campaign, please check it"
+      created: "There is a new campaign, please check it"
+      status_changed: "Changed campaign's status"
+      pending: "Your campaign is pending"
+      running: "Your campaign is running"
+      stopped: "Your campaign is stopped"
+    comment:
+      new: "New comment"
+      created: "Your campaign had a new comment"
+    donation:
+      new: "New donation"
+      created: "Your campaign had a new donation"
