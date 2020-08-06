@@ -7,16 +7,19 @@ class CommentsController < ApplicationController
   def create
     @comment = @campaign.comments.build comment_params
     refind_comments if @comment.save
+
     respond_to :js
   end
 
   def update
     refind_comments if @comment.update comment_params
+
     respond_to :js
   end
 
   def destroy
     refind_comments if @comment.destroy
+
     respond_to :js
   end
 

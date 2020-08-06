@@ -35,6 +35,8 @@ Rails.application.routes.draw do
       resources :users
       resources :campaigns
     end
+
+    mount Ckeditor::Engine => '/ckeditor'
   end
 
   default_url_options host: "localhost:3000"
