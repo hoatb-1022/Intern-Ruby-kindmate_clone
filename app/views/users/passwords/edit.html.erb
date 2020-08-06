@@ -13,11 +13,11 @@
                   <%= f.hidden_field :reset_password_token %>
                   <%= hidden_field_tag :email, @user.email %>
                   <div class="form-group">
-                    <%= f.label :password %>
+                    <%= f.label :password, t("form.user.password") %>
                     <%= f.password_field :password, class: "form-control" %>
                   </div>
                   <div class="form-group">
-                    <%= f.label :password_confirmation, t(".confirmation") %>
+                    <%= f.label :password_confirmation, t("form.user.password_confirmation") %>
                     <%= f.password_field :password_confirmation, class: "form-control" %>
                   </div>
                   <%= f.submit t(".update_pass"), class: "btn btn-block btn-primary mt-4" %>

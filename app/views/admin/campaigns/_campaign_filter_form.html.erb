@@ -2,19 +2,19 @@
   <div class="card-body">
     <div class="form-row">
       <div class="form-group col-md-3 col-sm-6 mb-md-0">
-        <%= label_tag :title %>
+        <%= label_tag :title, t("form.admin.campaign.title") %>
         <%= text_field_tag :title, nil, placeholder: t("campaigns.of_campaign", attr: t("campaigns.title")), value: params[:title], class: "form-control" %>
       </div>
       <div class="form-group col-md-3 col-sm-6 mb-md-0">
-        <%= label_tag :desc %>
+        <%= label_tag :desc, t("form.admin.campaign.description") %>
         <%= text_field_tag :desc, nil, placeholder: t("campaigns.of_campaign", attr: t("campaigns.desc")), value: params[:desc], class: "form-control" %>
       </div>
       <div class="form-group col-md-3 col-sm-6 mb-sm-0">
-        <%= label_tag :creator %>
+        <%= label_tag :creator, t("form.campaign.creator") %>
         <%= text_field_tag :creator, nil, placeholder: t("campaigns.of_campaign", attr: t("campaigns.creator")), value: params[:creator], class: "form-control" %>
       </div>
       <div class="form-group col-md-3 col-sm-6 mb-0">
-        <%= label_tag :status %>
+        <%= label_tag :status, t("form.campaign.status") %>
         <%= select_tag :status, campaign_status_options, include_blank: t("global.all"), class: "form-control" %>
       </div>
     </div>
