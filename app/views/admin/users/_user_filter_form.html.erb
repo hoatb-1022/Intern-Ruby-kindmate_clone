@@ -2,27 +2,27 @@
   <div class="card-body">
     <div class="form-row">
       <div class="form-group col-md-4 col-sm-6">
-        <%= label_tag :name %>
+        <%= label_tag :name, t("form.admin.user.name") %>
         <%= text_field_tag :name, nil, placeholder: t("users.of_user", attr: t("users.name")), value: params[:name], class: "form-control" %>
       </div>
       <div class="form-group col-md-4 col-sm-6">
-        <%= label_tag :email %>
+        <%= label_tag :email, t("form.admin.user.email") %>
         <%= text_field_tag :email, nil, placeholder: t("users.of_user", attr: t("users.email")), value: params[:email], class: "form-control" %>
       </div>
       <div class="form-group col-md-4 col-sm-6">
-        <%= label_tag :phone %>
+        <%= label_tag :phone, t("form.admin.user.phone") %>
         <%= text_field_tag :phone, nil, placeholder: t("users.of_user", attr: t("users.phone")), value: params[:phone], class: "form-control" %>
       </div>
       <div class="form-group col-md-4 col-sm-6 mb-md-0">
-        <%= label_tag :address %>
+        <%= label_tag :address, t("form.user.address") %>
         <%= text_field_tag :address, nil, placeholder: t("users.of_user", attr: t("users.address")), value: params[:address], class: "form-control" %>
       </div>
       <div class="form-group col-md-4 col-sm-6 mb-md-0">
-        <%= label_tag :desc %>
+        <%= label_tag :desc, t("form.user.description") %>
         <%= text_field_tag :desc, nil, placeholder: t("users.of_user", attr: t("users.desc")), value: params[:desc], class: "form-control" %>
       </div>
       <div class="form-group col-md-4 col-sm-6 mb-0">
-        <%= label_tag :status %>
+        <%= label_tag :status, t("form.user.status") %>
         <%= select_tag :status, user_status_options, include_blank: t("global.all"), class: "form-control" %>
       </div>
     </div>

@@ -240,3 +240,33 @@ en:
       next: "Next"
       previous: "Previous"
       truncate: "Truncate"
+  form:
+    user:
+      name: "Full name  *"
+      email: "Email  *"
+      phone: "Phone  *"
+      address: "Address"
+      description: "Self introduce"
+      password: "Password  *"
+      password_confirmation: "Password confirmation  *"
+      remember_me: "Remember me"
+      status: "Status"
+    campaign:
+      title: "Titlte  *"
+      description: "Description  *"
+      total_amount: "Total needed amount  *"
+      expired_at: "Expired at  *"
+      embedded_link: "Embedded video link"
+      content: "Content  *"
+      status: "Status"
+      creator: "Creator"
+    donation:
+      amount: "Donated amount *"
+    admin:
+      user:
+        name: "Full name"
+        email: "Email"
+        phone: "Phone"
+      campaign:
+        title: "Titlte"
+        description: "Description"
