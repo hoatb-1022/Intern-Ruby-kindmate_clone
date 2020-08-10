@@ -1,12 +1,9 @@
 class Admin::CampaignsController < AdminController
-  before_action :logged_in_user,
-                :check_current_user_admin,
-                only: [:index, :update]
-  before_action :filter_campaign, only: :index
   before_action :find_campaign, only: :update
 
   def index
-    @campaigns = @campaigns.ordered_campaigns.page params[:page]
+    @query = Campaign.ransack params[:q]
+    @campaigns = @query.result.ordered_campaigns.page params[:page]
   end
 
   def update
@@ -27,14 +24,6 @@ class Admin::CampaignsController < AdminController
   end
 
   private
-
-  def filter_campaign
-    @campaigns = Campaign.eager_load(:user)
-                         .filter_by_title(params[:title])
-                         .filter_by_desc(params[:desc])
-                         .filter_by_status(params[:status])
-                         .filter_by_creator(params[:creator])
-  end
 
   def handle_update_status success, notify_body
     if success

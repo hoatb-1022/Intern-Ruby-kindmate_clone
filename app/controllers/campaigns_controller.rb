@@ -7,8 +7,11 @@ class CampaignsController < ApplicationController
   after_action :build_tags, only: [:new, :edit]
 
   def index
-    @campaigns = Campaign.not_pending
-                         .filter_by_title_or_desc(params[:keyword])
+    @query = Campaign.ransack params[:q]
+    @campaigns = @query.result
+                       .includes(:user)
+                       .not_pending
+                       .page params[:page]
   end
 
   def new

@@ -76,10 +76,6 @@ class Campaign < ApplicationRecord
     where User.arel_table[:name].lower.matches("%#{creator.downcase}%")
   end)
 
-  scope :filter_by_title_or_desc, (lambda do |keyword|
-    filter_by_title(keyword).or(filter_by_desc(keyword))
-  end)
-
   paginates_per Settings.campaign.per_page
 
   def finished_percentage

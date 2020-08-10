@@ -68,11 +68,4 @@ class ApplicationController < ActionController::Base
   def current_user_admin?
     current_user&.admin?
   end
-
-  def check_current_user_admin
-    return if user_signed_in? && current_user_admin?
-
-    flash[:error] = t "global.no_permission"
-    redirect_to request.referer || root_url
-  end
 end

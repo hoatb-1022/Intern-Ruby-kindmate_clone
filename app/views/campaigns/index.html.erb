@@ -2,10 +2,13 @@
 <section class="my-2 pb-4 container">
   <h3 class="mb-4 font-weight-bold"><%= t ".title" %></h3>
   <div class="mt-2 mb-5">
-    <%= form_with url: campaigns_path, method: :get, local: true do %>
+    <%= search_form_for @query do |f| %>
       <div class="d-flex align-items-center">
         <div class="form-group mb-0">
-          <%= text_field_tag :keyword, nil, placeholder: t(".fill_in_keyword"), value: params[:keyword], class: "form-control" %>
+          <%= f.search_field :title_or_content_or_description_or_user_name_cont,
+                             placeholder: t(".fill_in_keyword"),
+                             value: params[:q].try(:[], :title_or_content_or_description_or_user_name_cont),
+                             class: "form-control" %>
         </div>
         <%= button_tag :submit, name: nil, class: "btn btn-primary ml-3" do %>
           <i class="fas fa-search mr-1"></i>

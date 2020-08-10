@@ -7,19 +7,24 @@ RSpec.describe CampaignsController, type: :controller do
 
   context "when guests don't need login" do
     describe "GET #index" do
-      before {get :index, params: {id: current_user.id, page: 1, keyword: ""}}
+      before {get :index, params: {id: current_user.id, page: 1, q: ""}}
 
       it "should render view index" do
         expect(response).to render_template :index
       end
 
+      it "should assign @query" do
+        expect(assigns(:query)).to_not eq(nil)
+      end
+
       it "should assign @campaigns" do
+        query = Campaign.ransack params[:q]
         expect(assigns(:campaigns)).to(
           eq(
-            Campaign.not_pending
-              .filter_by_title_or_desc(params[:keyword])
-              .ordered_campaigns
-              .page params[:page]
+            query.result
+                 .includes(:user)
+                 .not_pending
+                 .page params[:page]
           )
         )
       end

@@ -90,7 +90,7 @@ en:
     email: "Email"
     phone: "Phone"
     address: "Address"
-    desc: "Description"
+    description: "Description"
     status: "Status"
     active: "Activated"
     blocked: "Blocked"
@@ -156,7 +156,7 @@ en:
   campaigns:
     of_campaign: "%{attr} of campaign"
     title: "Title"
-    desc: "Description"
+    description: "Description"
     creator: "Creator"
     status: "Status"
     completion: "Completion"
