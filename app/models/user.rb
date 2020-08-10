@@ -11,6 +11,8 @@ class User < ApplicationRecord
       password_confirmation
     ).freeze
 
+  rolify
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable, :trackable
@@ -27,6 +29,7 @@ class User < ApplicationRecord
   validates :phone, presence: true, uniqueness: true
 
   before_save :downcase_email
+  after_create :assign_default_role
 
   scope :ordered_users, ->{order created_at: :desc}
 
@@ -50,5 +53,9 @@ class User < ApplicationRecord
 
   def password_required?
     new_record? ? super : false
+  end
+
+  def assign_default_role
+    add_role :user if new_record?
   end
 end

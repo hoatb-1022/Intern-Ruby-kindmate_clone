@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :logged_in_user,
+  before_action :check_logged_in_user,
                 :correct_campaign,
                 only: [:create, :update, :destroy]
   before_action :find_comment, only: [:update, :destroy]

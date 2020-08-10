@@ -1,5 +1,5 @@
 class DonationsController < ApplicationController
-  before_action :logged_in_user,
+  before_action :check_logged_in_user,
                 :correct_campaign,
                 :running_campaign,
                 only: [:new, :create]
