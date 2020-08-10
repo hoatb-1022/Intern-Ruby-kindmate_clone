@@ -4,6 +4,7 @@ class CampaignsController < ApplicationController
   before_action :correct_user,
                 only: [:edit, :update, :destroy],
                 unless: :current_user_admin?
+  after_action :build_tags, only: [:new, :edit]
 
   def index
     @campaigns = Campaign.not_pending
@@ -71,6 +72,10 @@ class CampaignsController < ApplicationController
 
   def correct_user
     @campaigns = current_user.campaigns.find_by id: params[:id]
-    redirect_to root_url unless @campaigns
+    redirect_to root_url unless @campaigns || current_user.admin?
+  end
+
+  def build_tags
+    @campaign.tags.build
   end
 end

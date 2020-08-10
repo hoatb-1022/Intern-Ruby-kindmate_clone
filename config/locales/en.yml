@@ -172,6 +172,7 @@ en:
     failed_deleted: "Failed to delete campaign"
     do_run: "Run campaign"
     do_stop: "Stop campaign"
+    at_most_three_tags: "Campaign must have at most 3 tags"
     statuses:
       pending: "Pending"
       running: "Running"
@@ -189,6 +190,7 @@ en:
       donations: "Donations"
       comments: "Comments"
       creator: "Creator"
+      tags: "Tags"
       creator_info: "Creator's information"
       creator_campaigns: "Creators's campaigns"
       see_info: "See information"
@@ -260,6 +262,7 @@ en:
       content: "Content  *"
       status: "Status"
       creator: "Creator"
+      tags: "Tags *"
     donation:
       amount: "Donated amount *"
     admin:
