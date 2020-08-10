@@ -12,6 +12,9 @@ class Campaign < ApplicationRecord
 
   enum status: {pending: 0, running: 1, stopped: 2}
 
+  include Notifier
+  include Rails.application.routes.url_helpers
+
   belongs_to :user
 
   has_one_attached :image
@@ -51,6 +54,9 @@ class Campaign < ApplicationRecord
               )
             }
   validate :require_max_tag
+
+  after_create :notify_new_campaign
+  after_update :notify_updated_campaign
 
   scope :ordered_campaigns, ->{order created_at: :desc}
 
@@ -94,5 +100,21 @@ class Campaign < ApplicationRecord
   def require_max_tag
     alive_tags = tags.reject(&:marked_for_destruction?)
     errors.add(:base, t("campaigns.at_most_three_tags")) if alive_tags.size > Settings.campaign.max_tags_size
+  end
+
+  def notify_new_campaign
+    notify_to_admin(
+      I18n.t("notify.campaign.approve_request"),
+      I18n.t("notify.campaign.created"),
+      admin_campaigns_url(status: Campaign.statuses[:pending])
+    )
+  end
+
+  def notify_updated_campaign
+    notify_to_admin(
+      I18n.t("notify.campaign.approve_request"),
+      I18n.t("notify.campaign.updated"),
+      admin_campaigns_url(status: Campaign.statuses[:pending])
+    )
   end
 end

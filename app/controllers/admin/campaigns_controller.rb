@@ -13,18 +13,16 @@ class Admin::CampaignsController < AdminController
     success = case params[:status].to_i
               when Campaign.statuses[:pending]
                 @campaign.pending!
+                notify_body = t "notify.campaign.pending"
               when Campaign.statuses[:running]
                 @campaign.running!
+                notify_body = t "notify.campaign.running"
               else
                 @campaign.stopped!
+                notify_body = t "notify.campaign.stopped"
               end
 
-    if success
-      flash[:success] = t ".success_change_status"
-    else
-      flash[:error] = t ".failed_change_status"
-    end
-
+    handle_update_status success, notify_body
     redirect_to request.referer
   end
 
@@ -36,5 +34,20 @@ class Admin::CampaignsController < AdminController
                          .filter_by_desc(params[:desc])
                          .filter_by_status(params[:status])
                          .filter_by_creator(params[:creator])
+  end
+
+  def handle_update_status success, notify_body
+    if success
+      flash[:success] = t ".update.success_change_status"
+
+      @campaign.notify_to_user(
+        @campaign.user_id,
+        t("notify.campaign.status_changed"),
+        notify_body,
+        campaign_url(id: @campaign.id)
+      )
+    else
+      flash[:error] = t ".update.failed_change_status"
+    end
   end
 end
