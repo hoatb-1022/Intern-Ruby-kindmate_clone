@@ -25,6 +25,11 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
   config.cache_store = :null_store
 
+  # Disable send email in test
+  config.action_mailer.delivery_method = :test
+  config.active_job.queue_adapter = :test
+  config.action_mailer.perform_deliveries = false
+
   # Raise exceptions instead of rendering exception templates.
   config.action_dispatch.show_exceptions = false
 

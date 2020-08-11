@@ -104,6 +104,7 @@ GEM
     config (2.2.1)
       deep_merge (~> 1.2, >= 1.2.1)
       dry-validation (~> 1.0, >= 1.0.0)
+    connection_pool (2.2.3)
     crass (1.0.6)
     database_cleaner (1.8.5)
     database_cleaner-active_record (1.8.0)
@@ -275,6 +276,7 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    redis (4.2.1)
     regexp_parser (1.7.1)
     responders (3.0.1)
       actionpack (>= 5.0)
@@ -296,6 +298,9 @@ GEM
       rspec-expectations (~> 3.9)
       rspec-mocks (~> 3.9)
       rspec-support (~> 3.9)
+    rspec-sidekiq (3.1.0)
+      rspec-core (~> 3.0, >= 3.0.0)
+      sidekiq (>= 2.4.0)
     rspec-support (3.9.3)
     rubocop (0.74.0)
       jaro_winkler (~> 1.5.1)
@@ -326,6 +331,10 @@ GEM
       rubyzip (>= 1.2.2)
     shoulda-matchers (4.3.0)
       activesupport (>= 4.2.0)
+    sidekiq (6.1.1)
+      connection_pool (>= 2.2.2)
+      rack (~> 2.0)
+      redis (>= 4.2.0)
     simplecov (0.18.5)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -409,11 +418,13 @@ DEPENDENCIES
   ransack!
   rolify (~> 5.3)
   rspec-rails
+  rspec-sidekiq
   rubocop (~> 0.74.0)
   rubocop-rails (~> 2.3.2)
   sass-rails (>= 6)
   selenium-webdriver
   shoulda-matchers
+  sidekiq (~> 6.1, >= 6.1.1)
   simplecov
   spring
   spring-watcher-listen (~> 2.0.0)

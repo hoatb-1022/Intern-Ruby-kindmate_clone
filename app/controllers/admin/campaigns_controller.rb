@@ -28,7 +28,7 @@ class Admin::CampaignsController < AdminController
   def handle_update_status success, notify_body
     if success
       flash[:success] = t ".update.success_change_status"
-
+      CampaignStatusWorker.perform_async @campaign.id, Campaign.statuses.keys[params[:status].to_i]
       @campaign.notify_to_user(
         @campaign.user_id,
         t("notify.campaign.status_changed"),
