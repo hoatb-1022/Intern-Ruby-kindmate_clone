@@ -26,6 +26,7 @@ en:
     valid_image_format!: "Image must has valid format"
     valid_image_size!: "Image's size must be a less than %{maximum}MB"
     alert_size_exceeded: "Maximum image's size is %{maximum}MB. Please choose a smaller image."
+    hello: "Hi %{name},"
   _header:
     brand: "Kindmate"
     about_us: "About us"
@@ -143,16 +144,6 @@ en:
       update:
         reset_pass_success: "Successfully reset password"
         reset_pass_failed: "Failed to reset password"
-    mailer:
-      confirmation_instructions:
-        welcome: "Welcome %{to}!"
-        confirm_acc_desc: "Click the link below to active your account:"
-        confirm_acc_text: "Confirm account"
-      reset_password_instructions:
-        hello: "Hello %{to}"
-        reset_pass_desc: "Someone requested reset your account's password, if it were you, click the link below to do it:"
-        reset_pass_text: "Reset password"
-        notice_html: "<p>If you didn't request this, please ignore this email.</p><p>Your password won't change until you access the link above and create a new one.</p>"
   campaigns:
     of_campaign: "%{attr} of campaign"
     title: "Title"
@@ -288,3 +279,13 @@ en:
     donation:
       new: "New donation"
       created: "Your campaign had a new donation"
+  campaign_mailer:
+    campaign_stopped:
+      subject: "Campaign was stopped!"
+      desc_html: "<h5>Campaign %{campaign} was stopped!</h5><p>Thanks for your donation!</p>"
+    campaign_pending:
+      subject: "Campaign is pending!"
+      desc_html: "<h5>Campaign %{campaign} is pending!</h5><p>You can continue donating after it was approved!</p>"
+    campaign_running:
+      subject: "Campaign is running!"
+      desc_html: "<h5>Campaign %{campaign} is running!</h5><p>You can donate it now!</p>"

@@ -48,6 +48,7 @@ class CampaignsController < ApplicationController
   def update
     if @campaign.update campaign_params
       flash[:success] = t ".success_updated"
+      CampaignStatusWorker.perform_async @campaign.id, Settings.campaign.types[1]
       redirect_to @campaign
     else
       flash.now[:error] = t ".failed_updated"

@@ -25,6 +25,7 @@ vi:
     valid_image_format!: "Ảnh cần đúng định dạng"
     valid_image_size!: "Ảnh phải có dung lượng nhỏ hơn %{maximum}MB"
     alert_size_exceeded: "Dung lượng ảnh tối đa là %{maximum}MB. Vui lòng chọn ảnh nhỏ hơn."
+    hello: "Chào %{name},"
   _header:
     brand: "Kindmate"
     about_us: "Về chúng tôi"
@@ -142,16 +143,6 @@ vi:
       update:
         reset_pass_success: "Đặt lại mật khẩu thành công"
         reset_pass_failed: "Đặt lại mật khẩu thất bại"
-    mailer:
-      confirmation_instructions:
-        welcome: "Chào mừng %{to}!"
-        confirm_acc_desc: "Ấn vào đường dẫn phía dưới để kích hoạt tài khoản của bạn:"
-        confirm_acc_text: "Xác thực tài khoản"
-      reset_password_instructions:
-        hello: "Chào %{to}"
-        reset_pass_desc: "Có ai đã yêu cầu đặt lại mật khẩu tài khoản của bạn. Nếu là bạn, hãy ấn vào đường dẫn phía dưới:"
-        reset_pass_text: "Đổi mật khẩu"
-        notice_html: "<p>If you didn't request this, please ignore this email.</p><p>Your password won't change until you access the link above and create a new one.</p>"
   campaigns:
     of_campaign: "%{attr} của chiến dịch"
     title: "Tiêu đề"
@@ -287,3 +278,13 @@ vi:
     donation:
       new: "Ủng hộ mới"
       created: "Chiến dịch của bạn nhận được sự ủng hộ mới"
+  campaign_mailer:
+    campaign_stopped:
+      subject: "Chiến dịch đã ngừng!"
+      desc_html: "<h5>Chiến dịch %{campaign} đã ngừng lại!</h5><p>Cảm ơn sự ủng hộ của bạn!</p>"
+    campaign_pending:
+      subject: "Chiến dịch tạm thời chờ xét duyệt!"
+      desc_html: "<h5>Chiến dịch %{campaign} đã được cập nhật!</h5><p>Bạn có thể tiếp tục ủng hộ sau khi chiến dịch được phê duyệt!</p>"
+    campaign_running:
+      subject: "Chiến dịch đã khởi chạy!"
+      desc_html: "<h5>Chiến dịch %{campaign} đã được khởi chạy!</h5><p>Bạn có thể ủng hộ ngay bây giờ!</p>"

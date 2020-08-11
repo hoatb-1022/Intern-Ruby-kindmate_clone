@@ -6,7 +6,8 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require "rspec/rails"
 require "shoulda/matchers"
 require "devise"
-Dir[Rails.root.join("spec", "support", "**", "*.rb")].each { |f| require f }
+require "sidekiq/testing"
+Dir[Rails.root.join("spec", "support", "**", "*.rb")].each {|f| require f}
 
 include ActionDispatch::TestProcess
 include ControllerMacros
@@ -17,6 +18,7 @@ rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
   exit 1
 end
+
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = false
@@ -34,4 +36,10 @@ Shoulda::Matchers.configure do |config|
     with.test_framework :rspec
     with.library :rails
   end
+end
+
+RSpec::Sidekiq.configure do |config|
+  config.clear_all_enqueued_jobs = true
+  config.enable_terminal_colours = true
+  config.warn_when_jobs_not_processed_by_sidekiq = true
 end

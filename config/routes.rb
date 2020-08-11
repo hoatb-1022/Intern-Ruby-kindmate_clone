@@ -36,7 +36,10 @@ Rails.application.routes.draw do
       resources :campaigns
     end
 
-    mount Ckeditor::Engine => '/ckeditor'
+    mount Ckeditor::Engine => "/ckeditor"
+
+    require "sidekiq/web"
+    mount Sidekiq::Web => "/sidekiq"
   end
 
   default_url_options host: "localhost:3000"

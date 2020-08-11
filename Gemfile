@@ -27,6 +27,7 @@ gem "rails-i18n"
 gem "ransack", github: "activerecord-hackery/ransack"
 gem "rolify", "~> 5.3"
 gem "sass-rails", ">= 6"
+gem "sidekiq", "~> 6.1", ">= 6.1.1"
 gem "sprockets-rails", "~> 3.2", ">= 3.2.1"
 gem "toastr-rails", "~> 1.0", ">= 1.0.3"
 gem "turbolinks", "~> 5"
@@ -55,6 +56,7 @@ group :test do
   gem "selenium-webdriver"
   gem "shoulda-matchers"
   gem "simplecov", require: false
+  gem "rspec-sidekiq"
   gem "webdrivers"
 end
 

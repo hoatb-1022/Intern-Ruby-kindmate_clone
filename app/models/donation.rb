@@ -29,6 +29,7 @@ class Donation < ApplicationRecord
   after_create :notify_new_donation
 
   scope :ordered_donations, ->{order created_at: :desc}
+  scope :by_user_distinct, ->{select("distinct(user_id)")}
 
   paginates_per Settings.donation.per_page
 
