@@ -1,9 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: :show
-  before_action :find_user
-  before_action :correct_user,
-                only: [:edit, :update, :destroy],
-                unless: :current_user_admin?
+
+  load_and_authorize_resource
 
   def show
     usr_camps = @user.campaigns

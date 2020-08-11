@@ -2,7 +2,7 @@
   <%= link_to "#", id: "navbarDropdown", class: "nav-link dropdown-toggle nav-user-info", "data-toggle": "dropdown",
               role: "button", "aria-haspopup": "true", "aria-expanded": "false" do %>
     <%= gravatar_for user %>
-    <span class="font-weight-semibold"><%= user.name %></span>
+    <span class="font-weight-semibold"><%= user&.name %></span>
   <% end %>
   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
     <%= link_to t("_header.profile"), user, class: "dropdown-item" %>

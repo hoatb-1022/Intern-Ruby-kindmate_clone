@@ -5,6 +5,16 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale, :check_user_activated
 
+  rescue_from CanCan::AccessDenied do |_exception|
+    respond_to do |format|
+      format.html do
+        check_logged_in_user
+        redirect_to(request.referer || root_url, alert: t("global.no_permission"))
+      end
+      format.js{render nothing: true, status: :not_found}
+    end
+  end
+
   protected
 
   def configure_permitted_parameters
@@ -26,7 +36,7 @@ class ApplicationController < ActionController::Base
     parsed_locale if I18n.available_locales.map(&:to_s).include? parsed_locale
   end
 
-  def logged_in_user
+  def check_logged_in_user
     return if user_signed_in?
 
     store_location
@@ -63,9 +73,5 @@ class ApplicationController < ActionController::Base
 
     flash[:error] = t "campaigns.not_found"
     redirect_to request.referer || root_url
-  end
-
-  def current_user_admin?
-    current_user&.admin?
   end
 end

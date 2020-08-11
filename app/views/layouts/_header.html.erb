@@ -15,7 +15,7 @@
         <li class="nav-item">
           <%= link_to t("_header.about_us"), about_path, class: "nav-link" %>
         </li>
-        <% if current_user&.admin? %>
+        <% if current_user_admin? %>
           <li class="nav-item">
             <%= link_to t("_header.manager"), admin_users_path, class: "nav-link" %>
           </li>

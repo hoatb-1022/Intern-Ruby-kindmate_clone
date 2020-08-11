@@ -4,7 +4,11 @@ module SessionsHelper
   end
 
   def current_user_or_admin? user
-    current_user?(user) || current_user.admin?
+    current_user?(user) || current_user_admin?
+  end
+
+  def current_user_admin?
+    current_user&.has_role? :admin
   end
 
   def user_activated?
