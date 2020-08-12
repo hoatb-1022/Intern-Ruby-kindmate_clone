@@ -1,12 +1,15 @@
 <% provide :title, t(".title") %>
 <section class="my-2 pb-4 container">
-  <h3 class="mb-4 font-weight-bold"><%= t ".title" %></h3>
+  <h3 class="mb-4 font-weight-bold">
+    <%= t ".title" %>
+    (<%= Campaign.not_pending.size %>)
+  </h3>
   <div class="mt-2 mb-5">
     <%= search_form_for @query do |f| %>
       <div class="d-flex align-items-center">
         <div class="form-group mb-0">
           <%= f.search_field :title_or_content_or_description_or_user_name_cont,
-                             placeholder: t(".fill_in_keyword"),
+                             placeholder: t("global.fill_in_keyword"),
                              value: params[:q].try(:[], :title_or_content_or_description_or_user_name_cont),
                              class: "form-control" %>
         </div>

@@ -18,6 +18,8 @@ class Comment < ApplicationRecord
 
   scope :ordered_comments, ->{order created_at: :desc}
 
+  scope :ordered_and_paginated, ->(page){ordered_comments.page page}
+
   paginates_per Settings.comment.per_page
 
   private

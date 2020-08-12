@@ -1,11 +1,11 @@
-<div class="card-donation <%= current_user?(donation.user) ? 'donation-owner' : '' %>">
+<div class="card-donation">
   <div class="row">
     <div class="col-md-9 donation-main">
       <div class="media">
         <%= donation_payment_type_icon donation %>
         <div class="media-body ml-3">
           <h6 class="mb-2 font-weight-semibold donation-title">
-            <%= donation.user_name %>
+            <%= donation.campaign_title %>
           </h6>
           <p class="mb-2 donation-message">
             <%= donation.message %>

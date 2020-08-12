@@ -15,6 +15,7 @@ vi:
     remaining_time: "Còn lại %{remaining}"
     time_ago: "%{time} trước đây"
     search: "Tìm kiếm"
+    fill_in_keyword: "Nhập từ khoá"
     no_campaigns: "Không có chiến dịch nào!"
     created_by: "Tạo bởi"
     donation: "sự ủng hộ"
@@ -26,6 +27,7 @@ vi:
     valid_image_size!: "Ảnh phải có dung lượng nhỏ hơn %{maximum}MB"
     alert_size_exceeded: "Dung lượng ảnh tối đa là %{maximum}MB. Vui lòng chọn ảnh nhỏ hơn."
     hello: "Chào %{name},"
+    donated_times: "Bạn đã ủng hộ %{times} lần"
   _header:
     brand: "Kindmate"
     about_us: "Về chúng tôi"
@@ -36,6 +38,7 @@ vi:
     login: "Đăng nhập"
     account: "Tài khoản"
     profile: "Thông tin cá nhân"
+    donate_history: "Lịch sử ủng hộ"
     settings: "Cài đặt"
     logout: "Đăng xuất"
   _footer:
@@ -169,7 +172,6 @@ vi:
       stopped: "Đã ngừng"
     index:
       title: "Khám phá chiến dịch"
-      fill_in_keyword: "Nhập từ khoá"
     new:
       title: "Tạo chiến dịch mới"
       embed_placeholder: "Hỗ trợ mã nhúng có dạng <iframe src='https://www.youtube.com/embed/8Qr9WW2bLAQ' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
@@ -195,6 +197,9 @@ vi:
   donations:
     success_donated: "Ủng hộ chiến dịch thành công"
     failed_donated: "Ủng hộ chiến dịch thất bại"
+    index:
+      title: "Lịch sử ủng hộ"
+      donated_date: "Ngày ủng hộ"
     new:
       title: "Ủng hộ chiến dịch"
       transfer: "Chuyển khoản"

@@ -33,17 +33,7 @@ class User < ApplicationRecord
 
   scope :ordered_users, ->{order created_at: :desc}
 
-  scope :filter_by_name, ->(value){filter_by_string_attr :name, value}
-
-  scope :filter_by_email, ->(value){filter_by_string_attr :email, value}
-
-  scope :filter_by_phone, ->(value){filter_by_string_attr :phone, value}
-
-  scope :filter_by_address, ->(value){filter_by_string_attr :address, value}
-
-  scope :filter_by_desc, ->(value){filter_by_string_attr :description, value}
-
-  scope :filter_by_status, ->(value){filter_by_number_attr :is_blocked, value}
+  scope :ordered_and_paginated, ->(page){ordered_users.page page}
 
   protected
 

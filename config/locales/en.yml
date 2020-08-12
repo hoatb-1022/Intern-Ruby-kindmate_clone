@@ -16,6 +16,7 @@ en:
     remaining_time: "%{remaining} remaining"
     time_ago: "%{time} ago"
     search: "Search"
+    fill_in_keyword: "Fill in keywords"
     no_campaigns: "There are no campaigns!"
     created_by: "Created by"
     donation: "donation"
@@ -27,6 +28,7 @@ en:
     valid_image_size!: "Image's size must be a less than %{maximum}MB"
     alert_size_exceeded: "Maximum image's size is %{maximum}MB. Please choose a smaller image."
     hello: "Hi %{name},"
+    donated_times: "You donated %{times} times"
   _header:
     brand: "Kindmate"
     about_us: "About us"
@@ -37,6 +39,7 @@ en:
     login: "Login"
     account: "Account"
     profile: "Profile"
+    donate_history: "Donation History"
     settings: "Settings"
     logout: "Logout"
   _footer:
@@ -170,7 +173,6 @@ en:
       stopped: "Stopped"
     index:
       title: "Explore campaigns"
-      fill_in_keyword: "Fill in keywords"
     new:
       title: "Create new campaign"
       embed_placeholder: "Supported embedded link looks like <iframe src='https://www.youtube.com/embed/8Qr9WW2bLAQ' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
@@ -196,6 +198,9 @@ en:
   donations:
     success_donated: "Successfully donated campaign"
     failed_donated: "Failed to donate campaign"
+    index:
+      title: "Donation history"
+      donated_date: "Donated date"
     new:
       title: "Donate campaign"
       transfer: "Transfer"

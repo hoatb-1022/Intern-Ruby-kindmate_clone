@@ -5,6 +5,8 @@ RSpec.describe CampaignsController, type: :controller do
   let!(:current_campaign) {current_user.campaigns.first}
   let!(:params) {FactoryBot.attributes_for :campaign}
 
+  before {current_campaign.running!}
+
   context "when guests don't need login" do
     describe "GET #index" do
       before {get :index, params: {id: current_user.id, page: 1, q: ""}}
@@ -24,7 +26,7 @@ RSpec.describe CampaignsController, type: :controller do
             query.result
                  .includes(:user)
                  .not_pending
-                 .page params[:page]
+                 .ordered_and_paginated params[:page]
           )
         )
       end
@@ -39,12 +41,25 @@ RSpec.describe CampaignsController, type: :controller do
         end
 
         it "should assign @donations" do
-          expect(assigns(:donations)).to(
+          expect(assigns(:donations)).to eq(current_campaign.donations.includes(:user))
+        end
+
+        it "should assign @donations_paged" do
+          expect(assigns(:@donations_paged)).to(
             eq(
               current_campaign.donations
-                              .ordered_donations
                               .includes(:user)
-                              .page 1
+                              .ordered_and_paginated params[:page]
+            )
+          )
+        end
+
+        it "should assign @current_donations" do
+          expect(assigns(:current_donations)).to(
+            eq(
+              current_campaign.donations
+                              .includes(:user)
+                              .filter_by_creator_id current_user.id
             )
           )
         end
@@ -53,9 +68,8 @@ RSpec.describe CampaignsController, type: :controller do
           expect(assigns(:donations)).to(
             eq(
               current_campaign.comments
-                              .ordered_comments
                               .includes(:user)
-                              .page 1
+                              .ordered_and_paginated params[:page]
             )
           )
         end

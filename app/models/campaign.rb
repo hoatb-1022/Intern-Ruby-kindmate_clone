@@ -64,18 +64,6 @@ class Campaign < ApplicationRecord
 
   scope :ordered_campaigns_by_donated, ->{order donated_amount: :desc}
 
-  scope :filter_by_title, ->(value){filter_by_string_attr :title, value}
-
-  scope :filter_by_desc, ->(value){filter_by_string_attr :description, value}
-
-  scope :filter_by_status, ->(value){filter_by_number_attr :status, value}
-
-  scope :filter_by_creator, (lambda do |creator|
-    return if creator.blank?
-
-    where User.arel_table[:name].lower.matches("%#{creator.downcase}%")
-  end)
-
   paginates_per Settings.campaign.per_page
 
   def finished_percentage

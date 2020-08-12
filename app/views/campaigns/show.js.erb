@@ -1,5 +1,5 @@
-$("#donation-render").html("<%= j render @donations %>");
-$("#donation-paginator").html("<%= j paginate @donations, remote: true %>");
+$("#donation-render").html("<%= j render @donations_paged %>");
+$("#donation-paginator").html("<%= j paginate @donations_paged, remote: true %>");
 
 $("#comment-render").html("<%= j render @comments %>");
 $("#comment-paginator").html("<%= j paginate @comments, remote: true %>");

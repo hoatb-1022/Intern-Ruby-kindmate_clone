@@ -3,7 +3,7 @@ class Admin::CampaignsController < AdminController
 
   def index
     @query = Campaign.ransack params[:q]
-    @campaigns = @query.result.ordered_campaigns.page params[:page]
+    @campaigns = @query.result.ordered_and_paginated params[:page]
   end
 
   def update
