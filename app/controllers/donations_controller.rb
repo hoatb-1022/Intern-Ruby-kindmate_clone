@@ -9,6 +9,9 @@ class DonationsController < ApplicationController
     @query = current_user.donations.ransack @query_params
     @donations = @query.result.includes(:user)
     @donations_paged = @donations.ordered_and_paginated params[:page]
+
+    get_donations_chart_info
+    get_payment_types_chart_info
   end
 
   def new
@@ -60,5 +63,39 @@ class DonationsController < ApplicationController
     end
 
     @query_params = queries.reject{|k, _v| k == "created_at_cont"}
+  end
+
+  def get_donations_chart_info
+    @donations_chart_info = {
+      series: [
+        {
+          name: t("global.money_amount"),
+          data: @donations.group_by_day(:created_at).sum(:amount)
+        }
+      ],
+      options: {
+        title: t(".index.donated_chart"),
+        subtitle: t("global.group_by_date"),
+        xtitle: t("global.date"),
+        ytitle: t("global.money_amount")
+      }
+    }
+  end
+
+  def get_payment_types_chart_info
+    @payment_types_chart_info = {
+      series: [
+        {name: t(".new.transfer"), data: @donations.transfer.size},
+        {name: t(".new.payment"), data: @donations.payment.size},
+        {name: t(".new.cash"), data: @donations.cash.size}
+      ],
+      options: {
+        title: t(".index.payment_type_chart"),
+        legend: "right",
+        chart: {
+          height: 300
+        }
+      }
+    }
   end
 end

@@ -29,6 +29,9 @@ en:
     alert_size_exceeded: "Maximum image's size is %{maximum}MB. Please choose a smaller image."
     hello: "Hi %{name},"
     donated_times: "You donated %{times} times"
+    money_amount: "Money amount"
+    date: "Date"
+    group_by_date: "Grouped by date"
   _header:
     brand: "Kindmate"
     about_us: "About us"
@@ -201,6 +204,8 @@ en:
     index:
       title: "Donation history"
       donated_date: "Donated date"
+      donated_chart: "Donated money amount chart"
+      payment_type_chart: "Proportion of payment methods chart"
     new:
       title: "Donate campaign"
       transfer: "Transfer"

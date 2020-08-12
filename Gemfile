@@ -4,6 +4,7 @@ git_source(:github){|repo| "https://github.com/#{repo}.git"}
 ruby "2.7.0"
 
 gem "active_storage_validations", "~> 0.8.9"
+gem "apexcharts"
 gem "bcrypt", "~> 3.1", ">= 3.1.13"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "bootstrap", "~> 4.5"
@@ -14,6 +15,7 @@ gem "devise"
 gem "faker", "~> 2.12"
 gem "figaro", "~> 1.2"
 gem "font_awesome5_rails"
+gem "groupdate"
 gem "i18n-js", "~> 3.7"
 gem "image_processing", "~> 1.11"
 gem "jbuilder", "~> 2.7"

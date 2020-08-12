@@ -15,6 +15,9 @@ require('bootstrap')
 import toastr from 'toastr'
 window.toastr = toastr
 
+import ApexCharts from 'apexcharts'
+window.ApexCharts = ApexCharts
+
 import '@fortawesome/fontawesome-free/js/all'
 import {setupUserAvatar} from './users'
 import {

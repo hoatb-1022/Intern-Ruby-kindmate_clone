@@ -33,6 +33,7 @@ class CampaignsController < ApplicationController
     @donations = @campaign.donations.includes(:user)
     @donations_paged = @donations.ordered_and_paginated params[:page]
     @current_donations = @donations.filter_by_creator_id current_user.id if user_signed_in?
+    get_donations_chart_info
 
     @comments = @campaign.comments
                          .includes(:user)
@@ -77,5 +78,22 @@ class CampaignsController < ApplicationController
 
   def build_tags
     @campaign.tags.build
+  end
+
+  def get_donations_chart_info
+    @donations_chart_info = {
+      series: [
+        {
+          name: t("global.money_amount"),
+          data: @donations.group_by_day(:created_at).sum(:amount)
+        }
+      ],
+      options: {
+        title: t("donations.index.donated_chart"),
+        subtitle: t("global.group_by_date"),
+        xtitle: t("global.date"),
+        ytitle: t("global.money_amount")
+      }
+    }
   end
 end
