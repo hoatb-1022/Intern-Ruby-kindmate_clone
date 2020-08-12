@@ -31,31 +31,6 @@ RSpec.describe Campaign, type: :model do
     end
   end
 
-  describe "Scopes" do
-    include_examples "create example campaigns"
-
-    context "with title filtered" do
-      it "should return filtered campaigns by title" do
-        expect(Campaign.filter_by_title("Test").size).to eq(4)
-        expect(Campaign.filter_by_title("Test campaign 2").size).to eq(3)
-      end
-    end
-
-    context "with description filtered" do
-      it "should return filtered campaigns by description" do
-        expect(Campaign.filter_by_desc("Test Description").size).to eq(4)
-        expect(Campaign.filter_by_desc("Test Description 2").size).to eq(2)
-      end
-    end
-
-    context "with status filtered" do
-      it "should return filtered users by status" do
-        expect(Campaign.filter_by_status(1).size).to eq(2)
-        expect(Campaign.filter_by_status(nil).size).to eq(4)
-      end
-    end
-  end
-
   describe "Delegates" do
     context "with delegate to user name and campaigns" do
       it "should be true" do

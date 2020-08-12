@@ -5,7 +5,22 @@
   border-radius: $border-radius;
   transition: $transition-base;
 
+  .donation-main {
+    .donation-title {
+      @include trim(2);
+    }
+
+    .donation-message {
+      @extend .word-break-all
+    }
+  }
+
   &:hover {
     box-shadow: $box-shadow;
+  }
+
+  &.donation-owner {
+    background-color: $common-more-light-primary;
+    border: 2px solid $common-light-primary
   }
 }

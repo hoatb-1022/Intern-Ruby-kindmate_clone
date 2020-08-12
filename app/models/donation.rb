@@ -13,6 +13,7 @@ class Donation < ApplicationRecord
   include Rails.application.routes.url_helpers
 
   delegate :name, to: :user, prefix: true, allow_nil: true
+  delegate :title, to: :campaign, prefix: true, allow_nil: true
 
   belongs_to :user
   belongs_to :campaign
@@ -29,7 +30,16 @@ class Donation < ApplicationRecord
   after_create :notify_new_donation
 
   scope :ordered_donations, ->{order created_at: :desc}
+
   scope :by_user_distinct, ->{select("distinct(user_id)")}
+
+  scope :ordered_and_paginated, ->(page){ordered_donations.page page}
+
+  scope :filter_by_creator_id, (lambda do |creator_id|
+    return if creator_id.blank?
+
+    ransack(user_id_eq: creator_id).result.includes(:user)
+  end)
 
   paginates_per Settings.donation.per_page
 

@@ -29,6 +29,7 @@ Rails.application.routes.draw do
       resources :donations, only: [:new, :create]
       resources :comments, only: [:create, :update, :destroy]
     end
+    resources :donations, only: [:index]
 
     resources :admin, only: :index
     namespace :admin do

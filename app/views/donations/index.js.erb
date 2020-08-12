@@ -1,0 +1,2 @@
+$("#donation-render").html("<%= j render partial: "donations/donation_owner", collection: @donations_paged, as: :donation %>");
+$("#donation-paginator").html("<%= j paginate @donations_paged, remote: true %>");

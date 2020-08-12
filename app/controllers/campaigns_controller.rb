@@ -9,7 +9,7 @@ class CampaignsController < ApplicationController
     @campaigns = @query.result
                        .includes(:user)
                        .not_pending
-                       .page params[:page]
+                       .ordered_and_paginated params[:page]
   end
 
   def new
@@ -30,15 +30,13 @@ class CampaignsController < ApplicationController
   end
 
   def show
-    @donations = @campaign.donations
-                          .ordered_donations
-                          .includes(:user)
-                          .page params[:page]
+    @donations = @campaign.donations.includes(:user)
+    @donations_paged = @donations.ordered_and_paginated params[:page]
+    @current_donations = @donations.filter_by_creator_id current_user.id if user_signed_in?
 
     @comments = @campaign.comments
-                         .ordered_comments
                          .includes(:user)
-                         .page params[:page]
+                         .ordered_and_paginated params[:page]
 
     @new_comment = Comment.new
   end

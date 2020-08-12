@@ -3,7 +3,7 @@ class Admin::UsersController < AdminController
 
   def index
     @query = User.ransack params[:q]
-    @users = @query.result.ordered_users.page params[:page]
+    @users = @query.result.ordered_and_paginated params[:page]
   end
 
   def update

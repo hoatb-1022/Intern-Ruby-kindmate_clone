@@ -5,6 +5,7 @@
     <span class="font-weight-semibold"><%= user&.name %></span>
   <% end %>
   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+    <%= link_to t("_header.donate_history"), donations_path, class: "dropdown-item" %>
     <%= link_to t("_header.profile"), user, class: "dropdown-item" %>
     <div class="dropdown-divider"></div>
     <%= link_to t("_header.logout"), logout_path, method: :delete, class: "dropdown-item" %>
