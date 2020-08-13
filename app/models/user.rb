@@ -13,6 +13,8 @@ class User < ApplicationRecord
 
   rolify
 
+  acts_as_paranoid
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable, :trackable
@@ -46,6 +48,6 @@ class User < ApplicationRecord
   end
 
   def assign_default_role
-    add_role :user if new_record?
+    add_role :user
   end
 end

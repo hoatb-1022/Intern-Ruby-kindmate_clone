@@ -10,6 +10,8 @@ class Campaign < ApplicationRecord
     tags_attributes: [:id, :name, :_destroy].freeze
   ].freeze
 
+  acts_as_paranoid
+
   enum status: {pending: 0, running: 1, stopped: 2}
 
   include Notifier

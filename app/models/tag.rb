@@ -1,4 +1,6 @@
 class Tag < ApplicationRecord
+  acts_as_paranoid
+
   has_many :classifications, dependent: :destroy
   has_many :campaigns, through: :classifications
 
