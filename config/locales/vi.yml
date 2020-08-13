@@ -28,6 +28,9 @@ vi:
     alert_size_exceeded: "Dung lượng ảnh tối đa là %{maximum}MB. Vui lòng chọn ảnh nhỏ hơn."
     hello: "Chào %{name},"
     donated_times: "Bạn đã ủng hộ %{times} lần"
+    money_amount: "Số tiền"
+    date: "Ngày"
+    group_by_date: "Thống kê theo ngày"
   _header:
     brand: "Kindmate"
     about_us: "Về chúng tôi"
@@ -200,6 +203,8 @@ vi:
     index:
       title: "Lịch sử ủng hộ"
       donated_date: "Ngày ủng hộ"
+      donated_chart: "Biểu đồ số tiền ủng hộ"
+      payment_type_chart: "Biểu đồ tỉ trọng phương thức thanh toán"
     new:
       title: "Ủng hộ chiến dịch"
       transfer: "Chuyển khoản"

@@ -99,6 +99,7 @@
           </div>
         </div>
         <div class="tab-pane fade" id="pills-donations" role="tabpanel" aria-labelledby="pills-profile-tab">
+          <%= line_chart(@donations_chart_info[:series], {**@donations_chart_info[:options]}) %>
           <div class="d-flex justify-content-between align-items-center">
             <h5 class="font-weight-semibold mb-3">
               <%= pluralize @donations.size, t("global.donation") %>
