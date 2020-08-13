@@ -36,7 +36,23 @@
                     </div>
                     <div class="form-group col-md-12">
                       <%= f.label :address, t("form.user.address") %>
-                      <%= f.text_field :address, class: "form-control" %>
+                      <div class="input-group">
+                        <%= f.text_field :address, type: "search", class: "form-control" %>
+                        <%= f.hidden_field :latitude %>
+                        <%= f.hidden_field :longitude %>
+                        <div class="input-group-append">
+                          <%= link_to "javascript:;", id: "navbarMapToggle", class: "d-block h-100" do %>
+                            <span class="input-group-text h-100">
+                              <i class="fas fa-map-marked-alt"></i>
+                            </span>
+                          <% end %>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="formUserMap" class="form-group col-md-12 hide">
+                      <div id="userMapContainer">
+                        <div id="userAddressMap"></div>
+                      </div>
                     </div>
                     <div class="form-group col-md-12">
                       <%= f.label :description, t("form.user.description") %>
@@ -64,3 +80,6 @@
     </div>
   </div>
 </section>
+
+<%= javascript_include_tag "https://polyfill.io/v3/polyfill.min.js?features=default" %>
+<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV["google_api_key"]}&callback=#{ENV["google_callback"]}&libraries=#{ENV["google_libraries"]}", defer: "defer" %>

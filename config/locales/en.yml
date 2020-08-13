@@ -32,6 +32,7 @@ en:
     money_amount: "Money amount"
     date: "Date"
     group_by_date: "Grouped by date"
+    you_are_here: "You are here"
   _header:
     brand: "Kindmate"
     about_us: "About us"
@@ -123,6 +124,7 @@ en:
       failed_update_profile: "Failed to update profile"
       user_deleted: "User is deleted"
       failed_delete_user: "Failed to delete user"
+      must_exist_on_map: " must exist on the map."
     sessions:
       check_active_mail: "Please check your email to activate account"
       blocked_account: "Your account is blocked, please contact us for more information"

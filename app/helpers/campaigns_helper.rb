@@ -43,6 +43,7 @@ module CampaignsHelper
       link_text,
       admin_campaign_path(campaign, status: link_status),
       method: "patch",
+      data: {confirm: t("global.you_sure?")},
       class: "dropdown-item"
     )
   end

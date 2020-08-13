@@ -19,6 +19,7 @@ module UsersHelper
       link_text,
       admin_user_path(user, status: link_status.to_i),
       method: "patch",
+      data: {confirm: t("global.you_sure?")},
       class: "dropdown-item"
     )
   end
