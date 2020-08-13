@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_07_012947) do
+ActiveRecord::Schema.define(version: 2020_08_10_062139) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 2020_08_07_012947) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "donated_amount", default: 0
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_campaigns_on_deleted_at"
     t.index ["user_id"], name: "index_campaigns_on_user_id"
   end
 
@@ -64,7 +66,9 @@ ActiveRecord::Schema.define(version: 2020_08_07_012947) do
     t.bigint "tag_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "deleted_at"
     t.index ["campaign_id"], name: "index_classifications_on_campaign_id"
+    t.index ["deleted_at"], name: "index_classifications_on_deleted_at"
     t.index ["tag_id"], name: "index_classifications_on_tag_id"
   end
 
@@ -74,7 +78,9 @@ ActiveRecord::Schema.define(version: 2020_08_07_012947) do
     t.bigint "campaign_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "deleted_at"
     t.index ["campaign_id"], name: "index_comments_on_campaign_id"
+    t.index ["deleted_at"], name: "index_comments_on_deleted_at"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
@@ -87,7 +93,9 @@ ActiveRecord::Schema.define(version: 2020_08_07_012947) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "payment_type", default: 0
     t.string "payment_code"
+    t.datetime "deleted_at"
     t.index ["campaign_id"], name: "index_donations_on_campaign_id"
+    t.index ["deleted_at"], name: "index_donations_on_deleted_at"
     t.index ["user_id"], name: "index_donations_on_user_id"
   end
 
@@ -106,6 +114,8 @@ ActiveRecord::Schema.define(version: 2020_08_07_012947) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_tags_on_deleted_at"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -138,6 +148,8 @@ ActiveRecord::Schema.define(version: 2020_08_07_012947) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

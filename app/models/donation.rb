@@ -7,6 +7,8 @@ class Donation < ApplicationRecord
       payment_code
     ).freeze
 
+  acts_as_paranoid
+
   enum payment_type: {transfer: 0, payment: 1, cash: 2}
 
   include Notifier
