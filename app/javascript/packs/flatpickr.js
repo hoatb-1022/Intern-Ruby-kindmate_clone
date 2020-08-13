@@ -16,4 +16,8 @@ export function setupFlatpickr() {
   if (isElementExist('#donation_created_date')) {
     flatpickr('#donation_created_date', commonOptions)
   }
+
+  if (isElementExist('#notification_created_date')) {
+    flatpickr('#notification_created_date', commonOptions)
+  }
 }

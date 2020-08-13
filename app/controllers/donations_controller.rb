@@ -54,17 +54,6 @@ class DonationsController < ApplicationController
     redirect_to request.referer || root_url
   end
 
-  def format_params_date
-    queries = params[:q] || {}
-    if queries[:created_at_cont].present?
-      date = queries[:created_at_cont].to_date
-      queries[:created_at_gteq] = date.beginning_of_day.strftime Settings.global.strftime_format
-      queries[:created_at_lteq] = date.end_of_day.strftime Settings.global.strftime_format
-    end
-
-    @query_params = queries.reject{|k, _v| k == "created_at_cont"}
-  end
-
   def get_donations_chart_info
     @donations_chart_info = {
       series: [

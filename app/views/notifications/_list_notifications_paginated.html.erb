@@ -1,0 +1,9 @@
+<div id="notification-render" class="mb-4">
+  <%= render notifications %>
+</div>
+<div id="notification-paginator" class="paginator-container">
+  <%= paginate notifications, remote: true %>
+</div>
+<% unless notifications.any? %>
+  <span class="no-notifications-text"><%= t "notifications.nothing" %></span>
+<% end %>

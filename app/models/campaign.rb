@@ -14,7 +14,6 @@ class Campaign < ApplicationRecord
 
   enum status: {pending: 0, running: 1, stopped: 2}
 
-  include Notifier
   include Rails.application.routes.url_helpers
 
   belongs_to :user
@@ -57,7 +56,7 @@ class Campaign < ApplicationRecord
             }
   validate :require_max_tag
 
-  after_create :notify_new_campaign
+  after_create :notify_created_campaign
   after_update :notify_updated_campaign
 
   scope :ordered_campaigns, ->{order created_at: :desc}
@@ -65,6 +64,8 @@ class Campaign < ApplicationRecord
   scope :ordered_and_paginated, ->(page){ordered_campaigns.page page}
 
   scope :ordered_campaigns_by_donated, ->{order donated_amount: :desc}
+
+  scope :homepage_success, ->{ordered_campaigns_by_donated.limit Settings.campaign.success_show_homepage}
 
   paginates_per Settings.campaign.per_page
 
@@ -88,19 +89,16 @@ class Campaign < ApplicationRecord
     errors.add(:base, t("campaigns.at_most_three_tags")) if alive_tags.size > Settings.campaign.max_tags_size
   end
 
-  def notify_new_campaign
-    notify_to_admin(
-      I18n.t("notify.campaign.approve_request"),
-      I18n.t("notify.campaign.created"),
-      admin_campaigns_url(status: Campaign.statuses[:pending])
-    )
-  end
-
-  def notify_updated_campaign
-    notify_to_admin(
-      I18n.t("notify.campaign.approve_request"),
-      I18n.t("notify.campaign.updated"),
-      admin_campaigns_url(status: Campaign.statuses[:pending])
-    )
+  %w(created updated).each do |action|
+    define_method "notify_#{action}_campaign" do
+      User.admin.each do |admin|
+        notification = admin.notifications.create(
+          title: "notifications.campaign.approve_request",
+          body: "notifications.campaign.#{action}",
+          target: admin_campaigns_url(status: Campaign.statuses[:pending])
+        )
+        NotificationWorker.perform_async notification.id if notification.persisted?
+      end
+    end
   end
 end

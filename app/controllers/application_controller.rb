@@ -21,6 +21,17 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: User::PERMIT_ATTRIBUTES)
   end
 
+  def format_params_date
+    queries = params[:q] || {}
+    if queries[:created_at_cont].present?
+      date = queries[:created_at_cont].to_date
+      queries[:created_at_gteq] = date.beginning_of_day.strftime Settings.global.strftime_format
+      queries[:created_at_lteq] = date.end_of_day.strftime Settings.global.strftime_format
+    end
+
+    @query_params = queries.reject{|k, _v| k == "created_at_cont"}
+  end
+
   private
 
   def default_url_options

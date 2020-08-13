@@ -1,0 +1,2 @@
+$("#notification-render").html("<%= j render @notifications %>");
+$("#notification-paginator").html("<%= j paginate @notifications, remote: true %>");

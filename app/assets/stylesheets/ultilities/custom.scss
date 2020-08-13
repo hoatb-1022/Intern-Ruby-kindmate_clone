@@ -483,3 +483,13 @@ img.embed-responsive-item {
     }
   }
 }
+
+/* Notifications */
+.no-notifications-text {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  text-align: center;
+  color: $text-muted;
+  font-size: .9em;
+}

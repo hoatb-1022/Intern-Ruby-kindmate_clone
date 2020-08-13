@@ -1,0 +1,50 @@
+<% provide :title, t(".title") %>
+<section id="notifications--index" class="my-2 pb-4 container">
+  <h3 class="mb-4 font-weight-bold">
+    <%= t ".title" %>
+    (<%= current_user.notifications.size %>)
+  </h3>
+  <div class="mt-2 mb-5">
+    <%= search_form_for @query do |f| %>
+      <div class="d-flex align-items-center">
+        <div class="form-group mb-0">
+          <%= f.search_field :title_or_body_cont,
+                             placeholder: t("global.fill_in_keyword"),
+                             value: params[:q].try(:[], :title_or_body_cont),
+                             class: "form-control" %>
+        </div>
+        <div class="form-group mb-0 ml-3">
+          <div class="input-group">
+            <%= f.search_field :created_at_cont,
+                               id: "notification_created_date",
+                               placeholder: t(".notified_date"),
+                               value: params[:q].try(:[], :created_at_cont),
+                               class: "form-control" %>
+            <div class="input-group-append">
+              <span class="input-group-text">
+                <i class="fas fa-calendar-alt"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+        <%= button_tag :submit, name: nil, class: "btn btn-primary ml-3" do %>
+          <i class="fas fa-search mr-1"></i>
+          <span><%= t "global.search" %></span>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="col-lg-6 mb-5 mb-lg-0">
+      <%= link_to t(".mark_all_read"),
+                  view_all_notifications_path,
+                  method: :post,
+                  class: "small font-weight-medium text-primary mb-2 d-block"
+      %>
+      <%= render "notifications/list_notifications_paginated", notifications: @notifications %>
+    </div>
+    <div class="col-lg-6">
+      <%= image_tag "svg/notifications.svg", class: "my-3", width: "100%" %>
+    </div>
+  </div>
+</section>

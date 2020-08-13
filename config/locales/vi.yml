@@ -218,6 +218,29 @@ vi:
     failed_updated: "Cập nhật bình luận thất bại"
     success_deleted: "Đã xoá bình luận thành công"
     failed_deleted: "Đã xoá bình luận thất bại"
+  notifications:
+    nothing: "Chưa có thông báo nào"
+    not_found: "Thông báo không tồn tại"
+    campaign:
+      approve_request: "Yêu cầu phê duyệt"
+      updated: "Có chiến dịch được cập nhật, vui lòng kiểm tra"
+      created: "Có chiến dịch được tạo mới, vui lòng kiểm tra"
+      status_changed: "Thay đổi trạng thái chiến dịch"
+      pending: "Chiến dịch của bạn đang chờ xét duyệt"
+      running: "Chiến dịch của bạn đã được khởi chạy"
+      stopped: "Chiến dịch của bạn đã được khởi chạy"
+    comment:
+      new: "Bình luận mới"
+      created: "Chiến dịch của bạn có bình luận mới"
+    donation:
+      new: "Ủng hộ mới"
+      created: "Chiến dịch của bạn nhận được sự ủng hộ mới"
+    index:
+      title: "Quản lý thông báo"
+      notified_date: "Ngày thông báo"
+      mark_all_read: "Đánh dấu đọc tất cả"
+    update:
+      failed_change_viewed: "Cập nhật thông báo thất bại"
   admin:
     users:
       index:
@@ -273,21 +296,6 @@ vi:
       campaign:
         title: "Tiêu đề"
         description: "Mô tả"
-  notify:
-    campaign:
-      approve_request: "Yêu cầu phê duyệt"
-      updated: "Có chiến dịch được cập nhật, vui lòng kiểm tra"
-      created: "Có chiến dịch được tạo mới, vui lòng kiểm tra"
-      status_changed: "Thay đổi trạng thái chiến dịch"
-      pending: "Chiến dịch của bạn đang chờ xét duyệt"
-      running: "Chiến dịch của bạn đã được khởi chạy"
-      stopped: "Chiến dịch của bạn đã được khởi chạy"
-    comment:
-      new: "Bình luận mới"
-      created: "Chiến dịch của bạn có bình luận mới"
-    donation:
-      new: "Ủng hộ mới"
-      created: "Chiến dịch của bạn nhận được sự ủng hộ mới"
   campaign_mailer:
     campaign_stopped:
       subject: "Chiến dịch đã ngừng!"

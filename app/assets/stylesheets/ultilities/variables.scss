@@ -1,5 +1,6 @@
 $header-height: 70px;
-$header-shadow: 0 4px 8px rgba(126, 142, 177, 0.2);
+$header-shadow: 0 4px 8px $common-shadow-primary;
 $common-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
 $common-border-radius: 0.25rem;
 $danger-box-shadow: 0 0 0 .2rem rgba($danger, .25);
+$notifications-box-width: 350px;

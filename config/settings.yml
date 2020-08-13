@@ -41,6 +41,11 @@ comment:
   per_page: 5
 tag:
   max_length: 50
+notification:
+  show_nav_dropdown: 5
+  max_title_length: 100
+  max_body_length: 300
+  per_page: 5
 currency:
   min: 0
   step: 1
