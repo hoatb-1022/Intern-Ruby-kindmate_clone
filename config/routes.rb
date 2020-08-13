@@ -24,12 +24,14 @@ Rails.application.routes.draw do
     end
 
     resources :users, except: [:index, :new, :create]
-    resources :account_activations, only: :edit
     resources :campaigns do
       resources :donations, only: [:new, :create]
       resources :comments, only: [:create, :update, :destroy]
     end
     resources :donations, only: [:index]
+    resources :notifications, only: [:index, :update] do
+      post :view_all, on: :collection
+    end
 
     resources :admin, only: :index
     namespace :admin do

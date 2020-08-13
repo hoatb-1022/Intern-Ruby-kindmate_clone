@@ -1,0 +1,13 @@
+<div id="notificationDropdownBox"
+     class="dropdown-menu dropdown-menu-right dropdown-user-notifications"
+     aria-labelledby="navbarNotificationsDropdown">
+  <% if nav_current_noti.any? %>
+    <%= render partial: "notifications/notification", collection: nav_current_noti, as: :notification %>
+  <% else %>
+    <span class="no-notifications-text"><%= t "notifications.nothing" %></span>
+  <% end %>
+  <%= link_to notifications_path, class: "dropdown-see-more-btn" do %>
+    <span><%= t("global.see_more") %></span>
+    <i class="fas fa-chevron-down ml-2"></i>
+  <% end %>
+</div>

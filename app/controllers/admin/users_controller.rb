@@ -13,6 +13,6 @@ class Admin::UsersController < AdminController
       flash[:error] = t ".failed_change_status"
     end
 
-    redirect_to request.referer
+    redirect_to request.referer || root_url
   end
 end

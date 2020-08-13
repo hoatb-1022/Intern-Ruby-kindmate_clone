@@ -1,7 +1,6 @@
 class Comment < ApplicationRecord
   PERMIT_ATTRIBUTES = :content
 
-  include Notifier
   include Rails.application.routes.url_helpers
 
   acts_as_paranoid
@@ -27,11 +26,11 @@ class Comment < ApplicationRecord
   private
 
   def notify_new_comment
-    notify_to_user(
-      campaign.user_id,
-      I18n.t("notify.comment.new"),
-      I18n.t("notify.comment.created"),
-      campaign_url(id: campaign.id)
+    notification = campaign.user.notifications.create(
+      title: "notifications.comment.new",
+      body: "notifications.comment.created",
+      target: campaign_url(id: campaign.id)
     )
+    NotificationWorker.perform_async notification.id if notification.persisted?
   end
 end

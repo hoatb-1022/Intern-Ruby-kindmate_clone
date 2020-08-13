@@ -1,0 +1,15 @@
+#notifications--index {
+  #notification-render {
+    border: 1px solid $common-light-primary;
+    border-radius: $border-radius;
+    overflow: hidden;
+
+    .notification-item {
+      padding: .75rem 1.5rem;
+
+      &:hover {
+        background-color: $common-light-primary;
+      }
+    }
+  }
+}

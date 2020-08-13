@@ -1,0 +1,29 @@
+.notification-item {
+  &--title, &--body {
+    display: block;
+    white-space: pre-wrap;
+  }
+
+  &--title {
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+
+  &--body {
+    margin-bottom: 5px;
+  }
+
+  &--created-at {
+    display: block;
+    color: $text-muted;
+    text-align: right;
+  }
+
+  &:not(:first-child) {
+    border-top: 1px solid $gray-300;
+  }
+
+  &.not-viewed {
+    background-color: $common-more-light-primary;
+  }
+}

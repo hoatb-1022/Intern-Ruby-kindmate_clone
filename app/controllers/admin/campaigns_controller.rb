@@ -7,16 +7,17 @@ class Admin::CampaignsController < AdminController
   end
 
   def update
-    success = case params[:status].to_i
+    status = params[:status].to_i
+    success = case status
               when Campaign.statuses[:pending]
                 @campaign.pending!
-                notify_body = t "notify.campaign.pending"
+                notify_body = "notifications.campaign.pending"
               when Campaign.statuses[:running]
                 @campaign.running!
-                notify_body = t "notify.campaign.running"
+                notify_body = "notifications.campaign.running"
               else
                 @campaign.stopped!
-                notify_body = t "notify.campaign.stopped"
+                notify_body = "notifications.campaign.stopped"
               end
 
     handle_update_status success, notify_body
@@ -29,14 +30,18 @@ class Admin::CampaignsController < AdminController
     if success
       flash[:success] = t ".update.success_change_status"
       CampaignStatusWorker.perform_async @campaign.id, Campaign.statuses.keys[params[:status].to_i]
-      @campaign.notify_to_user(
-        @campaign.user_id,
-        t("notify.campaign.status_changed"),
-        notify_body,
-        campaign_url(id: @campaign.id)
-      )
+      send_notification_success notify_body
     else
       flash[:error] = t ".update.failed_change_status"
     end
+  end
+
+  def send_notification_success notify_body
+    notification = @campaign.user.notifications.create(
+      title: "notifications.campaign.status_changed",
+      body: notify_body,
+      target: campaign_url(id: @campaign.id)
+    )
+    NotificationWorker.perform_async notification.id if notification.persisted?
   end
 end

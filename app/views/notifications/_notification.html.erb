@@ -1,0 +1,12 @@
+<%= link_to(
+      notification,
+      class: "dropdown-item notification-item #{notification.is_viewed? ? '' : 'not-viewed'}",
+      method: "patch",
+      remote: true
+    ) do %>
+  <span class="notification-item--title"><%= t notification.title %></span>
+  <small class="notification-item--body"><%= t notification.body %></small>
+  <small class="notification-item--created-at">
+    <%= t "global.time_ago", time: time_ago_in_words(notification.created_at) %>
+  </small>
+<% end %>
