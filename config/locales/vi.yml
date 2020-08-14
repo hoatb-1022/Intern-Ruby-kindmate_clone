@@ -31,6 +31,7 @@ vi:
     money_amount: "Số tiền"
     date: "Ngày"
     group_by_date: "Thống kê theo ngày"
+    you_are_here: "Bạn đang ở đây"
   _header:
     brand: "Kindmate"
     about_us: "Về chúng tôi"
@@ -122,6 +123,7 @@ vi:
       failed_update_profile: "Cập nhật thông tin thất bại"
       user_deleted: "Người dùng đã bị xoá"
       failed_delete_user: "Xoá người dùng thất bại"
+      must_exist_on_map: " phải tồn tại trên bản đồ."
     sessions:
       check_active_mail: "Vui lòng kiểm tra email của bạn để kích hoạt tài khoản"
       blocked_account: "Tài khoản của bạn đã bị chặn, vui lòng liên hệ chúng tôi để biết thêm thông tin chi tiết"

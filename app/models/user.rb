@@ -9,6 +9,8 @@ class User < ApplicationRecord
       avatar
       password
       password_confirmation
+      latitude
+      longitude
     ).freeze
 
   rolify
@@ -30,6 +32,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :phone, presence: true, uniqueness: true
+  validate :coordinates_must_exists
 
   before_save :downcase_email
   after_create :assign_default_role
@@ -50,5 +53,11 @@ class User < ApplicationRecord
 
   def assign_default_role
     add_role :user
+  end
+
+  def coordinates_must_exists
+    return if address.blank? || ((-180..180).include?(longitude) && (-90..90).include?(latitude))
+
+    errors.add :address, I18n.t("users.edit.must_exist_on_map")
   end
 end

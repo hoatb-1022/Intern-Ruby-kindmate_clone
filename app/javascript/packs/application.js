@@ -13,9 +13,11 @@ require('bootstrap')
 //= require_tree .
 
 import toastr from 'toastr'
+
 window.toastr = toastr
 
 import ApexCharts from 'apexcharts'
+
 window.ApexCharts = ApexCharts
 
 import '@fortawesome/fontawesome-free/js/all'
@@ -31,6 +33,7 @@ import {setupCommentEdit} from './comments'
 import {setupTagButtons} from './tags'
 import {setupNavbarItemMatchRoute} from './router'
 import {setupFlatpickr} from './flatpickr'
+import {isElementExist} from './helper'
 
 $(document).on('turbolinks:load', function () {
   setupUserAvatar()
@@ -43,9 +46,16 @@ $(document).on('turbolinks:load', function () {
   setupTagButtons()
   setupFlatpickr()
   setupNavbarItemMatchRoute()
+
+  if (isElementExist('#navbarMapToggle')) {
+    $('#navbarMapToggle').click(function (e) {
+      $('#formUserMap').toggleClass('hide')
+    })
+  }
 })
 
-Notification.requestPermission().then(function (result) {})
+Notification.requestPermission().then(function (result) {
+})
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)

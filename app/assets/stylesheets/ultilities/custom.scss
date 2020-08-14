@@ -493,3 +493,26 @@ img.embed-responsive-item {
   color: $text-muted;
   font-size: .9em;
 }
+
+/* Google maps */
+#formUserMap {
+  @include transition($transition-base);
+
+  #userMapContainer {
+    height: 350px;
+    @include transition($transition-base);
+
+    #userAddressMap {
+      min-height: 100%;
+      border-radius: $border-radius;
+    }
+  }
+
+  &.hide {
+    margin: 0;
+
+    #userMapContainer {
+      height: 0;
+    }
+  }
+}
