@@ -10,6 +10,8 @@
 #   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 
+default_full_url: "http://localhost:3000"
+default_url: "localhost:3000"
 host: "localhost"
 port: "3000"
 host_email: "admin@sun-asterisk.com"
@@ -21,3 +23,5 @@ mail_port: "2525"
 google_api_key: "AIzaSyAi23ZtW4_Lfk9qeM1LNvMk1uT5myhx47E"
 google_libraries: "places"
 google_callback: "initMap"
+facebook_app_id: "864981444025740"
+facebook_app_secret: "d3e8557ddd6ee548219251cec376be27"

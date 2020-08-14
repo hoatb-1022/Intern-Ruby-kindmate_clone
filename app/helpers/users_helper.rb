@@ -1,7 +1,7 @@
 module UsersHelper
   def gravatar_for user, id = ""
-    avatar_url = "svg/unknown_avatar.svg"
-    avatar_url = user.avatar if user.try(:avatar).try(:attached?)
+    avatar_url = user&.image_url || "svg/unknown_avatar.svg"
+    avatar_url = user.avatar if user&.persisted? && user.avatar.attached?
 
     image_tag avatar_url, id: id, class: "gravatar"
   end

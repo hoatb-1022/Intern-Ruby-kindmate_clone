@@ -131,6 +131,7 @@ en:
       invalid_email_password_combination: "Invalid email or password"
       new:
         log_in: "Log in"
+        log_in_with: "Or log in with"
         new_user?: "New user?"
         sign_up_now!: "Sign up now!"
         remember_me: "Remember me"
