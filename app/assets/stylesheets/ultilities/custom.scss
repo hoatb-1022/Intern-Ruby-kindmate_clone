@@ -81,16 +81,6 @@ img.embed-responsive-item {
   }
 }
 
-.btn-twitter {
-  background-color: $color-twitter;
-  color: white;
-
-  &:hover {
-    color: white;
-    background-color: darken($color-twitter, 8);
-  }
-}
-
 .btn-github {
   background-color: $color-github;
   color: white;

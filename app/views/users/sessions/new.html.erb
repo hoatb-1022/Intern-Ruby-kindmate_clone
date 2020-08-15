@@ -38,7 +38,7 @@
                 <div class="card-body p-4">
                   <h6 class="mb-3 font-weight-semibold"><%= t ".log_in_with" %></h6>
                   <div class="row">
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-4 mb-3">
                       <%= link_to user_facebook_omniauth_authorize_path, class: "btn btn-block btn-facebook" do %>
                         <i class="fab fa-facebook-f"></i>
                         <span class="ml-2">
@@ -46,7 +46,7 @@
                         </span>
                       <% end %>
                     </div>
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-4 mb-3">
                       <%= link_to user_google_oauth2_omniauth_authorize_path, class: "btn btn-block btn-google" do %>
                         <i class="fab fa-google"></i>
                         <span class="ml-2">
@@ -54,16 +54,8 @@
                         </span>
                       <% end %>
                     </div>
-                    <div class="col-md-6 mb-3">
-                      <%= link_to user_facebook_omniauth_authorize_path, class: "btn btn-block btn-twitter" do %>
-                        <i class="fab fa-twitter"></i>
-                        <span class="ml-2">
-                          <%= Settings.oauth_kinds.twitter %>
-                        </span>
-                      <% end %>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                      <%= link_to user_facebook_omniauth_authorize_path, class: "btn btn-block btn-github" do %>
+                    <div class="col-md-4 mb-3">
+                      <%= link_to user_github_omniauth_authorize_path, class: "btn btn-block btn-github" do %>
                         <i class="fab fa-github"></i>
                         <span class="ml-2">
                           <%= Settings.oauth_kinds.github %>
