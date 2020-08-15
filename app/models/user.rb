@@ -20,7 +20,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable, :trackable,
-         :omniauthable, omniauth_providers: [:facebook]
+         :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
   enum role: {user: 0, admin: 1}
 
@@ -32,7 +32,11 @@ class User < ApplicationRecord
   has_one_attached :avatar
 
   validates :name, presence: true
-  validates :phone, presence: true, uniqueness: true
+  validates :phone, presence: true
+  validates :phone,
+            format: {with: Settings.user.phone_regex},
+            uniqueness: true,
+            unless: :phone_is_example
   validate :coordinates_must_exists
 
   before_save :downcase_email
@@ -89,5 +93,9 @@ class User < ApplicationRecord
     return if address.blank? || ((-180..180).include?(longitude) && (-90..90).include?(latitude))
 
     errors.add :address, I18n.t("users.edit.must_exist_on_map")
+  end
+
+  def phone_is_example
+    phone == Settings.user.example_phone_numer
   end
 end

@@ -277,6 +277,10 @@ Devise.setup do |config|
                   ENV["facebook_app_secret"],
                   token_params: {parse: :json},
                   callback_url: "#{ENV["default_full_url"]}/users/auth/facebook/callback"
+  config.omniauth :google_oauth2,
+                  ENV["google_client_id"],
+                  ENV["google_client_secret"],
+                  callback_url: "#{ENV["default_full_url"]}/users/auth/google_oauth2/callback"
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
