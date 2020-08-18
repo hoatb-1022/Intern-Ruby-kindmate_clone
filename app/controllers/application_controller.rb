@@ -32,6 +32,10 @@ class ApplicationController < ActionController::Base
     @query_params = queries.reject{|k, _v| k == "created_at_cont"}
   end
 
+  def new_session_path _scope
+    login_path
+  end
+
   private
 
   def default_url_options

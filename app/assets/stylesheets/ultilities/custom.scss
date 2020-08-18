@@ -59,6 +59,48 @@ img.embed-responsive-item {
   word-break: break-all !important;
 }
 
+/* SOCIAL BUTTONS */
+
+.btn-facebook {
+  background-color: $color-facebook;
+  color: white;
+
+  &:hover {
+    color: white;
+    background-color: darken($color-facebook, 8);
+  }
+}
+
+.btn-google {
+  background-color: $color-google;
+  color: white;
+
+  &:hover {
+    color: white;
+    background-color: darken($color-google, 8);
+  }
+}
+
+.btn-twitter {
+  background-color: $color-twitter;
+  color: white;
+
+  &:hover {
+    color: white;
+    background-color: darken($color-twitter, 8);
+  }
+}
+
+.btn-github {
+  background-color: $color-github;
+  color: white;
+
+  &:hover {
+    color: white;
+    background-color: darken($color-github, 8);
+  }
+}
+
 /* Fonts */
 .font-weight-medium {
   font-weight: 500;

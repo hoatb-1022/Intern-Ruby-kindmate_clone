@@ -130,6 +130,7 @@ vi:
       invalid_email_password_combination: "Email và mật khẩu không khớp nhau"
       new:
         log_in: "Đăng nhập"
+        log_in_with: "Hoặc đăng nhập bằng"
         new_user?: "Người dùng mới?"
         sign_up_now!: "Đăng ký ngay!"
         remember_me: "Ghi nhớ đăng nhập"

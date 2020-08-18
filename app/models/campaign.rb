@@ -7,6 +7,7 @@ class Campaign < ApplicationRecord
     :embedded_link,
     :total_amount,
     :expired_at,
+    :status,
     tags_attributes: [:id, :name, :_destroy].freeze
   ].freeze
 

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users, only: :omniauth_callbacks, controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
+
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     root "static_pages#home"
 
@@ -7,7 +9,7 @@ Rails.application.routes.draw do
     get "/terms_of_use", to: "static_pages#terms_of_use"
     get "/faqs", to: "static_pages#faqs"
 
-    devise_for :users
+    devise_for :users, skip: :all
     devise_scope :user do
       get "signup", to: "users/registrations#new"
       post "signup", to: "users/registrations#create"
@@ -45,5 +47,5 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => "/sidekiq"
   end
 
-  default_url_options host: "localhost:3000"
+  default_url_options host: ENV["default_url"]
 end
