@@ -67,7 +67,7 @@ class ApplicationController < ActionController::Base
   end
 
   def find_user
-    @user = User.find_by id: params[:id]
+    @user = User.friendly.find_by slug: params[:id]
     return if @user
 
     flash[:error] = t "users.not_found"
@@ -75,7 +75,7 @@ class ApplicationController < ActionController::Base
   end
 
   def correct_campaign
-    @campaign = Campaign.find_by id: params[:campaign_id]
+    @campaign = Campaign.friendly.find_by slug: params[:campaign_id]
     return if @campaign
 
     flash[:error] = t "campaigns.not_found"
@@ -83,7 +83,7 @@ class ApplicationController < ActionController::Base
   end
 
   def find_campaign
-    @campaign = Campaign.find_by id: params[:id]
+    @campaign = Campaign.friendly.find_by slug: params[:id]
     return if @campaign
 
     flash[:error] = t "campaigns.not_found"

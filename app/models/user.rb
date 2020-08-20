@@ -13,6 +13,9 @@ class User < ApplicationRecord
       longitude
     ).freeze
 
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   rolify
 
   acts_as_paranoid
