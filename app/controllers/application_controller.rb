@@ -71,7 +71,7 @@ class ApplicationController < ActionController::Base
     return if @user
 
     flash[:error] = t "users.not_found"
-    redirect_to request.referer || root_url
+    redirect_to request.referer || not_found_url
   end
 
   def correct_campaign
@@ -79,7 +79,7 @@ class ApplicationController < ActionController::Base
     return if @campaign
 
     flash[:error] = t "campaigns.not_found"
-    redirect_to request.referer || root_url
+    redirect_to request.referer || not_found_url
   end
 
   def find_campaign
@@ -87,6 +87,6 @@ class ApplicationController < ActionController::Base
     return if @campaign
 
     flash[:error] = t "campaigns.not_found"
-    redirect_to request.referer || root_url
+    redirect_to request.referer || not_found_url
   end
 end

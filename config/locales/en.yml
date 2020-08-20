@@ -310,3 +310,17 @@ en:
     campaign_running:
       subject: "Campaign is running!"
       desc_html: "<h5>Campaign %{campaign} is running!</h5><p>You can donate it now!</p>"
+  errors:
+    return_home: "Return to homepage"
+    not_found:
+      title: "Page not found"
+      code: "404!"
+      desc: "The page you searched for does not exist or has been changed. Contact us for more details!"
+    unacceptable:
+      title: "You are not allowed"
+      code: "422!"
+      desc: "You are trying to access a disallowed page. Contact us for more details!"
+    internal_error:
+      title: "Something went wrong"
+      code: "500!"
+      desc: "Our fault, something is not working properly. Contact us for more details!"

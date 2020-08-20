@@ -19,7 +19,7 @@ class Users::SessionsController < Devise::SessionsController
     return if @user
 
     flash[:error] = t "users.not_found"
-    redirect_to request.referer || root_url
+    redirect_to request.referer || not_found_url
   end
 
   def after_sign_in_path_for _resource

@@ -1,0 +1,94 @@
+.error-page-container {
+  position: relative;
+  height: 50vh;
+
+  .error-page {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    max-width: 767px;
+    width: 100%;
+    line-height: 1.4;
+    text-align: center;
+    padding: 15px;
+
+    .error-page-title {
+      position: relative;
+      height: 220px;
+
+      h1 {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 186px;
+        font-weight: 200;
+        margin: 0;
+        background: linear-gradient(130deg, $primary, $danger);
+        color: transparent;
+        background-clip: text;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        font-size: 33px;
+        font-weight: 200;
+        text-transform: uppercase;
+        margin-top: 0;
+        margin-bottom: 25px;
+        letter-spacing: 3px;
+      }
+
+      p {
+        font-size: 16px;
+        font-weight: 200;
+        margin-top: 0;
+        margin-bottom: 25px;
+      }
+
+      a {
+        color: $primary;
+        font-weight: 200;
+        text-decoration: none;
+        border-bottom: 1px dashed $primary;
+        border-radius: 2px;
+      }
+
+      @include media-breakpoint-down(sm) {
+        position: relative;
+        height: 168px;
+
+        h1 {
+          font-size: 142px;
+        }
+
+        h2 {
+          font-size: 22px;
+        }
+      }
+    }
+
+    .error-page-social {
+      & > a {
+        display: inline-block;
+        height: 40px;
+        line-height: 40px;
+        width: 40px;
+        font-size: 14px;
+        color: $primary;
+        border: 1px solid $gray-200;
+        border-radius: 50%;
+        margin: 3px;
+        transition: $transition-base;
+
+        &:hover {
+          color: #fff;
+          background-color: $primary;
+          border-color: $primary;
+        }
+      }
+    }
+  }
+}

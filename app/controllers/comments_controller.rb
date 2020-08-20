@@ -36,7 +36,7 @@ class CommentsController < ApplicationController
     return if @comment
 
     flash[:error] = t ".not_found"
-    redirect_to root_url
+    redirect_to not_found_url
   end
 
   def refind_comments
