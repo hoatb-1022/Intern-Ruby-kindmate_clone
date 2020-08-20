@@ -159,14 +159,13 @@
             </span>
           </div>
         </div>
-        <div class="my-4">
+        <div class="mt-4 mb-3">
           <% if @campaign.running? %>
             <%= link_to t(".donate_now"), new_campaign_donation_path(@campaign), class: "btn btn-block btn-primary" %>
           <% end %>
-          <%= link_to t(".share_now"), Settings.campaign.share_fb_prefix + request.url,
-                      class: "btn btn-block btn-danger share",
-                      data: {network: "facebook"}
-          %>
+          <div class="mt-4">
+            <%= social_share_button_tag @campaign.title, url: campaigns_url(id: @campaign.id) %>
+          </div>
         </div>
         <small><%= t ".share_tips_html" %></small>
         <% if @campaign.tags.any? %>

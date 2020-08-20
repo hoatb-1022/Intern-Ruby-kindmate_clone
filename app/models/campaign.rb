@@ -92,6 +92,8 @@ class Campaign < ApplicationRecord
 
   %w(created updated).each do |action|
     define_method "notify_#{action}_campaign" do
+      return unless pending?
+
       User.admin.each do |admin|
         notification = admin.notifications.create(
           title: "notifications.campaign.approve_request",

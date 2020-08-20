@@ -20,6 +20,8 @@ import ApexCharts from 'apexcharts'
 
 window.ApexCharts = ApexCharts
 
+import './gem.js.erb'
+
 import '@fortawesome/fontawesome-free/js/all'
 import {setupUserAvatar} from './users'
 import {
