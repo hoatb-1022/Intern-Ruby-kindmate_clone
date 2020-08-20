@@ -42,6 +42,6 @@ class NotificationsController < ApplicationController
     return if @notification
 
     flash[:error] = t ".not_found"
-    redirect_to root_url
+    redirect_to not_found_url
   end
 end

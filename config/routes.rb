@@ -9,6 +9,10 @@ Rails.application.routes.draw do
     get "/terms_of_use", to: "static_pages#terms_of_use"
     get "/faqs", to: "static_pages#faqs"
 
+    get "/404", to: "errors#not_found", as: "not_found"
+    get "/422", to: "errors#unacceptable", as: "unacceptable"
+    get "/500", to: "errors#internal_error", as: "internal_error"
+
     devise_for :users, skip: :all
     devise_scope :user do
       get "signup", to: "users/registrations#new"

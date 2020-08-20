@@ -87,7 +87,7 @@ RSpec.describe CampaignsController, type: :controller do
         end
 
         it "should redirect to referer or root url" do
-          expect(response).to redirect_to request.referer || root_url
+          expect(response).to redirect_to request.referer || not_found_url
         end
       end
     end
@@ -212,7 +212,7 @@ RSpec.describe CampaignsController, type: :controller do
       end
 
       it "should redirect request referer or root url" do
-        expect(response).to redirect_to request.referer || root_url
+        expect(response).to redirect_to request.referer || not_found_url
       end
     end
   end

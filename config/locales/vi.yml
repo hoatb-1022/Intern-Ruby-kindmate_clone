@@ -309,3 +309,17 @@ vi:
     campaign_running:
       subject: "Chiến dịch đã khởi chạy!"
       desc_html: "<h5>Chiến dịch %{campaign} đã được khởi chạy!</h5><p>Bạn có thể ủng hộ ngay bây giờ!</p>"
+  errors:
+    return_home: "Trở về trang chủ"
+    not_found:
+      title: "Trang không tồn tại"
+      code: "404!"
+      desc: "Trang bạn tìm kiếm không tồn tại hoặc đã bị thay đổi. Liên hệ với chúng tôi để biết thêm chi tiết!"
+    unacceptable:
+      title: "Bạn không được phép truy cập"
+      code: "422!"
+      desc: "Bạn đang cố gắng truy cập vào trang không được cấp phép. Liên hệ với chúng tôi để biết thêm chi tiết!"
+    internal_error:
+      title: "Có lỗi xảy ra"
+      code: "500!"
+      desc: "Lỗi của chúng tôi, có gì đó không hoạt đông đúng. Liên hệ với chúng tôi để biết thêm chi tiết!"
