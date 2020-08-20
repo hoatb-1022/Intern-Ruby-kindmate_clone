@@ -9,6 +9,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     handle_auth_user Settings.oauth_kinds.google
   end
 
+  def github
+    handle_auth_user Settings.oauth_kinds.github
+  end
+
   def failure
     redirect_to login_path
   end

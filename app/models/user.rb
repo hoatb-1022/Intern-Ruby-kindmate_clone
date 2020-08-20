@@ -20,7 +20,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable, :trackable,
-         :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
+         :omniauthable, omniauth_providers: %i(facebook google_oauth2 github)
 
   enum role: {user: 0, admin: 1}
 
@@ -32,11 +32,11 @@ class User < ApplicationRecord
   has_one_attached :avatar
 
   validates :name, presence: true
-  validates :phone, presence: true
   validates :phone,
+            presence: true,
             format: {with: Settings.user.phone_regex},
             uniqueness: true,
-            unless: :phone_is_example
+            if: :phone_required?
   validate :coordinates_must_exists
 
   before_save :downcase_email
@@ -68,7 +68,6 @@ class User < ApplicationRecord
         user.name = auth.info.name
         user.password = Devise.friendly_token[0, 20]
         user.password_confirmation = user.password
-        user.phone = Settings.user.example_phone_numer
         user.image_url = auth.info.image
         user.confirmed_at = Time.zone.now
       end
@@ -78,11 +77,19 @@ class User < ApplicationRecord
   private
 
   def downcase_email
-    email.downcase!
+    email.downcase! if email.present?
   end
 
   def password_required?
     new_record? ? super : false
+  end
+
+  def email_required?
+    email.present? || provider.blank? ? super : false
+  end
+
+  def phone_required?
+    provider.blank?
   end
 
   def assign_default_role
@@ -93,9 +100,5 @@ class User < ApplicationRecord
     return if address.blank? || ((-180..180).include?(longitude) && (-90..90).include?(latitude))
 
     errors.add :address, I18n.t("users.edit.must_exist_on_map")
-  end
-
-  def phone_is_example
-    phone == Settings.user.example_phone_numer
   end
 end
