@@ -91,6 +91,14 @@ img.embed-responsive-item {
   }
 }
 
+.social-share-button {
+  .ssb-icon {
+    background-size: $share-btn-size $share-btn-size;
+    height: $share-btn-size;
+    width: $share-btn-size;
+  }
+}
+
 /* Fonts */
 .font-weight-medium {
   font-weight: 500;
