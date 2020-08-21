@@ -11,6 +11,9 @@ class Campaign < ApplicationRecord
     tags_attributes: [:id, :name, :_destroy].freeze
   ].freeze
 
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   acts_as_paranoid
 
   enum status: {pending: 0, running: 1, stopped: 2}

@@ -3,7 +3,7 @@ class CampaignStatusWorker
   sidekiq_options retry: false
 
   def perform campaign_id, status
-    @campaign = Campaign.find_by id: campaign_id
+    @campaign = Campaign.friendly.find_by slug: campaign_id
     return unless @campaign
 
     donations = @campaign.donations.by_user_distinct
