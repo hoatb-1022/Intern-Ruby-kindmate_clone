@@ -163,6 +163,7 @@ en:
     create_now: "Create now"
     save_campaign: "Save campaign"
     not_found: "Campaign not found!"
+    image_not_found: "Campaign's image not found!"
     not_running: "Campaign is not running"
     success_created: "Successfully create campaign"
     failed_created: "Failed to create campaign"
@@ -324,3 +325,6 @@ en:
       title: "Something went wrong"
       code: "500!"
       desc: "Our fault, something is not working properly. Contact us for more details!"
+  api:
+    headers:
+      unknown_key: "Unknown key"
