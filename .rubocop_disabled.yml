@@ -1,5 +1,11 @@
 # These are all the cops that are disabled in the default configuration.
 
+Metrics/BlockLength:
+  Description: "Block has too many lines."
+  Enabled: false
+  Include:
+    - "api/**/*"
+
 Rails/HasAndBelongsToMany:
   Description: "Prefer has_many :through to has_and_belongs_to_many."
   Enabled: false

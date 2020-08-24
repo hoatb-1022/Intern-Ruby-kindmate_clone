@@ -162,6 +162,7 @@ vi:
     create_now: "Tạo ngay"
     save_campaign: "Lưu chiến dịch"
     not_found: "Chiến dịch không tồn tại!"
+    image_not_found: "Ảnh của chiến dịch không tồn tại!"
     not_running: "Chiến dịch chưa được khởi chạy"
     success_created: "Đã tạo chiến dịch thành công"
     failed_created: "Tạo chiến dịch thất bại"
@@ -323,3 +324,6 @@ vi:
       title: "Có lỗi xảy ra"
       code: "500!"
       desc: "Lỗi của chúng tôi, có gì đó không hoạt đông đúng. Liên hệ với chúng tôi để biết thêm chi tiết!"
+  api:
+    headers:
+      unknown_key: "Từ khoá không tồn tại"
