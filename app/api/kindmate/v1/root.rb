@@ -1,6 +1,7 @@
 module Kindmate
   module V1
     class Root < Grape::API
+      mount Kindmate::V1::UserEndpoints
       mount Kindmate::V1::CampaignEndpoints
 
       resource :payload do

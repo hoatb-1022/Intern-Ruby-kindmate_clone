@@ -6,12 +6,12 @@ module Kindmate
 
       desc "Return list of all campaigns"
       get "campaigns" do
-        ResponseBuilder.build_success Campaign.all
+        ResponseBuilder.build_success CampaignSerializer.new(Campaign.all)
       end
 
       desc "Return list of successful campaigns"
       get "campaigns/success" do
-        ResponseBuilder.build_success Campaign.homepage_success
+        ResponseBuilder.build_success CampaignSerializer.new(Campaign.homepage_success)
       end
 
       resource "campaigns/:id" do
@@ -19,24 +19,10 @@ module Kindmate
           @campaign = Campaign.find_by id: params[:id]
         end
 
-        desc "Return everything of a campaign"
+        desc "Return details of a campaign"
         get do
           if @campaign.present?
-            user = @campaign.user
-            ResponseBuilder.build_success(
-              info: @campaign,
-              image: "#{request.url}/image",
-              user: {
-                id: user.id,
-                name: user.name,
-                email: user.email,
-                phone: user.phone,
-                address: user.address,
-                description: user.description
-              },
-              donations: @campaign.donations,
-              comment: @campaign.comments
-            )
+            ResponseBuilder.build_success CampaignSerializer.new(@campaign)
           else
             ResponseBuilder.build_error I18n.t("campaigns.not_found")
           end

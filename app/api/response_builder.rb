@@ -30,7 +30,7 @@ class ResponseBuilder
 
     def build_success data
       build do |builder|
-        builder.set_data data
+        builder.set_data data.serializable_hash[:data]
         builder.set_code 200
         builder.set_message :success
       end
