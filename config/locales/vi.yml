@@ -325,5 +325,6 @@ vi:
       code: "500!"
       desc: "Lỗi của chúng tôi, có gì đó không hoạt đông đúng. Liên hệ với chúng tôi để biết thêm chi tiết!"
   api:
+    wrong_login_info: "Email hoặc mật khẩu không chính xác"
     headers:
       unknown_key: "Từ khoá không tồn tại"

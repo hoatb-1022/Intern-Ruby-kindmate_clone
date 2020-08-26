@@ -326,5 +326,6 @@ en:
       code: "500!"
       desc: "Our fault, something is not working properly. Contact us for more details!"
   api:
+    wrong_login_info: "Email or password is incorrect"
     headers:
       unknown_key: "Unknown key"

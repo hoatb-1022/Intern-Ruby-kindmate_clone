@@ -75,6 +75,18 @@ class User < ApplicationRecord
         user.confirmed_at = Time.zone.now
       end
     end
+
+    def generate_jwt_token user
+      JWT.encode(
+        {
+          user_id: user.id,
+          typ: "access",
+          exp: (Time.zone.now + 2.weeks).to_i
+        },
+        Rails.application.secrets.secret_key_base,
+        "HS256"
+      )
+    end
   end
 
   private
