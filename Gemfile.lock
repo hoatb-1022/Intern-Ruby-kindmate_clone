@@ -489,6 +489,7 @@ DEPENDENCIES
   image_processing (~> 1.11)
   jbuilder (~> 2.7)
   jquery-rails (~> 4.4)
+  jwt
   kaminari (~> 1.2, >= 1.2.1)
   listen (~> 3.2)
   mini_magick (~> 4.10, >= 4.10.1)

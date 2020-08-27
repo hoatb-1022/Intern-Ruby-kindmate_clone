@@ -1,8 +1,7 @@
 module Kindmate
   module V1
     class CampaignEndpoints < Grape::API
-      version "v1"
-      format :json
+      include Defaults
 
       desc "Return list of all campaigns"
       get "campaigns" do

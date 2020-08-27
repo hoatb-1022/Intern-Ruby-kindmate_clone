@@ -1,6 +1,9 @@
 class UserSerializer
   include FastJsonapi::ObjectSerializer
   attributes :name, :phone, :email, :address, :description
+  attribute :token do |_user, params|
+    params[:token] || ""
+  end
 
   has_many :campaigns, lazy_load_data: true, links: {
     related: ->(object){"#{ENV['default_full_url']}/api/v1/users/#{object.id}/campaigns"}
