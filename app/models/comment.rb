@@ -29,7 +29,7 @@ class Comment < ApplicationRecord
     notification = campaign.user.notifications.create(
       title: "notifications.comment.new",
       body: "notifications.comment.created",
-      target: campaign_url(id: campaign.id)
+      target: campaign_url(id: campaign.id, slug: campaign.slug)
     )
     NotificationWorker.perform_async notification.id if notification.persisted?
   end

@@ -78,6 +78,10 @@ Naming/AccessorMethodName:
   Description: Check the naming of accessor methods for get_/set_.
   Enabled: false
 
+Rails/ApplicationRecord:
+  Description: Models should subclass ApplicationRecord.
+  Enabled: false
+
 #################### Lint ################################
 ### Warnings
 Lint/AssignmentInCondition:

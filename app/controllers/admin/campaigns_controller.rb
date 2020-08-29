@@ -40,7 +40,7 @@ class Admin::CampaignsController < AdminController
     notification = @campaign.user.notifications.create(
       title: "notifications.campaign.status_changed",
       body: notify_body,
-      target: campaign_url(id: @campaign.id)
+      target: campaign_url(id: @campaign.id, slug: @campaign.slug)
     )
     NotificationWorker.perform_async notification.id if notification.persisted?
   end

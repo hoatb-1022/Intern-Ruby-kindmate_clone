@@ -58,7 +58,7 @@ class Donation < ApplicationRecord
     notification = campaign.user.notifications.create(
       title: "notifications.donation.new",
       body: "notifications.donation.created",
-      target: campaign_url(id: campaign.id)
+      target: campaign_url(id: campaign.id, slug: campaign.slug)
     )
     NotificationWorker.perform_async notification.id if notification.persisted?
   end

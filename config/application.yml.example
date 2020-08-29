@@ -10,9 +10,6 @@
 #   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 
-default_full_url: "http://localhost:3000"
-default_url: "localhost:3000"
-host: "localhost"
 port: "3000"
 host_email: "admin@sun-asterisk.com"
 mail_user_name: "b004640761fbf0"
@@ -29,3 +26,13 @@ google_client_id: "1080951625899-963n1iihpcnf18ul81d2mv2jd6745pk5.apps.googleuse
 google_client_secret: "Hq5S33v4Qm5jMdH9gaB0N5pi"
 github_client_id: "Iv1.692a3559958519c6"
 github_client_secret: "5b8ea03961d8ab8ed0fbd18670bd0d32feec3ea1"
+
+development:
+  default_full_url: "http://localhost:3000"
+  default_url: "localhost:3000"
+  host: "localhost"
+
+production:
+  default_full_url: "https://kindmate-clone.herokuapp.com"
+  default_url: "https://kindmate-clone.herokuapp.com/"
+  host: "https://kindmate-clone.herokuapp.com"

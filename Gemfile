@@ -31,12 +31,12 @@ gem "jquery-rails", "~> 4.4"
 gem "jwt"
 gem "kaminari", "~> 1.2", ">= 1.2.1"
 gem "mini_magick", "~> 4.10", ">= 4.10.1"
-gem "mysql2"
 gem "omniauth"
 gem "omniauth-facebook"
 gem "omniauth-github"
 gem "omniauth-google-oauth2"
 gem "paranoia", "~> 2.4", ">= 2.4.2"
+gem "pg"
 gem "puma", "~> 4.1"
 gem "rack-cors"
 gem "rails", "~> 6.0.3", ">= 6.0.3.2"
@@ -76,6 +76,10 @@ group :test do
   gem "shoulda-matchers"
   gem "simplecov", require: false
   gem "webdrivers"
+end
+
+group :production do
+  gem "unicorn"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
