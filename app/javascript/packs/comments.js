@@ -3,18 +3,27 @@ export function setupCommentEdit() {
     event.preventDefault()
 
     let commentId = this.getAttribute('target-id')
-    let editCommentFormEl = $(`#comment_${commentId} .edit_comment`)
-    let commentContentEl = $(`#comment_${commentId} .comment-content`)
+    let editCommentFormEl = $(`#edit_comment_${commentId}`)
+    let commentContentEl = $(`#comment-content-${commentId}`)
 
     editCommentFormEl.removeClass('d-none')
     commentContentEl.addClass('d-none')
 
-    $(`#comment_${commentId} .submit-comment .btn-cancel-edit`).click(function () {
+    $(`#edit_comment_${commentId} .submit-comment .btn-cancel-edit`).click(function () {
       editCommentFormEl.addClass('d-none')
       commentContentEl.removeClass('d-none')
 
-      let commentTextAreaEl = $(`#comment_${commentId} .edit_comment .form-comment textarea`)
+      let commentTextAreaEl = $(`#edit_comment_${commentId} .edit_comment .form-comment textarea`)
       commentTextAreaEl.val(commentTextAreaEl.attr('origin-val'))
     })
+  })
+}
+
+export function setupCommentReplyToggle() {
+  $('body').on('click', '.card-comment .reply-comment-item', function (event) {
+    event.preventDefault()
+
+    let commentId = this.getAttribute('target-id')
+    $(`#comment_${commentId}_reply`).toggleClass('d-none')
   })
 }

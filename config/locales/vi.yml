@@ -22,6 +22,7 @@ vi:
     you_sure?: "Bạn chắc chắn?"
     delete: "Xoá"
     edit: "Chỉnh sửa"
+    reply: "Phản hồi"
     all: "Tất cả"
     valid_image_format!: "Ảnh cần đúng định dạng"
     valid_image_size!: "Ảnh phải có dung lượng nhỏ hơn %{maximum}MB"
@@ -216,6 +217,7 @@ vi:
       cash: "Thu tiền mặt"
   comments:
     not_found: "Bình luận không tồn tại!"
+    p_not_found: "Bình luận được reply không tồn tại!"
     success_commented: "Bình luận thành công"
     failed_commented: "Bình luận thất bại"
     success_updated: "Đã cập nhật bình luận thành công"
@@ -235,7 +237,8 @@ vi:
       stopped: "Chiến dịch của bạn đã được khởi chạy"
     comment:
       new: "Bình luận mới"
-      created: "Chiến dịch của bạn có bình luận mới"
+      main_created: "Chiến dịch của bạn có bình luận mới"
+      reply_created: "Bình luận của bạn có phản hồi mới"
     donation:
       new: "Ủng hộ mới"
       created: "Chiến dịch của bạn nhận được sự ủng hộ mới"

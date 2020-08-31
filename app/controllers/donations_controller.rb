@@ -1,6 +1,6 @@
 class DonationsController < ApplicationController
   before_action :check_logged_in_user,
-                :correct_campaign,
+                :find_campaign,
                 :running_campaign,
                 only: [:new, :create]
   before_action :format_params_date, only: :index

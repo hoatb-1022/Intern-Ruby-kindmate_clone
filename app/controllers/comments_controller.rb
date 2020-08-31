@@ -1,11 +1,12 @@
 class CommentsController < ApplicationController
   before_action :check_logged_in_user,
-                :correct_campaign,
+                :find_campaign,
+                :correct_commentable,
                 only: [:create, :update, :destroy]
   before_action :find_comment, only: [:update, :destroy]
 
   def create
-    @comment = @campaign.comments.build comment_params
+    @comment = @commentable.comments.build comment_params
     refind_comments if @comment.save
 
     respond_to :js
@@ -44,5 +45,14 @@ class CommentsController < ApplicationController
                          .ordered_comments
                          .includes(:user)
                          .page params[:page]
+  end
+
+  def correct_commentable
+    @commentable = Comment.find_by id: params[:comment_id]
+    @commentable ||= @campaign
+    return if @commentable
+
+    flash[:error] = t ".p_not_found"
+    redirect_to not_found_url
   end
 end

@@ -31,7 +31,7 @@ import {
   setupFacebookSharingBtn
 } from './campaigns'
 import {setupPaymentRadio} from './donations'
-import {setupCommentEdit} from './comments'
+import {setupCommentEdit, setupCommentReplyToggle} from './comments'
 import {setupTagButtons} from './tags'
 import {setupNavbarItemMatchRoute} from './router'
 import {setupFlatpickr} from './flatpickr'
@@ -45,6 +45,7 @@ $(document).on('turbolinks:load', function () {
   setupFacebookSharingBtn()
   setupPaymentRadio()
   setupCommentEdit()
+  setupCommentReplyToggle()
   setupTagButtons()
   setupFlatpickr()
   setupNavbarItemMatchRoute()

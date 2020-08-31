@@ -34,7 +34,9 @@ Rails.application.routes.draw do
     resources :users, except: [:index, :new, :create]
     resources :campaigns do
       resources :donations, only: [:new, :create]
-      resources :comments, only: [:create, :update, :destroy]
+      resources :comments, only: [:create, :update, :destroy] do
+        resources :comments, only: [:create, :update, :destroy]
+      end
     end
     resources :donations, only: [:index]
     resources :notifications, only: [:index, :update] do

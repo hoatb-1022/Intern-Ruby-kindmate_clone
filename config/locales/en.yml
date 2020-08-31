@@ -23,6 +23,7 @@ en:
     you_sure?: "You sure?"
     delete: "Delete"
     edit: "Edit"
+    reply: "Reply"
     all: "All"
     valid_image_format!: "Image must has valid format"
     valid_image_size!: "Image's size must be a less than %{maximum}MB"
@@ -217,6 +218,7 @@ en:
       cash: "Cash"
   comments:
     not_found: "Comment not found!"
+    p_not_found: "Replied comment not found!"
     success_commented: "Successfully commented"
     failed_commented: "Failed to comment"
     success_updated: "Successfully update comment"
@@ -236,7 +238,8 @@ en:
       stopped: "Your campaign is stopped"
     comment:
       new: "New comment"
-      created: "Your campaign had a new comment"
+      main_created: "Your campaign had a new comment"
+      reply_created: "Your comment has new reply"
     donation:
       new: "New donation"
       created: "Your campaign had a new donation"

@@ -6,7 +6,8 @@ class Comment < ApplicationRecord
   acts_as_paranoid
 
   belongs_to :user
-  belongs_to :campaign
+  belongs_to :commentable, polymorphic: true
+  has_many :comments, dependent: :destroy, as: :commentable
 
   delegate :name, to: :user, prefix: true, allow_nil: true
   delegate :id, to: :campaign, prefix: true, allow_nil: true
@@ -26,10 +27,16 @@ class Comment < ApplicationRecord
   private
 
   def notify_new_comment
-    notification = campaign.user.notifications.create(
+    body_message = if commentable == Campaign.name
+                     "notifications.comment.main_created"
+                   else
+                     "notifications.comment.reply_created"
+                   end
+
+    notification = commentable.user.notifications.create(
       title: "notifications.comment.new",
-      body: "notifications.comment.created",
-      target: campaign_url(id: campaign.id, slug: campaign.slug)
+      body: body_message,
+      target: commentable == Campaign.name ? campaign_url(id: commentable.id, slug: commentable.slug) : "#"
     )
     NotificationWorker.perform_async notification.id if notification.persisted?
   end

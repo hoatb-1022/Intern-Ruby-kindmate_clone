@@ -1,6 +1,6 @@
 <div id="comment-render">
-  <%= render comments %>
+  <%= render partial: "comments/comment", collection: @comments, as: :comment %>
 </div>
 <div id="comment-paginator" class="paginator-container">
-  <%= paginate comments, remote: true %>
+  <%= paginate @comments, remote: true %>
 </div>
