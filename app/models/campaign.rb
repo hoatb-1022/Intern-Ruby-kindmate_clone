@@ -25,7 +25,7 @@ class Campaign < ApplicationRecord
   has_one_attached :image
 
   has_many :donations, dependent: :destroy
-  has_many :comments, dependent: :destroy
+  has_many :comments, dependent: :destroy, as: :commentable
   has_many :classifications, dependent: :destroy
   has_many :tags, through: :classifications
 

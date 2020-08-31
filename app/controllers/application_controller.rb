@@ -74,16 +74,9 @@ class ApplicationController < ActionController::Base
     redirect_to request.referer || not_found_url
   end
 
-  def correct_campaign
-    @campaign = Campaign.friendly.find_by slug: params[:campaign_id]
-    return if @campaign
-
-    flash[:error] = t "campaigns.not_found"
-    redirect_to request.referer || not_found_url
-  end
-
   def find_campaign
-    @campaign = Campaign.friendly.find_by slug: params[:id]
+    id = params[:campaign_id] || params[:id]
+    @campaign = Campaign.friendly.find_by slug: id
     return if @campaign
 
     flash[:error] = t "campaigns.not_found"

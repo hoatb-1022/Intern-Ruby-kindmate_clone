@@ -1,43 +1,66 @@
 .card-comment {
-  padding: 0.5rem 1.5rem;
+  padding: .5rem 0;
   margin: 1.25rem 0;
-  align-items: center;
+
+  .card-comment {
+    margin-bottom: 0;
+  }
 
   .gravatar {
     width: 45px;
     height: 45px;
   }
 
-  .media-body {
-    position: relative;
-    padding: 0.75rem 1.25rem;
-    border-radius: calc(#{$border-radius} * 6);
-    background-color: $gray-100;
+  .comment-content-container {
+    flex: 1;
 
-    .edit_comment {
-      margin-top: 15px;
-    }
+    .media-body {
+      position: relative;
+      padding: 0.75rem 1.25rem;
+      border-radius: calc(#{$border-radius} * 6);
+      background-color: $gray-100;
 
-    .comment-content {
-      margin-top: 15px;
+      .edit_comment {
+        margin-top: 15px;
+      }
 
-      p {
-        max-width: 100%;
-        word-break: break-all;
-        margin-right: 35px;
+      .comment-content {
+        margin-top: 15px;
+
+        p {
+          max-width: 100%;
+          word-break: break-all;
+          margin-right: 35px;
+        }
+      }
+
+      .card-dropdown {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+
+        .btn {
+          border-radius: 50%;
+          width: 35px;
+          height: 35px;
+          font-size: .8em;
+        }
       }
     }
 
-    .card-dropdown {
-      position: absolute;
-      top: 6px;
-      right: 6px;
+    .card-comment-reply {
+      display: flex;
+      align-items: center;
+      width: 100%;
 
-      .btn {
-        border-radius: 50%;
-        width: 35px;
-        height: 35px;
-        font-size: .8em;
+      .comment_reply_form {
+        flex: 1;
+        margin-top: 10px;
+        margin-left: 1rem;
+
+        textarea {
+          background-color: $common-more-light-primary;
+        }
       }
     }
   }

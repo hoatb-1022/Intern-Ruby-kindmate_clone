@@ -1,7 +1,7 @@
 <% if @comment.errors.blank? %>
   toastr.success(I18n.t("comments.success_commented"))
   $('#comments-container').html(
-    "<%= j render "comments/list_comments", comments: @comments, remote: true %>"
+    "<%= j render "comments/list_comments", remote: true %>"
   )
   $('#comment-title-size').html(
     "(<%= @campaign.comments.size %>)"

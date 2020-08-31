@@ -1,36 +1,59 @@
-<div id="comment_<%= comment.id %>" class="media card-comment">
+<div class="media card-comment">
   <%= gravatar_for comment.user %>
-  <div class="media-body ml-3">
-    <h6 class="mb-0"><%= comment.user_name %></h6>
-    <%= form_for [comment.campaign, comment], html: {class: "edit_comment d-none"}, remote: true do |f| %>
-      <div class="form-group form-comment">
-        <%= f.text_area :content, class: "form-control", "origin-val": comment.content %>
-        <div class="submit-comment">
-          <%= link_to "javascript:;", class: "btn btn-sm btn-danger btn-cancel-edit", "target-id": comment.id do %>
-            <i class="fas fa-times"></i>
-          <% end %>
-          <%= button_tag :submit, name: "commit", data: {confirm: t("global.you_sure?")}, class: "btn btn-sm btn-primary" do %>
-            <i class="fas fa-save"></i>
-          <% end %>
+  <div class="comment-content-container">
+    <div class="media-body ml-3">
+      <h6 class="mb-0"><%= comment.user_name %></h6>
+      <%= form_for [@campaign, comment],
+                   html: {class: "edit_comment d-none"},
+                   remote: true do |f| %>
+        <div class="form-group form-comment">
+          <%= f.text_area :content, class: "form-control", "origin-val": comment.content %>
+          <div class="submit-comment">
+            <%= link_to "javascript:;", class: "btn btn-sm btn-danger btn-cancel-edit", "target-id": comment.id do %>
+              <i class="fas fa-times"></i>
+            <% end %>
+            <%= button_tag :submit, name: "commit", data: {confirm: t("global.you_sure?")}, class: "btn btn-sm btn-primary" do %>
+              <i class="fas fa-save"></i>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+      <div id="comment-content-<%= comment.id %>" class="comment-content">
+        <p class="mb-0"><%= comment.content %></p>
+        <div class="small text-right text-muted w-100">
+          <%= t "global.time_ago", time: time_ago_in_words(comment.created_at) %>
         </div>
       </div>
-    <% end %>
-    <div class="comment-content">
-      <p class="mb-0"><%= comment.content %></p>
-      <div class="small text-right text-muted w-100">
-        <%= t "global.time_ago", time: time_ago_in_words(comment.created_at) %>
-      </div>
-    </div>
-    <% if current_user_or_admin? comment.user %>
       <div class="card-dropdown">
         <button class="btn btn-light" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-ellipsis-v"></i>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <%= link_to t("global.edit"), "javascript:;", class: "dropdown-item edit-comment-item", "target-id": comment.id %>
-          <%= link_to t("global.delete"), [comment.campaign, comment], method: :delete, data: {confirm: t("global.you_sure?")}, remote: true, class: "dropdown-item" %>
+          <% if current_user_or_admin? comment.user %>
+            <%= link_to t("global.edit"), "javascript:;", class: "dropdown-item edit-comment-item", "target-id": comment.id %>
+            <%= link_to t("global.delete"), comment_delete_path(comment, @campaign), method: :delete, data: {confirm: t("global.you_sure?")}, remote: true, class: "dropdown-item" %>
+          <% end %>
+          <%= link_to t("global.reply"), "javascript:;", class: "dropdown-item reply-comment-item", "target-id": comment.id %>
         </div>
       </div>
-    <% end %>
+    </div>
+    <div id="comment_<%= comment.id %>_reply" class="media card-comment-reply d-none">
+      <%= gravatar_for current_user %>
+      <%= form_for [@campaign, comment, Comment.new],
+                   html: {class: "comment_reply_form", id: "new_comment_reply_#{comment.id}"},
+                   remote: true do |f| %>
+        <div class="form-group form-comment">
+          <%= f.text_area :content, class: "form-control" %>
+          <div class="submit-comment">
+            <%= button_tag :submit, name: "commit", class: "btn btn-sm btn-primary" do %>
+              <i class="fas fa-paper-plane"></i>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div id="comments-reply-render">
+      <%= render partial: "comments/comment", collection: comment.comments.ordered_comments, as: :comment %>
+    </div>
   </div>
 </div>
