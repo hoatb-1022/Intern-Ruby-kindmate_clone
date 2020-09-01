@@ -5,9 +5,7 @@ class NotificationsController < ApplicationController
 
   def index
     @query = current_user.notifications.ransack @query_params
-    @notifications = @query.result
-                           .includes(:user)
-                           .ordered_and_paginated params[:page]
+    @notifications = @query.result.ordered_and_paginated params[:page]
   end
 
   def update
