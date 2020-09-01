@@ -125,7 +125,8 @@
           <div class="mt-5 border-top pt-4">
             <h5 class="font-weight-semibold mb-5"><%= t ".creator_campaigns" %></h5>
             <div class="row">
-              <%= render @campaign.user_campaigns, classes: "col-lg-4 col-sm-6 col-12" %>
+              <%= render @campaign.user_campaigns.includes([:user, :image_attachment]),
+                         classes: "col-lg-4 col-sm-6 col-12" %>
             </div>
           </div>
         </div>

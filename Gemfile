@@ -36,7 +36,6 @@ gem "omniauth-facebook"
 gem "omniauth-github"
 gem "omniauth-google-oauth2"
 gem "paranoia", "~> 2.4", ">= 2.4.2"
-gem "pg"
 gem "puma", "~> 4.1"
 gem "rack-cors"
 gem "rails", "~> 6.0.3", ">= 6.0.3.2"
@@ -53,6 +52,7 @@ gem "webpacker", "~> 4.0"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "mysql2"
   gem "factory_bot_rails"
   gem "pry-rails", "~> 0.3.9"
   gem "rails-controller-testing"
@@ -62,6 +62,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "bullet"
   gem "listen", "~> 3.2"
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
@@ -79,6 +80,7 @@ group :test do
 end
 
 group :production do
+  gem "pg"
   gem "unicorn"
 end
 

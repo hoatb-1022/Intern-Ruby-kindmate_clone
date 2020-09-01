@@ -15,7 +15,6 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
   password: Hoapro123@
-  socket: /tmp/mysql.sock
 
 development:
   <<: *default
@@ -49,6 +48,8 @@ test:
 #
 production:
   <<: *default
+  adapter: postgresql
+  encoding: unicode
   database: kindmate_clone_production
   username: root
   password: Hoapro123@
