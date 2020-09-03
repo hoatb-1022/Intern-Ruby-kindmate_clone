@@ -5,6 +5,7 @@ FactoryBot.define do
     phone {"038#{Faker::Number.unique.number(digits: 7)}"}
     password {Settings.user.default_password}
     password_confirmation {Settings.user.default_password}
+    confirmed_at {Time.zone.now}
 
     trait :with_campaigns do
       transient do

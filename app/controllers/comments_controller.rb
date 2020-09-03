@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :check_logged_in_user,
                 :find_campaign,
-                :correct_commentable,
+                :find_commentable,
                 only: [:create, :update, :destroy]
   before_action :find_comment, only: [:update, :destroy]
 
@@ -47,7 +47,7 @@ class CommentsController < ApplicationController
                          .page params[:page]
   end
 
-  def correct_commentable
+  def find_commentable
     @commentable = Comment.find_by id: params[:comment_id]
     @commentable ||= @campaign
     return if @commentable

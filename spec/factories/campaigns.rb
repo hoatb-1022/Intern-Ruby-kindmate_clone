@@ -6,5 +6,17 @@ FactoryBot.define do
     total_amount {Faker::Number.between(from: Settings.campaign.min_faker_amount, to: Settings.campaign.max_faker_amount)}
     expired_at {Time.zone.now}
     image {fixture_file_upload "spec/factories/images/test.jpg", "image/jpg"}
+
+    trait :with_comments do
+      transient do
+        comment_count {5}
+      end
+
+      after(:create) do |campaign, evaluator|
+        (0..evaluator.comment_count).each do
+          create(:comment, commentable_type: "Campaign", commentable_id: campaign.id, user_id: campaign.user.id)
+        end
+      end
+    end
   end
 end

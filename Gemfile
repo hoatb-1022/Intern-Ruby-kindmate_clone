@@ -52,8 +52,8 @@ gem "webpacker", "~> 4.0"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
-  gem "mysql2"
   gem "factory_bot_rails"
+  gem "mysql2"
   gem "pry-rails", "~> 0.3.9"
   gem "rails-controller-testing"
   gem "rspec-rails"

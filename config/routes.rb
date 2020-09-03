@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     get "/422", to: "errors#unacceptable", as: "unacceptable"
     get "/500", to: "errors#internal_error", as: "internal_error"
 
-    devise_for :users, skip: :all
+    devise_for :users, skip: %i(omniauth_callbacks session passwords registrations)
     devise_scope :user do
       get "signup", to: "users/registrations#new"
       post "signup", to: "users/registrations#create"
